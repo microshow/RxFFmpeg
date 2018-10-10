@@ -92,6 +92,8 @@ FFmpegInvoke.getInstance().runCommand(commands, new FFmpegInvoke.IFFmpegListener
                                 Toast.makeText(MainActivity.this, "onError=" + message, Toast.LENGTH_LONG).show();
                             }
                         });
+                    }
+                });
 ```
 
 * 中断 FFmpeg 命令
