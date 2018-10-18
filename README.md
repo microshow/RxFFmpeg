@@ -19,7 +19,7 @@
 
 
 ## 编译脚本
-待上传，源码待上传
+编译脚本、JNI代码整理后上传
 
 # 必杀技
 * 支持任何FFmpeg命令执行
@@ -103,3 +103,6 @@ FFmpegInvoke.getInstance().runCommand(commands, new FFmpegInvoke.IFFmpegListener
 FFmpegInvoke.getInstance().exit();
 ```
 
+# 下载体验
+* 扫码下载体验
+<img src="/preview/apkQR.png" alt="图-1：扫码下载体验"></img>
