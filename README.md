@@ -105,4 +105,5 @@ FFmpegInvoke.getInstance().exit();
 
 # 下载体验
 * 扫码下载体验
+
 <img src="/preview/apkQR.png" alt="图-1：扫码下载体验"></img>
