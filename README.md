@@ -25,6 +25,7 @@
 * 支持任何FFmpeg命令执行
 * 支持FFmpeg命令执行进度回调
 * 支持中断FFmpeg命令
+* 支持开启/关闭 debug 模式
 * 支持硬件加速，使编解码处理更快
 * 代码封装成SDK的方式，方便依赖使用
 
@@ -108,6 +109,8 @@ FFmpegInvoke.getInstance().exit();
 * 扫码下载体验 [点击下载](https://github.com/microshow/FastFFmpegAndroid/raw/master/preview/app-debug.apk)
 
 <img src="/preview/apkQR.png" alt="图-1：扫码下载体验"></img> 
+
+* 注意：体验App时，需要把预设的视频SD卡路径，改为你本地实际的视频SD卡路径
 
 # License
 ```text
