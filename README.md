@@ -1,6 +1,6 @@
 # FastFFmpegAndroid
 
-基于 **( FFmpeg 4.0 + X264 + mp3lame + fdk-aac )** 编译的 FFmpeg 库，适用于 Android 平台
+>FastFFmpegAndroid 是基于 ( FFmpeg 4.0 + X264 + mp3lame + fdk-aac ) 编译的适用于 Android 平台的音视频编辑，视频剪辑的快速开发框架
 
 # 编译环节
 
@@ -22,12 +22,12 @@
 编译脚本、JNI代码整理后上传
 
 # 必杀技
-* 支持任何FFmpeg命令执行
-* 支持FFmpeg命令执行进度回调
-* 支持中断FFmpeg命令
-* 支持开启/关闭 debug 模式
-* 支持硬件加速，使编解码处理更快
-* 代码封装成SDK的方式，方便依赖使用
+* **支持任何FFmpeg命令执行**
+* **支持FFmpeg命令执行进度回调**
+* **支持中断FFmpeg命令**
+* **支持开启/关闭 debug 模式**
+* **支持硬件加速，使编解码处理更快**
+* **代码封装成SDK的方式，方便依赖使用**
 
 ## 使用方式
 
