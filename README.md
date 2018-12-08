@@ -24,11 +24,17 @@
 # 特色功能
 
 * **支持任何FFmpeg命令执行**
+
 * **支持FFmpeg命令执行进度回调**
+
 * **支持中断FFmpeg命令**
+
 * **支持开启/关闭 debug 模式**
+
 * **支持硬件加速，使编解码处理更快**
+
 * **代码封装成SDK的方式，方便依赖使用**
+
 * **把FFmpeg的各子模块libavutil 
 libavcodec 
 libavformat 
