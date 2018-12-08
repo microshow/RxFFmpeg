@@ -66,56 +66,53 @@ String text = "ffmpeg -y -i /storage/emulated/0/1/qq.mp4 -vf boxblur=25:5 -prese
 String[] commands = text.split(" ");
 
 FFmpegInvoke.getInstance().runCommand(commands, new FFmpegInvoke.IFFmpegListener() {
+            @Override
+            public void onFinish() {
+                runOnUiThread(new Runnable() {
                     @Override
-                    public void onFinish() {
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                if (mProgressDialog != null)
-                                    mProgressDialog.cancel();
-                                tv.setText("处理成功");
-                                Toast.makeText(MainActivity.this, "处理成功", Toast.LENGTH_LONG).show();
-                            }
-                        });
-                    }
-
-                    @Override
-                    public void onProgress(final int progress) {
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                if (mProgressDialog != null)
-                                    mProgressDialog.setProgress(progress);
-                            }
-                        });
-                    }
-
-                    @Override
-                    public void onCancel() {
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                if (mProgressDialog != null)
-                                    mProgressDialog.cancel();
-                                tv.setText("onCancel");
-                                Toast.makeText(MainActivity.this, "已取消", Toast.LENGTH_LONG).show();
-                            }
-                        });
-                    }
-
-                    @Override
-                    public void onError(final String message) {
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                if (mProgressDialog != null)
-                                    mProgressDialog.cancel();
-                                tv.setText("onError=" + message);
-                                Toast.makeText(MainActivity.this, "onError=" + message, Toast.LENGTH_LONG).show();
-                            }
-                        });
+                    public void run() {
+                        if (mProgressDialog != null)
+                            mProgressDialog.cancel();
+                        showDialog("处理成功");
                     }
                 });
+            }
+
+            @Override
+            public void onProgress(final int progress) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (mProgressDialog != null)
+                            mProgressDialog.setProgress(progress);
+                    }
+                });
+            }
+
+            @Override
+            public void onCancel() {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (mProgressDialog != null)
+                            mProgressDialog.cancel();
+                        showDialog("已取消");
+                    }
+                });
+            }
+
+            @Override
+            public void onError(final String message) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (mProgressDialog != null)
+                            mProgressDialog.cancel();
+                        showDialog("出错了 onError：" + message);
+                    }
+                });
+            }
+        });
 ```
 
 * 中断 FFmpeg 命令
