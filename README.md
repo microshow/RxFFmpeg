@@ -29,6 +29,14 @@
 * **支持开启/关闭 debug 模式**
 * **支持硬件加速，使编解码处理更快**
 * **代码封装成SDK的方式，方便依赖使用**
+* **把FFmpeg的各子模块libavutil 
+libavcodec 
+libavformat 
+libavdevice 
+libavfilter 
+libswscale 
+libswresample 
+libpostproc 最终打包成一个libffmpeg-core.so核心库方便依赖使用，无需导入七八个so库**
 
 # 使用方式
 
