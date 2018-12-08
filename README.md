@@ -51,7 +51,7 @@ libpostproc 最终打包成一个libffmpeg-core.so核心库方便依赖使用，
 
 # 使用方式
 
-* 开启/关闭 debug 模式
+* 开启/关闭 debug 模式，可以在 Application 初始化调用
 
 ```java
 FFmpegInvoke.getInstance().setDebug(true);
@@ -61,7 +61,7 @@ FFmpegInvoke.getInstance().setDebug(true);
 
 ```java
 
-String text = "ffmpeg -y -i /storage/emulated/0/1/qq.mp4 -vf boxblur=25:5 -preset superfast /storage/emulated/0/1/result.mp4";
+String text = "ffmpeg -y -i /storage/emulated/0/1/input.mp4 -vf boxblur=25:5 -preset superfast /storage/emulated/0/1/result.mp4";
 
 String[] commands = text.split(" ");
 
