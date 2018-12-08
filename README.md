@@ -130,7 +130,7 @@ FFmpegInvoke.getInstance().exit();
 
 # 下载体验
 
-* 扫码下载体验 [点击下载](https://github.com/microshow/FastFFmpegAndroid/raw/master/preview/app-debug.apk)
+* 扫码下载体验 [点击下载](/preview/app-debug.apk)
 
 <img src="/preview/apkQR.png" alt="图-1：扫码下载体验"></img> 
 
