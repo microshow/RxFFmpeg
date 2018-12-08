@@ -35,7 +35,7 @@
 
 * **代码封装成SDK的方式，方便依赖使用**
 
-* **把FFmpeg的各子模块libavutil 
+* **支持把FFmpeg的各子模块libavutil 
 libavcodec 
 libavformat 
 libavdevice 
@@ -44,7 +44,10 @@ libswscale
 libswresample 
 libpostproc 最终打包成一个libffmpeg-core.so核心库方便依赖使用，无需导入七八个so库**
 
-* **集成了libx264编码库，可以使压缩后的视频体积变的极小，清晰度还保持着很高清等，简单的压缩命令: ffmpeg -y -i /storage/emulated/0/1/input.mp4 -b 2097k -r 30 -vcodec libx264 -preset superfast /storage/emulated/0/1/result.mp4**
+* **支持libx264编码库，可以使压缩后的视频体积变的极小，清晰度还保持着很高清，简单的压缩命令: ffmpeg -y -i /storage/emulated/0/1/input.mp4 -b 2097k -r 30 -vcodec libx264 -preset superfast /storage/emulated/0/1/result.mp4**
+
+* **支持添加mp3等格式的背景音乐**
+
 
 # 使用方式
 
