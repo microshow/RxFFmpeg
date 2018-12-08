@@ -34,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
     //权限
     private RxPermissions rxPermissions = null;
 
+    long startTime;//记录开始时间
+    long endTime;//记录结束时间
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -121,6 +124,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openProgressDialog() {
+        startTime = System.nanoTime();
+
         mProgressDialog = new ProgressDialog(this);
         final int totalProgressTime = 100;
         mProgressDialog.setMessage("正在转换视频，请稍后...");
@@ -140,9 +145,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showDialog (String message) {
+        endTime = System.nanoTime();
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("提示");
-        builder.setMessage(message);
+        builder.setMessage(message + "\n\n耗时时间：" + TimerUtils.convertUsToTime((endTime-startTime)/1000, false));
 
         builder.setPositiveButton("关闭", new DialogInterface.OnClickListener() {
             @Override
