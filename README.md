@@ -58,7 +58,7 @@ libpostproc 最终打包成一个libffmpeg-core.so核心库方便依赖使用，
 
 # 使用方式
 
-* 开启/关闭 debug 模式，可以在 Application 初始化调用
+* 开启/关闭 debug 模式，建议在 Application 初始化调用
 
 ```java
 FFmpegInvoke.getInstance().setDebug(true);
@@ -134,7 +134,7 @@ FFmpegInvoke.getInstance().exit();
 
 <img src="/preview/apkQR.png" alt="图-1：扫码下载体验"></img> 
 
-* 注意：体验App时，需要把预设的视频SD卡路径，改为你本地实际的视频SD卡路径
+* **注意**：体验App时，需要把预设的视频SD卡路径，改为你本地实际的视频SD卡路径
 
 # License
 ```text
