@@ -58,7 +58,7 @@ libpostproc 最终打包成一个libffmpeg-core.so核心库方便依赖使用，
 
 # 使用方式
 
-* 开启/关闭 debug 模式，可以在 Application 初始化调用
+* 开启/关闭 debug 模式，建议在 Application 初始化调用
 
 ```java
 FFmpegInvoke.getInstance().setDebug(true);
