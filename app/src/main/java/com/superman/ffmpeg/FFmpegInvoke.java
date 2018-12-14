@@ -1,5 +1,12 @@
 package com.superman.ffmpeg;
 
+import io.reactivex.BackpressureStrategy;
+import io.reactivex.Flowable;
+import io.reactivex.FlowableEmitter;
+import io.reactivex.FlowableOnSubscribe;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
+
 /**
  * Created by Super on 2018/6/14.
  */
@@ -15,7 +22,10 @@ public class FFmpegInvoke {
 
     private static FFmpegInvoke instance;
 
-    public IFFmpegListener ffmpegListener;
+    /**
+     * ffmpeg 回调监听
+     */
+    private IFFmpegListener ffmpegListener;
 
     public static FFmpegInvoke getInstance(){
         if (instance == null) {
@@ -28,8 +38,13 @@ public class FFmpegInvoke {
         return instance;
     }
 
-    public void runCommand(final String[] command, IFFmpegListener mffmpegListener){
-        ffmpegListener = mffmpegListener;
+    /**
+     * 异步执行
+     * @param command
+     * @param mffmpegListener
+     */
+    public void runCommandAsync(final String[] command, IFFmpegListener mffmpegListener){
+        setFFmpegListener (mffmpegListener);
         synchronized (FFmpegInvoke.class){
             // 不允许多线程访问
             new Thread(new Runnable() {
@@ -41,6 +56,66 @@ public class FFmpegInvoke {
         }
     }
 
+    /**
+     * 同步执行 (可以结合RxJava)
+     * @param command
+     * @param mffmpegListener
+     * @return
+     */
+    public int runCommand(final String[] command, IFFmpegListener mffmpegListener){
+        setFFmpegListener (mffmpegListener);
+        int ret;
+        synchronized (FFmpegInvoke.class){
+            ret = runFFmpegCmd(command);
+            return ret;
+        }
+    }
+
+    /**
+     * [推荐使用]
+     * 同步执行 RxJava 形式
+     * @param command
+     * @return
+     */
+    public Flowable<Integer> runCommandRxJava(final String[] command){
+        return Flowable.create(new FlowableOnSubscribe<Integer>() {
+            @Override
+            public void subscribe(final FlowableEmitter<Integer> emitter) {
+                setFFmpegListener (new FFmpegInvoke.IFFmpegListener() {
+                    @Override
+                    public void onFinish() {
+                        emitter.onComplete();
+                    }
+
+                    @Override
+                    public void onProgress(int progress) {
+                        emitter.onNext(progress);
+                    }
+
+                    @Override
+                    public void onCancel() {
+                        //设为-100 作为取消状态
+                        emitter.onNext(-100);
+                    }
+
+                    @Override
+                    public void onError(String message) {
+                        emitter.onError(new Throwable(message));
+                    }
+                });
+
+                int ret = runFFmpegCmd(command);
+            }
+        }, BackpressureStrategy.BUFFER)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    /**
+     * 执行ffmpeg cmd
+     * @param commands
+     * @return
+     */
     public native int runFFmpegCmd(String[] commands);
 
     /**
@@ -57,19 +132,16 @@ public class FFmpegInvoke {
     public void onProgress(int progress) {
         if (ffmpegListener != null)
             ffmpegListener.onProgress(progress);
-
     }
 
     public void onFinish() {
         if (ffmpegListener != null)
             ffmpegListener.onFinish();
-
     }
 
     public void onCancel() {
         if (ffmpegListener != null)
             ffmpegListener.onCancel();
-
     }
 
     public void onError(String message) {
@@ -77,6 +149,21 @@ public class FFmpegInvoke {
             ffmpegListener.onError(message);
     }
 
+    public IFFmpegListener getFFmpegListener() {
+        return ffmpegListener;
+    }
+
+    /**
+     * 设置执行监听
+     * @param ffmpegListener
+     */
+    public void setFFmpegListener(IFFmpegListener ffmpegListener) {
+        this.ffmpegListener = ffmpegListener;
+    }
+
+    /**
+     * IFFmpegListener监听接口
+     */
     public interface IFFmpegListener {
         void onFinish();
         void onProgress(int progress);

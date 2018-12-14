@@ -14,6 +14,8 @@ import android.widget.Toast;
 import com.superman.ffmpeg.FFmpegInvoke;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
+import org.reactivestreams.Subscriber;
+import org.reactivestreams.Subscription;
 import io.reactivex.functions.Consumer;
 
 public class MainActivity extends AppCompatActivity {
@@ -55,7 +57,8 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void accept(Boolean aBoolean) throws Exception {
                         if (aBoolean) {// 用户同意了权限
-                            runFFmpeg ();
+//                            runFFmpeg ();
+                            runFFmpegRxJava();
 
                         } else {//用户拒绝了权限
                             Toast.makeText(MainActivity.this,"您拒绝了权限，请往设置里开启权限",Toast.LENGTH_LONG).show();
@@ -68,60 +71,102 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void runFFmpeg () {
+    private void runFFmpegRxJava () {
         openProgressDialog();
+
         final String text = editText.getText().toString();
         String[] commands = text.split(" ");
 
-        FFmpegInvoke.getInstance().runCommand(commands, new FFmpegInvoke.IFFmpegListener() {
+        FFmpegInvoke.getInstance().runCommandRxJava(commands).subscribe(new Subscriber<Integer>() {
+
             @Override
-            public void onFinish() {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (mProgressDialog != null)
-                            mProgressDialog.cancel();
-                        showDialog("处理成功");
-                    }
-                });
+            public void onSubscribe(Subscription s) {
+                s.request(Long.MAX_VALUE);
             }
 
             @Override
-            public void onProgress(final int progress) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (mProgressDialog != null)
-                            mProgressDialog.setProgress(progress);
-                    }
-                });
+            public void onNext(Integer progress) {
+                if (progress == -100) {//取消状态
+                    if (mProgressDialog != null)
+                        mProgressDialog.cancel();
+                    showDialog("已取消");
+
+                } else {//正在处理 更新进度
+                    if (mProgressDialog != null)
+                        mProgressDialog.setProgress(progress);
+                }
             }
 
             @Override
-            public void onCancel() {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (mProgressDialog != null)
-                            mProgressDialog.cancel();
-                        showDialog("已取消");
-                    }
-                });
+            public void onError(Throwable t) {
+                if (mProgressDialog != null)
+                    mProgressDialog.cancel();
+                showDialog("出错了 onError：" + t.getMessage());
             }
 
             @Override
-            public void onError(final String message) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (mProgressDialog != null)
-                            mProgressDialog.cancel();
-                        showDialog("出错了 onError：" + message);
-                    }
-                });
+            public void onComplete() {
+                if (mProgressDialog != null)
+                    mProgressDialog.cancel();
+                showDialog("处理成功");
             }
         });
     }
+
+//    private void runFFmpeg () {
+//        openProgressDialog();
+//        final String text = editText.getText().toString();
+//        String[] commands = text.split(" ");
+//
+//        FFmpegInvoke.getInstance().runCommandAsync(commands, new FFmpegInvoke.IFFmpegListener() {
+//            @Override
+//            public void onFinish() {
+//                runOnUiThread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        if (mProgressDialog != null)
+//                            mProgressDialog.cancel();
+//                        showDialog("处理成功");
+//                    }
+//                });
+//            }
+//
+//            @Override
+//            public void onProgress(final int progress) {
+//                runOnUiThread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        if (mProgressDialog != null)
+//                            mProgressDialog.setProgress(progress);
+//                    }
+//                });
+//            }
+//
+//            @Override
+//            public void onCancel() {
+//                runOnUiThread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        if (mProgressDialog != null)
+//                            mProgressDialog.cancel();
+//                        showDialog("已取消");
+//                    }
+//                });
+//            }
+//
+//            @Override
+//            public void onError(final String message) {
+//                runOnUiThread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        if (mProgressDialog != null)
+//                            mProgressDialog.cancel();
+//                        showDialog("出错了 onError：" + message);
+//                    }
+//                });
+//            }
+//        });
+//    }
 
     public void openProgressDialog() {
         startTime = System.nanoTime();

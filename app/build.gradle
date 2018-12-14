@@ -33,6 +33,10 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
+    //rxjava and rxandroid
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.4'
+
     //动态权限
     implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
 
