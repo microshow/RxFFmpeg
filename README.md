@@ -66,7 +66,7 @@ libpostproc 最终打包成一个libffmpeg-core.so核心库方便依赖使用，
 FFmpegInvoke.getInstance().setDebug(true);
 ```
 
-* FFmpeg 命令执行 (RxJava2)  **推荐这种**
+* FFmpeg 命令执行 (RxJava2优雅的调用)  **推荐这种**
 
 ```java
 
