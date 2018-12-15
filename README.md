@@ -63,7 +63,7 @@ libpostproc 最终打包成一个libffmpeg-core.so核心库方便依赖使用，
 * 开启/关闭 debug 模式，建议在 Application 初始化调用
 
 ```java
-FFmpegInvoke.getInstance().setDebug(true);
+RxFFmpegInvoke.getInstance().setDebug(true);
 ```
 
 * FFmpeg 命令执行 (RxJava2优雅的调用)  **推荐这种**
@@ -74,7 +74,7 @@ String text = "ffmpeg -y -i /storage/emulated/0/1/input.mp4 -vf boxblur=25:5 -pr
 
 String[] commands = text.split(" ");
 
-FFmpegInvoke.getInstance().runCommandRxJava(commands).subscribe(new Subscriber<Integer>() {
+RxFFmpegInvoke.getInstance().runCommandRxJava(commands).subscribe(new Subscriber<Integer>() {
 
             @Override
             public void onSubscribe(Subscription s) {
@@ -119,7 +119,7 @@ String text = "ffmpeg -y -i /storage/emulated/0/1/input.mp4 -vf boxblur=25:5 -pr
 
 String[] commands = text.split(" ");
 
-FFmpegInvoke.getInstance().runCommandAsync(commands, new FFmpegInvoke.IFFmpegListener() {
+RxFFmpegInvoke.getInstance().runCommandAsync(commands, new FFmpegInvoke.IFFmpegListener() {
             @Override
             public void onFinish() {
                 runOnUiThread(new Runnable() {
@@ -172,7 +172,7 @@ FFmpegInvoke.getInstance().runCommandAsync(commands, new FFmpegInvoke.IFFmpegLis
 * 中断 FFmpeg 命令
 
 ```java
-FFmpegInvoke.getInstance().exit();
+RxFFmpegInvoke.getInstance().exit();
 ```
 
 # 下载体验
