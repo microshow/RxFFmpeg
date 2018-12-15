@@ -119,7 +119,7 @@ String text = "ffmpeg -y -i /storage/emulated/0/1/input.mp4 -vf boxblur=25:5 -pr
 
 String[] commands = text.split(" ");
 
-RxFFmpegInvoke.getInstance().runCommandAsync(commands, new FFmpegInvoke.IFFmpegListener() {
+RxFFmpegInvoke.getInstance().runCommandAsync(commands, new RxFFmpegInvoke.IFFmpegListener() {
             @Override
             public void onFinish() {
                 runOnUiThread(new Runnable() {
