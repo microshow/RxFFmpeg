@@ -1,4 +1,4 @@
-package com.superman.fastffmpegandroid;
+package io.microshow.rxffmpegdemo;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

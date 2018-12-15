@@ -1,4 +1,4 @@
-package com.superman.fastffmpegandroid;
+package io.microshow.rxffmpegdemo;
 
 /**
  * Created by Super on 2018/12/8.

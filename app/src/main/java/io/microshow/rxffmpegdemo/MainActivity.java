@@ -1,4 +1,4 @@
-package com.superman.fastffmpegandroid;
+package io.microshow.rxffmpegdemo;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -11,11 +11,12 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.superman.ffmpeg.FFmpegInvoke;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
+
+import io.microshow.rxffmpeg.RxFFmpegInvoke;
 import io.reactivex.functions.Consumer;
 
 public class MainActivity extends AppCompatActivity {
@@ -77,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         final String text = editText.getText().toString();
         String[] commands = text.split(" ");
 
-        FFmpegInvoke.getInstance().runCommandRxJava(commands).subscribe(new Subscriber<Integer>() {
+        RxFFmpegInvoke.getInstance().runCommandRxJava(commands).subscribe(new Subscriber<Integer>() {
 
             @Override
             public void onSubscribe(Subscription s) {
@@ -178,7 +179,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                FFmpegInvoke.getInstance().exit();
+                RxFFmpegInvoke.getInstance().exit();
             }
         });
         mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);

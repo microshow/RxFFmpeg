@@ -1,21 +1,21 @@
-package com.superman.fastffmpegandroid;
+package io.microshow.rxffmpegdemo;
 
 import android.app.Application;
 
-import com.superman.ffmpeg.FFmpegInvoke;
+import io.microshow.rxffmpeg.RxFFmpegInvoke;
 
 /**
  * Created by Super on 2018/12/7.
  */
 
-public class FFmpegApplication extends Application {
+public class App extends Application {
 
     @Override
     public void onCreate() {
         super.onCreate();
 
         //开启debug模式，正式环境设为false即可
-        FFmpegInvoke.getInstance().setDebug(true);
+        RxFFmpegInvoke.getInstance().setDebug(BuildConfig.DEBUG);
 
     }
 }

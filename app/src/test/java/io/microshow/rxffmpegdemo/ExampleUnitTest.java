@@ -1,4 +1,4 @@
-package com.superman.fastffmpegandroid;
+package io.microshow.rxffmpegdemo;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.superman.ffmpeg;
+package io.microshow.rxffmpeg;
 
 import io.reactivex.BackpressureStrategy;
 import io.reactivex.Flowable;
@@ -11,27 +11,27 @@ import io.reactivex.schedulers.Schedulers;
  * Created by Super on 2018/6/14.
  */
 
-public class FFmpegInvoke {
+public class RxFFmpegInvoke {
 
-    public static final String TAG = FFmpegInvoke.class.getSimpleName();
+    public static final String TAG = RxFFmpegInvoke.class.getSimpleName();
 
     static {
         System.loadLibrary("ffmpeg-core");
         System.loadLibrary("ffmpeg-invoke");
     }
 
-    private static FFmpegInvoke instance;
+    private static RxFFmpegInvoke instance;
 
     /**
      * ffmpeg 回调监听
      */
     private IFFmpegListener ffmpegListener;
 
-    public static FFmpegInvoke getInstance(){
+    public static RxFFmpegInvoke getInstance(){
         if (instance == null) {
-            synchronized (FFmpegInvoke.class) {
+            synchronized (RxFFmpegInvoke.class) {
                 if (instance == null) {
-                    instance = new FFmpegInvoke();
+                    instance = new RxFFmpegInvoke();
                 }
             }
         }
@@ -45,7 +45,7 @@ public class FFmpegInvoke {
      */
     public void runCommandAsync(final String[] command, IFFmpegListener mffmpegListener){
         setFFmpegListener (mffmpegListener);
-        synchronized (FFmpegInvoke.class){
+        synchronized (RxFFmpegInvoke.class){
             // 不允许多线程访问
             new Thread(new Runnable() {
                 @Override
@@ -65,7 +65,7 @@ public class FFmpegInvoke {
     public int runCommand(final String[] command, IFFmpegListener mffmpegListener){
         setFFmpegListener (mffmpegListener);
         int ret;
-        synchronized (FFmpegInvoke.class){
+        synchronized (RxFFmpegInvoke.class){
             ret = runFFmpegCmd(command);
             return ret;
         }
@@ -81,7 +81,7 @@ public class FFmpegInvoke {
         return Flowable.create(new FlowableOnSubscribe<Integer>() {
             @Override
             public void subscribe(final FlowableEmitter<Integer> emitter) {
-                setFFmpegListener (new FFmpegInvoke.IFFmpegListener() {
+                setFFmpegListener (new RxFFmpegInvoke.IFFmpegListener() {
                     @Override
                     public void onFinish() {
                         emitter.onComplete();
