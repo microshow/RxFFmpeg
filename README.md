@@ -181,7 +181,7 @@ RxFFmpegInvoke.getInstance().exit();
 
 <img src="/preview/apkQR.png" alt="图-1：扫码下载体验"></img> 
 
-* **注意**：体验App时，需要把预设的视频SD卡路径，改为你本地实际的视频SD卡路径
+* **注意**：体验App时，需要把预设的视频SD卡路径，改为你本地实际的视频SD卡路径。
 
 # License
 ```text
