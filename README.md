@@ -172,7 +172,9 @@ RxFFmpegInvoke.getInstance().runCommandAsync(commands, new RxFFmpegInvoke.IFFmpe
 * 中断 FFmpeg 命令
 
 ```java
+
 RxFFmpegInvoke.getInstance().exit();
+
 ```
 
 # 下载体验
