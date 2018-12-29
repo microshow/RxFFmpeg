@@ -2,7 +2,7 @@
 
 # RxFFmpeg
 
-[![](https://img.shields.io/badge/minSdkVersion-15-green.svg)](https://developer.android.google.cn)
+[![](https://img.shields.io/badge/minSdkVersion-19-green.svg)](https://developer.android.google.cn)
 [![](https://img.shields.io/badge/FFmpeg-4.0-yellow.svg)](http://ffmpeg.org/releases/ffmpeg-4.0.tar.bz2)
 [![](https://img.shields.io/badge/X264-20180212.2245-red.svg)](http://download.videolan.org/x264/snapshots/x264-snapshot-20180212-2245-stable.tar.bz2)
 [![](https://img.shields.io/badge/mp3lame-3.100-blue.svg)](https://jaist.dl.sourceforge.net/project/lame/lame/3.100/lame-3.100.tar.gz)
