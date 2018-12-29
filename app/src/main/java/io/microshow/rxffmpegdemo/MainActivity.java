@@ -72,6 +72,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * rxjava方式调用
+     */
     private void runFFmpegRxJava () {
         openProgressDialog();
 
