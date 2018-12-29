@@ -11,8 +11,8 @@ ext {
     //支持包版本
     supportLibValue = "27.1.1"
     //应用 versionCode
-    versionCodeValue = 1
+    versionCodeValue = 2
     //应用 version 名称，更多设置里显示的
-    versionNameValue = "1.0.1"
+    versionNameValue = "1.2.0"
 
 }
