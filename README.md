@@ -64,7 +64,9 @@ libpostproc 最终打包成一个libffmpeg-core.so核心库方便依赖使用，
 * 开启/关闭 debug 模式，建议在 Application 初始化调用
 
 ```java
+
 RxFFmpegInvoke.getInstance().setDebug(true);
+
 ```
 
 * FFmpeg 命令执行 (RxJava2优雅的调用)  **推荐这种**
