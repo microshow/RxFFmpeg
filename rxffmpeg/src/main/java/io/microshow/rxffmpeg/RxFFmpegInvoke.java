@@ -95,7 +95,7 @@ public class RxFFmpegInvoke {
                     @Override
                     public void onCancel() {
                         //设为-100 作为取消状态
-                        emitter.onNext(-100);
+                        emitter.onNext(RxFFmpegSubscriber.STATE_CANCEL);
                     }
 
                     @Override

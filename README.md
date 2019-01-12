@@ -67,7 +67,7 @@ libpostproc 最终打包成一个libffmpeg-core.so核心库方便依赖使用，
 RxFFmpegInvoke.getInstance().setDebug(true);
 ```
 
-* FFmpeg 命令执行 (RxJava2优雅的调用)  **推荐这种**
+* FFmpeg 命令执行 (RxJava2优雅的调用)
 
 ```java
 
@@ -75,99 +75,42 @@ String text = "ffmpeg -y -i /storage/emulated/0/1/input.mp4 -vf boxblur=25:5 -pr
 
 String[] commands = text.split(" ");
 
-RxFFmpegInvoke.getInstance().runCommandRxJava(commands).subscribe(new Subscriber<Integer>() {
-
+RxFFmpegInvoke.getInstance().runCommandRxJava(commands).subscribe(new RxFFmpegSubscriber() {
             @Override
-            public void onSubscribe(Subscription s) {
-                s.request(Long.MAX_VALUE);
-            }
-
-            @Override
-            public void onNext(Integer progress) {
-                if (progress == -100) {//取消状态
-                    if (mProgressDialog != null)
-                        mProgressDialog.cancel();
-                    showDialog("已取消");
-
-                } else {//正在处理 更新进度
-                    if (mProgressDialog != null)
-                        mProgressDialog.setProgress(progress);
-                }
-            }
-
-            @Override
-            public void onError(Throwable t) {
-                if (mProgressDialog != null)
-                    mProgressDialog.cancel();
-                showDialog("出错了 onError：" + t.getMessage());
-            }
-
-            @Override
-            public void onComplete() {
+            public void onFinish() {
                 if (mProgressDialog != null)
                     mProgressDialog.cancel();
                 showDialog("处理成功");
             }
-        });
-```
-
-
-* FFmpeg 命令执行 (普通方式)
-
-```java
-
-String text = "ffmpeg -y -i /storage/emulated/0/1/input.mp4 -vf boxblur=25:5 -preset superfast /storage/emulated/0/1/result.mp4";
-
-String[] commands = text.split(" ");
-
-RxFFmpegInvoke.getInstance().runCommandAsync(commands, new RxFFmpegInvoke.IFFmpegListener() {
-            @Override
-            public void onFinish() {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (mProgressDialog != null)
-                            mProgressDialog.cancel();
-                        showDialog("处理成功");
-                    }
-                });
-            }
 
             @Override
-            public void onProgress(final int progress) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (mProgressDialog != null)
-                            mProgressDialog.setProgress(progress);
-                    }
-                });
+            public void onProgress(int progress) {
+                if (mProgressDialog != null)
+                    mProgressDialog.setProgress(progress);
             }
 
             @Override
             public void onCancel() {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (mProgressDialog != null)
-                            mProgressDialog.cancel();
-                        showDialog("已取消");
-                    }
-                });
+                if (mProgressDialog != null)
+                    mProgressDialog.cancel();
+                showDialog("已取消");
             }
 
             @Override
-            public void onError(final String message) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (mProgressDialog != null)
-                            mProgressDialog.cancel();
-                        showDialog("出错了 onError：" + message);
-                    }
-                });
+            public void onError(String message) {
+                if (mProgressDialog != null)
+                    mProgressDialog.cancel();
+                showDialog("出错了 onError：" + message);
             }
         });
+```
+
+* FFmpeg 命令执行 (同步方式)
+
+```java
+
+RxFFmpegInvoke.getInstance().runCommand(command, null);
+
 ```
 
 * 中断 FFmpeg 命令
