@@ -56,7 +56,7 @@ libpostproc 最终打包成一个libffmpeg-core.so核心库方便依赖使用，
 
 * **支持libx264编码库，可以使压缩后的视频体积变的极小，清晰度还保持着很高清，简单的压缩命令: ffmpeg -y -i /storage/emulated/0/1/input.mp4 -b 2097k -r 30 -vcodec libx264 -preset superfast /storage/emulated/0/1/result.mp4**
 
-* **支持添加mp3等格式的背景音乐**
+* **支持添加mp3、aac、wav等主流格式的背景音乐**
 
 
 # 使用方式
@@ -64,7 +64,9 @@ libpostproc 最终打包成一个libffmpeg-core.so核心库方便依赖使用，
 * 开启/关闭 debug 模式，建议在 Application 初始化调用
 
 ```java
+
 RxFFmpegInvoke.getInstance().setDebug(true);
+
 ```
 
 * FFmpeg 命令执行 (RxJava2优雅的调用)
