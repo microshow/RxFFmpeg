@@ -27,7 +27,7 @@
 
 
 ## 编译脚本
-编译脚本、JNI代码整理后上传 
+编译脚本、JNI代码整理后上传
 
 # 特色功能
 
@@ -56,7 +56,9 @@ libpostproc 最终打包成一个libffmpeg-core.so核心库方便依赖使用，
 
 * **支持libx264编码库，可以使压缩后的视频体积变的极小，清晰度还保持着很高清，简单的压缩命令: ffmpeg -y -i /storage/emulated/0/1/input.mp4 -b 2097k -r 30 -vcodec libx264 -preset superfast /storage/emulated/0/1/result.mp4**
 
-* **支持添加mp3、aac、wav等主流格式的背景音乐**
+* **支持添加 mp3、aac、wav 等主流格式的背景音乐**
+
+* **支持主流视频格式转换，如avi>mp4>avi**
 
 
 # 使用方式
