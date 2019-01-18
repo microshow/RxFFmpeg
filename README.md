@@ -58,7 +58,7 @@ libpostproc 最终打包成一个libffmpeg-core.so核心库方便依赖使用，
 
 * **支持添加 mp3、aac、wav 等主流格式的背景音乐**
 
-* **支持主流视频格式转换，如:avi>mp4>avi**
+* **支持主流视频格式转换，如: avi > mp4 > avi**
 
 
 # 使用方式
