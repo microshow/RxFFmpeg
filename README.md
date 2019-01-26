@@ -124,6 +124,8 @@ RxFFmpegInvoke.getInstance().runCommand(command, null);
 RxFFmpegInvoke.getInstance().exit();
 
 ```
+# 常用命令
+Hello World
 
 # 下载体验
 
