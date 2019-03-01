@@ -32,7 +32,11 @@ file 'input3.mp4'
 
 ### 视频转图片
 
+```java
+
 ffmpeg -y -i /storage/emulated/0/1/input.mp4 -preset superfast /storage/emulated/0/1/output_frames_%05d.jpg
+
+```
 
 
 
@@ -41,7 +45,11 @@ ffmpeg -y -i /storage/emulated/0/1/input.mp4 -preset superfast /storage/emulated
 
 ### 音频拼接
 
+```java
+
 ffmpeg -y -i "concat:123.mp3|124.mp3" -acodec copy output.mp3
+
+```
 
 -i代表输入参数
 
@@ -51,7 +59,11 @@ contact:123.mp3|124.mp3代表着需要连接到一起的音频文件
 
 ### 音频混音
 
+```java
+
 ffmpeg -y -i 124.mp3 -i 123.mp3 -filter_complex amix=inputs=2:duration=first:dropout_transition=2 -f mp3 remix.mp3
+
+```
 
 -i代表输入参数
 
@@ -71,7 +83,11 @@ dropout_transition  The transition time, in seconds, for volume renormalization 
             
 ### 音频裁剪          
 
+```java
+
 ffmpeg -y -i 124.mp3 -vn -acodec copy -ss 00:00:00 -t 00:01:32 output.mp3
+
+```
 
 -i代表输入参数
 
@@ -83,7 +99,11 @@ ffmpeg -y -i 124.mp3 -vn -acodec copy -ss 00:00:00 -t 00:01:32 output.mp3
 
 ### 音频格式转换
 
+```java
+
 ffmpeg -y -i null.ape -ar 44100 -ac 2 -ab 16k -vol 50 -f mp3 null.mp3
+
+```
 
 -i代表输入参数
 
