@@ -1,9 +1,28 @@
 
 # 常用命令
 
-## 压缩
+## 视频处理
+
+### 视频压缩
 
 ffmpeg -y -i /storage/emulated/0/1/input.mp4 -b 2097k -r 30 -vcodec libx264 -preset superfast /storage/emulated/0/1/result.mp4
+
+### 视频拼接
+
+ffmpeg -y -f concat -safe 0 -i Cam01.txt -c copy Cam01.mp4
+
+这种合并方式的适用场景是：当容器格式不支持文件层次的合并，而又不想（不需要）进行再编码的操作的时候。这种方式对源视频同样有【同格式同性质】的要求
+
+Cam01.txt文件里面的内容类似如下(要改成全路径形式)
+file 'input1.mp4'
+file 'input2.mp4'
+file 'input3.mp4'
+
+### 视频转图片
+
+ffmpeg -y -i /storage/emulated/0/1/input.mp4 -preset superfast /storage/emulated/0/1/output_frames_%05d.jpg
+
+
 
 
 ## 音频处理
