@@ -27,7 +27,8 @@
 
 
 ## 编译脚本
-编译脚本、JNI代码整理后上传
+
+* [编译脚本、JNI代码整理后上传](preview/docs/build.md)
 
 # 特色功能
 
@@ -125,7 +126,8 @@ RxFFmpegInvoke.getInstance().exit();
 
 ```
 # 常用命令
-* Hello World 
+
+* [常用命令汇总](preview/docs/cmd.md)
 
 # 下载体验
 
