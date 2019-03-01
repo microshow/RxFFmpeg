@@ -28,7 +28,7 @@
 
 ## 编译脚本
 
-* [编译脚本、JNI代码整理后上传](preview/docs/build.md)
+* [编译脚本](preview/docs/build.md)
 
 # 特色功能
 
