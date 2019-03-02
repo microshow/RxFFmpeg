@@ -1,7 +1,7 @@
 
 # 常用命令
 
-## 视频处理
+# 视频处理
 
 *  视频压缩
 
@@ -41,7 +41,7 @@ ffmpeg -y -i /storage/emulated/0/1/input.mp4 -preset superfast /storage/emulated
 
 
 
-## 音频处理
+# 音频处理
 
 * 音频拼接
 
@@ -119,6 +119,6 @@ ffmpeg -y -i null.ape -ar 44100 -ac 2 -ab 16k -vol 50 -f mp3 null.mp3
 
 
 
-
+# 其它
 
 
