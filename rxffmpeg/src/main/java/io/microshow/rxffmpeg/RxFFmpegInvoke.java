@@ -8,6 +8,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
 /**
+ * RxFFmpegInvoke 核心类
  * Created by Super on 2018/6/14.
  */
 

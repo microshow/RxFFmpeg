@@ -5,6 +5,7 @@ import android.app.Application;
 import io.microshow.rxffmpeg.RxFFmpegInvoke;
 
 /**
+ * Application
  * Created by Super on 2018/12/7.
  */
 
