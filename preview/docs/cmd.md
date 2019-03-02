@@ -11,7 +11,7 @@ ffmpeg -y -i /storage/emulated/0/1/input.mp4 -b 2097k -r 30 -vcodec libx264 -pre
 
 ```
 
-### 视频拼接
+*  视频拼接
 
 ```java
 
@@ -30,7 +30,7 @@ file 'input2.mp4'
 file 'input3.mp4'
 
 
-### 视频转图片
+* 视频转图片
 
 ```java
 
@@ -43,7 +43,7 @@ ffmpeg -y -i /storage/emulated/0/1/input.mp4 -preset superfast /storage/emulated
 
 ## 音频处理
 
-### 音频拼接
+* 音频拼接
 
 ```java
 
@@ -57,7 +57,7 @@ contact:123.mp3|124.mp3代表着需要连接到一起的音频文件
       
 -acodec copy output.mp3 重新编码并复制到新文件中
 
-### 音频混音
+* 音频混音
 
 ```java
 
@@ -81,7 +81,7 @@ dropout_transition  The transition time, in seconds, for volume renormalization 
 
 -f mp3  输出文件格式
             
-### 音频裁剪          
+* 音频裁剪          
 
 ```java
 
@@ -97,7 +97,7 @@ ffmpeg -y -i 124.mp3 -vn -acodec copy -ss 00:00:00 -t 00:01:32 output.mp3
 
 -t 截取音频时间长度
 
-### 音频格式转换
+* 音频格式转换
 
 ```java
 
