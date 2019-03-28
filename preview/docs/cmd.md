@@ -30,11 +30,12 @@ file 'input2.mp4'
 file 'input3.mp4'
 
 
-* 视频转图片
+* 视频转图片(每隔一秒截取一张图)
 
 ```java
 
-ffmpeg -y -i /storage/emulated/0/1/input.mp4 -preset superfast /storage/emulated/0/1/output_frames_%05d.jpg
+ffmpeg -y -i /storage/emulated/0/1/input.mp4 -f image2 -r 1 -q:v 10 -preset superfast /storage/emulated/0/1/%3d.jpg
+
 
 ```
 
