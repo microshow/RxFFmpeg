@@ -36,11 +36,7 @@ file 'input3.mp4'
 
 ffmpeg -y -i /storage/emulated/0/1/input.mp4 -f image2 -r 1 -q:v 10 -preset superfast /storage/emulated/0/1/%3d.jpg
 
-
 ```
-
-
-
 
 # 音频处理
 
