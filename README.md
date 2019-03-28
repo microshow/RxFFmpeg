@@ -61,6 +61,8 @@ libpostproc 最终打包成一个libffmpeg-core.so核心库方便依赖使用，
 
 * **支持主流视频格式转换，如: avi > mp4 > avi** 
 
+* **每隔一秒截取一张图 ffmpeg -y -i /storage/emulated/0/1/input2.mp4 -f image2 -r 1 -q:v 10 -preset superfast /storage/emulated/0/1/%3d.jpg**
+
 
 # 使用方式
 
