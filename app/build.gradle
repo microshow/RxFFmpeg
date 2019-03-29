@@ -47,4 +47,6 @@ dependencies {
     implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
 
     implementation project(path: ':rxffmpeg')
+
+//    implementation 'com.github.microshow:RxFFmpeg:1.2.1'
 }
