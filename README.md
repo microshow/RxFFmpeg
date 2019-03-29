@@ -89,6 +89,8 @@ dependencies {
 
 ```
 
+## 开始
+
 * 开启/关闭 debug 模式，建议在 Application 初始化调用
 
 ```java
