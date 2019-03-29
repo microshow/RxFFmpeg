@@ -66,6 +66,29 @@ libpostproc 最终打包成一个libffmpeg-core.so核心库方便依赖使用，
 
 # 使用方式
 
+## Gradle
+
+在根目录下的build.gradle里添加maven仓库
+
+```groovy
+allprojects {
+		repositories {
+			...
+			maven { url 'https://www.jitpack.io' }
+		}
+	}
+```
+
+添加依赖
+
+```groovy
+
+dependencies {
+  implementation 'com.github.microshow:RxFFmpeg:1.2.1'
+}
+
+```
+
 * 开启/关闭 debug 模式，建议在 Application 初始化调用
 
 ```java
