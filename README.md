@@ -156,10 +156,8 @@ RxFFmpegInvoke.getInstance().exit();
 # 代码混淆
 
 ```text
-
 -dontwarn io.microshow.rxffmpeg.**
 -keep class io.microshow.rxffmpeg.**{*;}
-
 ```
 
 # 常用命令
@@ -174,7 +172,19 @@ RxFFmpegInvoke.getInstance().exit();
 
 * **注意**：体验App时，需要把预设的视频SD卡路径，改为你本地实际的视频SD卡路径。
 
+# 谁在用 RxFFmpeg
+
+目前使用RxFFmpeg的产品和公司，欢迎邮件或其它方式向我提供产品信息
+
+* XXX APP
+
+# 沟通无限
+
+QQ Email: 986386695@qq.com
+
+
 # License
+
 ```text
 Copyright 2019 Super
 
