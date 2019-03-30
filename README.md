@@ -152,6 +152,16 @@ RxFFmpegInvoke.getInstance().runCommand(command, null);
 RxFFmpegInvoke.getInstance().exit();
 
 ```
+
+# 代码混淆
+
+```text
+
+-dontwarn io.microshow.rxffmpeg.**
+-keep class io.microshow.rxffmpeg.**{*;}
+
+```
+
 # 常用命令
 
 * [常用命令汇总](preview/docs/cmd.md)
