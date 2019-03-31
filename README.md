@@ -84,7 +84,7 @@ allprojects {
 ```groovy
 
 dependencies {
-    implementation 'com.github.microshow:RxFFmpeg:1.2.2'
+    implementation 'com.github.microshow:RxFFmpeg:1.2.3'
 }
 
 ```
