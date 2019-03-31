@@ -3,13 +3,13 @@ ext {
     //最小SDK版本
     minSdkValue = 16
     //目标版本
-    targetSdkValue = 27
+    targetSdkValue = 28
     //编译 SDK 版本
-    compileSdkValue = 27
+    compileSdkValue = 28
     //构建工具
-    buildToolsValue = "27.0.3"
+    buildToolsValue = "28.0.3"
     //支持包版本
-    supportLibValue = "27.1.1"
+    supportLibValue = "28.0.0"
     //应用 versionCode
     versionCodeValue = 6
     //应用 version 名称，更多设置里显示的
