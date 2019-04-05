@@ -79,12 +79,12 @@ allprojects {
 	}
 ```
 
-添加依赖，最新版本 [![](https://www.jitpack.io/v/microshow/RxFFmpeg.svg)](https://www.jitpack.io/#microshow/RxFFmpeg)
+添加依赖，最新版本lottieVersion= [![](https://www.jitpack.io/v/microshow/RxFFmpeg.svg)](https://www.jitpack.io/#microshow/RxFFmpeg)
 
 ```groovy
 
 dependencies {
-    implementation 'com.github.microshow:RxFFmpeg:1.2.3'
+    implementation 'com.github.microshow:RxFFmpeg:$lottieVersion'
 }
 
 ```
