@@ -38,6 +38,14 @@ ffmpeg -y -i /storage/emulated/0/1/input.mp4 -f image2 -r 1 -q:v 10 -preset supe
 
 ```
 
+* 添加背景音乐（支持调节原音和配乐的音量）
+
+```java
+
+ffmpeg -y -i /storage/emulated/0/1/input.mp4 -i /storage/emulated/0/1/input.mp3 -filter_complex [0:a]aformat=sample_fmts=fltp:sample_rates=44100:channel_layouts=stereo,volume=0.2[a0];[1:a]aformat=sample_fmts=fltp:sample_rates=44100:channel_layouts=stereo,volume=1[a1];[a0][a1]amix=inputs=2:duration=first[aout] -map [aout] -ac 2 -c:v copy -map 0:v:0 -preset superfast /storage/emulated/0/1/result.mp4
+
+```
+
 # 音频处理
 
 * 音频拼接
