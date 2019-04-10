@@ -145,7 +145,7 @@ RxFFmpegInvoke.getInstance().runCommand(command, null);
 
 ```
 
-* 中断 FFmpeg 命令
+* 中断 FFmpeg 命令 
 
 ```java
 
