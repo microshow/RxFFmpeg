@@ -28,6 +28,10 @@ public class RxFFmpegInvoke {
      */
     private IFFmpegListener ffmpegListener;
 
+    private RxFFmpegInvoke () {
+
+    }
+
     public static RxFFmpegInvoke getInstance(){
         if (instance == null) {
             synchronized (RxFFmpegInvoke.class) {

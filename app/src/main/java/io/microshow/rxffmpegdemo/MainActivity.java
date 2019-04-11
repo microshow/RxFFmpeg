@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
+import io.microshow.rxffmpeg.RxFFmpegCommandSupport;
 import io.microshow.rxffmpeg.RxFFmpegInvoke;
 import io.microshow.rxffmpeg.RxFFmpegSubscriber;
 import io.microshow.rxffmpegdemo.databinding.ActivityMainBinding;
@@ -74,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         final String text = binding.editText.getText().toString();
         String[] commands = text.split(" ");
+//        String[] commands = RxFFmpegCommandSupport.getBoxblur();
 
         RxFFmpegInvoke.getInstance().runCommandRxJava(commands).subscribe(new RxFFmpegSubscriber() {
             @Override
