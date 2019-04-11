@@ -71,12 +71,14 @@ libpostproc 最终打包成一个libffmpeg-core.so核心库方便依赖使用，
 在根目录下的build.gradle里添加maven仓库
 
 ```groovy
+
 allprojects {
 		repositories {
 			...
 			maven { url 'https://www.jitpack.io' }
 		}
 	}
+
 ```
 
 添加依赖，最新版本[![](https://www.jitpack.io/v/microshow/RxFFmpeg.svg)](https://www.jitpack.io/#microshow/RxFFmpeg)
@@ -85,6 +87,21 @@ allprojects {
 
 dependencies {
     implementation 'com.github.microshow:RxFFmpeg:1.2.4'
+}
+
+```
+
+如果你的项目存在其它平台的so库，如arm64-v8a，为了不影响使用需要在build.gradle添加如下配置
+
+```groovy
+
+defaultConfig {
+    .
+    .
+    .
+    ndk {
+        abiFilters "armeabi-v7a"
+    }
 }
 
 ```
