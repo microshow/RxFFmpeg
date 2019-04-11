@@ -193,6 +193,8 @@ RxFFmpegInvoke.getInstance().exit();
 
 QQ Email: 986386695@qq.com
 
+QQ群：799934185
+
 
 # License
 
