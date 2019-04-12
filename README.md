@@ -185,7 +185,7 @@ RxFFmpegInvoke.getInstance().exit();
 
 # 下载体验
 
-* 扫码下载体验 [点击下载](/preview/app-debug.apk)
+* 扫码下载体验 [点击下载](https://github.com/microshow/RxFFmpeg/raw/master/preview/app-debug.apk)
 
 <img src="/preview/icon/apkQR.png" alt="图-1：扫码下载体验" width="260px"></img>
 
