@@ -93,7 +93,7 @@ dependencies {
 
 ```
 
-注意：如果你的项目存在其它平台的so库，如arm64-v8a，为了不影响使用需要在build.gradle添加如下配置
+**注意：**如果你的项目存在其它平台的so库，如arm64-v8a，为了不影响使用需要在build.gradle添加如下配置
 
 ```groovy
 
