@@ -126,4 +126,7 @@ ffmpeg -y -i null.ape -ar 44100 -ac 2 -ab 16k -vol 50 -f mp3 null.mp3
 
 # 其它
 
+* FFmpeg文档汇总：https://ffmpeg.org/documentation.html
+* FFmpeg filters文档：https://ffmpeg.org/ffmpeg-filters.html
+
 
