@@ -187,7 +187,7 @@ RxFFmpegInvoke.getInstance().exit();
 
 * 扫码下载体验 [点击下载](/preview/app-debug.apk)
 
-<img src="/preview/icon/apkQR.png" alt="图-1：扫码下载体验"></img>
+<img src="/preview/icon/apkQR.png" alt="图-1：扫码下载体验" width="260px"></img>
 
 * **注意**：体验App时，需要把预设的视频SD卡路径，改为你本地实际的视频SD卡路径。
 
@@ -197,6 +197,7 @@ QQ Email: 986386695@qq.com
 
 QQ群：799934185
 
+<img src="/preview/icon/qqGroup.jpg" alt="图-1：qqGroup" width="260px"></img>
 
 # License
 
