@@ -182,6 +182,8 @@ RxFFmpegInvoke.getInstance().exit();
 # 常用命令
 
 * [常用命令汇总](preview/docs/cmd.md)
+* [FFmpeg文档汇总](https://ffmpeg.org/documentation.html)
+* [FFmpeg Filters文档](https://ffmpeg.org/ffmpeg-filters.html)
 
 # 下载体验
 
