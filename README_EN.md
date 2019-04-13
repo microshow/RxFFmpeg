@@ -1,5 +1,4 @@
 
-Language:[English](README_EN.md)
 
 # RxFFmpeg
 
@@ -11,7 +10,7 @@ Language:[English](README_EN.md)
 
 <img src="/preview/icon/logo.jpg" alt="图-1：logo" width="260px"></img>
 
->RxFFmpeg 是基于 ( FFmpeg 4.0 + X264 + mp3lame + fdk-aac ) 编译的适用于 Android 平台的音视频编辑、视频剪辑的快速处理框架，包含以下功能（视频拼接，转码，压缩，裁剪，片头片尾，分离音视频，变速，添加静态贴纸和gif动态贴纸，添加字幕，添加滤镜，添加背景音乐，加速减速视频，倒放音视频，音频裁剪，变声，混音，图片合成视频，视频解码图片等主流特色功能……
+>RxFFmpeg is a fast processing framework for audio and video editing and video editing based on (FFmpeg 4.0 + X264 + mp3lame + fdk-aac) compiled for Android platform. It includes the following functions (video stitching, transcoding, compression, clipping, film head and tail, separation of audio and video, speed change, adding static stickers and GIF dynamic stickers, adding subtitles, adding filters, adding background music, adding Speed deceleration video, rewind audio video, audio clipping, voice change, mixing, picture synthesis video, video decoding pictures and other mainstream features...
 
 # 编译环节
 
