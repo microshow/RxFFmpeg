@@ -8,18 +8,18 @@
 [![](https://img.shields.io/badge/mp3lame-3.100-blue.svg)](https://jaist.dl.sourceforge.net/project/lame/lame/3.100/lame-3.100.tar.gz)
 [![](https://img.shields.io/badge/fdkaac-0.1.6-orange.svg)](https://jaist.dl.sourceforge.net/project/opencore-amr/fdk-aac/fdk-aac-0.1.6.tar.gz)
 
-<img src="/preview/icon/logo.jpg" alt="图-1：logo" width="260px"></img>
+<img src="/preview/icon/logo.jpg" alt="image-1：logo" width="260px"></img>
 
 >RxFFmpeg is a fast processing framework for audio and video editing and video editing based on (FFmpeg 4.0 + X264 + mp3lame + fdk-aac) compiled for Android platform. It includes the following functions (video stitching, transcoding, compression, clipping, film head and tail, separation of audio and video, speed change, adding static stickers and GIF dynamic stickers, adding subtitles, adding filters, adding background music, adding Speed deceleration video, rewind audio video, audio clipping, voice change, mixing, picture synthesis video, video decoding pictures and other mainstream features...
 
-# 编译环节
+# Compile
 
-## 编译环境
+## Compiling Environment
   * win10 + ubuntu 16.04 + gcc + make
 
-## 主要依赖以下库进行编译
+## Compiling mainly depends on the following Libraries
 
-| 库名        | 版本    |  下载地址  |
+| Library        | Version    |  Download  |
 | :--------   | :-----   | :---- |
 | FFmpeg        | 4.0      |   http://ffmpeg.org/releases/ffmpeg-4.0.tar.bz2    |
 | X264        | x264-snapshot-20180212-2245-stable      |   http://download.videolan.org/x264/snapshots/x264-snapshot-20180212-2245-stable.tar.bz2    |
@@ -28,49 +28,49 @@
 | ndk        | android-ndk-r14b-linux-x86_64      |   https://dl.google.com/android/repository/android-ndk-r14b-linux-x86_64.zip  |
 
 
-## 编译脚本
+## Compiler Script
 
-* [编译脚本](preview/docs/build.md)
+* [Compiler script](preview/docs/build.md)
 
-# 特色功能
+# Function
 
-* **支持任何FFmpeg命令执行**
+* **Supporting any FFmpeg command execution**
 
-* **支持FFmpeg命令执行进度回调**
+* **Support FFmpeg command execution schedule callback**
 
-* **支持中断FFmpeg命令**
+* **Supporting interruption of FFmpeg commands**
 
-* **支持同步/异步执行**
+* **Supporting synchronous/asynchronous execution**
 
-* **支持开启/关闭 debug 模式**
+* **Support debug mode on/off**
 
-* **支持硬件加速，使编解码处理更快(已开启MediaCodec)**
+* **Supports hardware acceleration to make codec processing faster (MediaCodec is turned on)**
 
-* **代码封装成SDK的方式，方便依赖使用**
+* **Code encapsulation into SDK, easy to rely on**
 
-* **支持把FFmpeg的各子模块libavutil 
+* **Support sub-modules of FFmpeg libavutil
 libavcodec 
 libavformat 
 libavdevice 
 libavfilter 
 libswscale 
 libswresample 
-libpostproc 最终打包成一个libffmpeg-core.so核心库方便依赖使用，无需导入七八个so库**
+libpostproc Ultimately packaged into a libffmpeg-core.so core library for easy dependency use**
 
-* **支持libx264编码库，可以使压缩后的视频体积变的极小，清晰度还保持着很高清，简单的压缩命令: ffmpeg -y -i /storage/emulated/0/1/input.mp4 -b 2097k -r 30 -vcodec libx264 -preset superfast /storage/emulated/0/1/result.mp4**
+* **Supporting libx264 encoding library, can make the compressed video volume become very small, the clarity remains very high, simple compression commands: ffmpeg -y -i /storage/emulated/0/1/input.mp4 -b 2097k -r 30 -vcodec libx264 -preset superfast /storage/emulated/0/1/result.mp4**
 
-* **支持添加 mp3、aac、wav 等主流格式的背景音乐**
+* **Background music that supports the addition of mp3, aac, wav and other mainstream formats**
 
-* **支持主流视频格式转换，如: avi > mp4 > avi** 
+* **Support mainstream video format conversion, such as: avi > mp4 > avi**
 
-* **每隔一秒截取一张图 ffmpeg -y -i /storage/emulated/0/1/input.mp4 -f image2 -r 1 -q:v 10 -preset superfast /storage/emulated/0/1/%3d.jpg**
+* **Intercept a graph every second: ffmpeg -y -i /storage/emulated/0/1/input.mp4 -f image2 -r 1 -q:v 10 -preset superfast /storage/emulated/0/1/%3d.jpg**
 
 
-# 使用方式
+# Usage Mode
 
 ## Gradle
 
-在根目录下的build.gradle里添加maven仓库
+Add the Maven repository to build. gradle under the root directory
 
 ```groovy
 
@@ -83,7 +83,7 @@ allprojects {
 
 ```
 
-添加依赖，最新版本[![](https://www.jitpack.io/v/microshow/RxFFmpeg.svg)](https://www.jitpack.io/#microshow/RxFFmpeg)
+Adding dependencies, latest version[![](https://www.jitpack.io/v/microshow/RxFFmpeg.svg)](https://www.jitpack.io/#microshow/RxFFmpeg)
 
 ```groovy
 
@@ -93,7 +93,7 @@ dependencies {
 
 ```
 
-**注意**：如果你的项目存在其它平台的so库，如arm64-v8a，为了不影响使用需要在build.gradle添加如下配置
+**Be careful**：If your project has so libraries on other platforms, such as arm64-v8a, add the following configuration to build. gradle to keep usage intact
 
 ```groovy
 
@@ -108,9 +108,9 @@ defaultConfig {
 
 ```
 
-## 开始
+## Start
 
-* 开启/关闭 debug 模式，建议在 Application 初始化调用
+* Open/close debug mode. It is recommended to initialize the call in Application
 
 ```java
 
@@ -118,7 +118,7 @@ RxFFmpegInvoke.getInstance().setDebug(true);
 
 ```
 
-* FFmpeg 命令执行 (RxJava2优雅的调用)
+* FFmpeg command execution (RxJava2 elegant call)
 
 ```java
 
@@ -131,7 +131,7 @@ RxFFmpegInvoke.getInstance().runCommandRxJava(commands).subscribe(new RxFFmpegSu
             public void onFinish() {
                 if (mProgressDialog != null)
                     mProgressDialog.cancel();
-                showDialog("处理成功");
+                showDialog("Successful");
             }
 
             @Override
@@ -144,19 +144,19 @@ RxFFmpegInvoke.getInstance().runCommandRxJava(commands).subscribe(new RxFFmpegSu
             public void onCancel() {
                 if (mProgressDialog != null)
                     mProgressDialog.cancel();
-                showDialog("已取消");
+                showDialog("Cancelled");
             }
 
             @Override
             public void onError(String message) {
                 if (mProgressDialog != null)
                     mProgressDialog.cancel();
-                showDialog("出错了 onError：" + message);
+                showDialog("onError：" + message);
             }
         });
 ```
 
-* FFmpeg 命令执行 (同步方式)
+* FFmpeg command execution (synchronization)
 
 ```java
 
@@ -164,7 +164,7 @@ RxFFmpegInvoke.getInstance().runCommand(command, null);
 
 ```
 
-* 中断 FFmpeg 命令 
+* Interrupt FFmpeg command
 
 ```java
 
@@ -172,34 +172,34 @@ RxFFmpegInvoke.getInstance().exit();
 
 ```
 
-# 代码混淆
+# Code Confusion
 
 ```text
 -dontwarn io.microshow.rxffmpeg.**
 -keep class io.microshow.rxffmpeg.**{*;}
 ```
 
-# 常用命令
+# Frequently used commands
 
-* [常用命令汇总](preview/docs/cmd.md)
-* [FFmpeg文档汇总](https://ffmpeg.org/documentation.html)
-* [FFmpeg Filters文档](https://ffmpeg.org/ffmpeg-filters.html)
+* [Summary of Common Commands](preview/docs/cmd.md)
+* [FFmpeg Documentation](https://ffmpeg.org/documentation.html)
+* [FFmpeg Filters](https://ffmpeg.org/ffmpeg-filters.html)
 
-# 下载体验
+# Download Experience
 
-* 扫码下载体验 [点击下载](https://github.com/microshow/RxFFmpeg/raw/master/preview/app-debug.apk)
+* Scanning Download Experience [Download](https://github.com/microshow/RxFFmpeg/raw/master/preview/app-debug.apk)
 
-<img src="/preview/icon/apkQR.png" alt="图-1：扫码下载体验" width="260px"></img>
+<img src="/preview/icon/apkQR.png" alt="image-1：Scanning Download Experience" width="260px"></img>
 
-* **注意**：体验App时，需要把预设的视频SD卡路径，改为你本地实际的视频SD卡路径。
+* **Be careful**：To experience App, you need to change the default video SD card path to your local actual video SD card path.
 
-# 沟通无限
+# Unlimited Communication
 
 QQ Email: 986386695@qq.com
 
-QQ群：799934185
+QQ Group：799934185
 
-<img src="/preview/icon/qqGroup.jpg" alt="图-1：qqGroup" width="260px"></img>
+<img src="/preview/icon/qqGroup.jpg" alt="image-1：qqGroup" width="260px"></img>
 
 # License
 
