@@ -32,7 +32,7 @@
 
 * [Compiler script](preview/docs/build.md)
 
-# Function
+# Features
 
 * **Supporting any FFmpeg command execution**
 
