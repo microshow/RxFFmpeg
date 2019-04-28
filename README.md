@@ -198,7 +198,7 @@ RxFFmpegInvoke.getInstance().exit();
 
 >按照登记顺序排序，更多接入APP，欢迎在 https://github.com/microshow/RxFFmpeg/issues/37 登记（仅供开源用户参考）
 
-[![](http://appimg.hicloud.com/hwmarket/files/application/icon144/2a23d4e118674789b82f2ddbac7f57fb.png)](https://sj.qq.com/myapp/detail.htm?apkName=com.hndnews.main)
+[![](https://pp.myapp.com/ma_icon/0/icon_42333639_1555789191/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.hndnews.main)
 [![](http://appimg.hicloud.com/hwmarket/files/application/icon144/c3a7534396f04d9fa5bc2e5803c83fdc.png)](https://shouji.baidu.com/software/25866977.html)
 
 
