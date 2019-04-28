@@ -194,6 +194,14 @@ RxFFmpegInvoke.getInstance().exit();
 
 * **注意**：体验App时，需要把预设的视频SD卡路径，改为你本地实际的视频SD卡路径。
 
+# 谁在用？
+
+>按照登记顺序排序，更多接入APP，欢迎在 https://github.com/microshow/RxFFmpeg/issues/37 登记（仅供开源用户参考）
+
+[![](https://timg01.bdimg.com/timg?appsite&imgtype=4&quality=100&size=b96_96&sec=1556463450&nocache&di=ae941edc914e2fa74c97739c068636c8&src=http%3A%2F%2Fgdown.baidu.com%2Fimg%2F0%2F512_512%2Fdeaebb9b73797b08936ca1357cb062c8.png)](https://sj.qq.com/myapp/detail.htm?apkName=com.hndnews.main)
+[![](https://timg01.bdimg.com/timg?appsite&imgtype=4&quality=100&size=b96_96&sec=1556463523&nocache&di=abc327c472579511eb146094e4596712&src=http%3A%2F%2Fgdown.baidu.com%2Fimg%2F0%2F512_512%2F469958c261c5b9bc0dfbc8684cab59fd.png)](https://shouji.baidu.com/software/25866977.html)
+
+
 # 沟通无限
 
 QQ Email: 986386695@qq.com
