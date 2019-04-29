@@ -1,7 +1,7 @@
 
 Language: [English](README_EN.md)
 
-# RxFFmpeg 
+# RxFFmpeg
 
 [![](https://www.jitpack.io/v/microshow/RxFFmpeg.svg)](https://www.jitpack.io/#microshow/RxFFmpeg)
 [![](https://img.shields.io/badge/FFmpeg-4.0-yellow.svg)](http://ffmpeg.org/releases/ffmpeg-4.0.tar.bz2)
