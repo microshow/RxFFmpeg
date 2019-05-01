@@ -189,7 +189,7 @@ RxFFmpegInvoke.getInstance().exit();
 
 * Scanning Download Experience [Download](https://github.com/microshow/RxFFmpeg/raw/master/preview/app-debug.apk)
 
-<img src="/preview/icon/apkQR.png" alt="image-1：Scanning Download Experience" width="260px"></img>
+<img src="/preview/icon/apk-qr.png" alt="image-1：Scanning Download Experience" width="260px"></img>
 
 * **Be careful**：To experience App, you need to change the default video SD card path to your local actual video SD card path.
 
