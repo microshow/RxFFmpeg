@@ -188,7 +188,7 @@ RxFFmpegInvoke.getInstance().exit();
 
 # ScreenShot
 
-<img src="/preview/icon/screenShot.gif" alt="图-1：screenShot.gif" width="540px"></img>
+<img src="/preview/icon/screenShot.gif" alt="图-1：screenShot.gif" width="360px"></img>
 
 # 下载体验
 
