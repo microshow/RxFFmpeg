@@ -186,6 +186,10 @@ RxFFmpegInvoke.getInstance().exit();
 * [FFmpeg文档汇总](https://ffmpeg.org/documentation.html)
 * [FFmpeg Filters文档](https://ffmpeg.org/ffmpeg-filters.html)
 
+# ScreenShot
+
+<img src="/preview/icon/screenShot.gif" alt="图-1：screenShot.gif" width="540px"></img>
+
 # 下载体验
 
 * 扫码下载体验 [点击下载](https://github.com/microshow/RxFFmpeg/raw/master/preview/app-debug.apk)
