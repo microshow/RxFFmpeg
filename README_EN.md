@@ -187,19 +187,17 @@ RxFFmpegInvoke.getInstance().exit();
 
 # Download Experience
 
-* Scanning Download Experience [Download](https://github.com/microshow/RxFFmpeg/raw/master/preview/app-debug.apk)
-
-<img src="/preview/icon/apk-qr.png" alt="image-1：Scanning Download Experience" width="260px"></img>
-
-* **Be careful**：To experience App, you need to change the default video SD card path to your local actual video SD card path.
+| Scanning or [Download](https://github.com/microshow/RxFFmpeg/raw/master/preview/app-debug.apk)  | 
+| :--------:   |
+| <img src="/preview/icon/apk-qr.png" alt="image-1：Scanning Download Experience" width="260px" />       | 
 
 # Unlimited Communication
 
 QQ Email: 986386695@qq.com
 
-QQ Group：799934185
-
-<img src="/preview/icon/qqGroup.jpg" alt="image-1：qqGroup" width="260px"></img>
+| QQ Group：799934185  | 
+| :--------:   |
+| <img src="/preview/icon/qqGroup.jpg" alt="image-1：qqGroup" width="260px" />  | 
 
 # License
 

@@ -16,6 +16,7 @@ Language: [English](README_EN.md)
 # 编译环节
 
 ## 编译环境
+
   * win10 + ubuntu 16.04 + gcc + make
 
 ## 主要依赖以下库进行编译
@@ -192,11 +193,9 @@ RxFFmpegInvoke.getInstance().exit();
 
 # 下载体验
 
-* 扫码下载体验 [点击下载](https://github.com/microshow/RxFFmpeg/raw/master/preview/app-debug.apk)
-
-<img src="/preview/icon/apk-qr.png" alt="图-1：扫码下载体验" width="260px"></img>
-
-* **注意**：体验App时，需要把预设的视频SD卡路径，改为你本地实际的视频SD卡路径。
+| 扫码 or [点击下载](https://github.com/microshow/RxFFmpeg/raw/master/preview/app-debug.apk)  | 
+| :--------:   |
+| <img src="/preview/icon/apk-qr.png" alt="图-1：扫码下载体验" width="260px" />       | 
 
 # 谁在用？
 
@@ -204,15 +203,18 @@ RxFFmpegInvoke.getInstance().exit();
 
 [![](https://pp.myapp.com/ma_icon/0/icon_42333639_1555789191/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.hndnews.main)
 [![](http://appimg.hicloud.com/hwmarket/files/application/icon144/c3a7534396f04d9fa5bc2e5803c83fdc.png)](https://shouji.baidu.com/software/25866977.html)
+<img src="https://www.hndnews.com/static/images/logo.png" height="96px" />
+<img src="https://www.lgstatic.com/thumbnail_300x300/i/image2/M00/16/EC/CgoB5ln4FriAVfL6AAAU0vZMT60031.jpg" height="96px" />
+[![](https://pp.myapp.com/ma_icon/0/icon_52610077_1556520138/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.kmb2b.KmMall)
 
 
 # 沟通无限
 
 QQ Email: 986386695@qq.com
 
-QQ群：799934185
-
-<img src="/preview/icon/qqGroup.jpg" alt="图-1：qqGroup" width="260px"></img>
+| QQ群：799934185  | 
+| :--------:   |
+| <img src="/preview/icon/qqGroup.jpg" alt="图-1：qqGroup" width="260px" />  | 
 
 # License
 
