@@ -204,8 +204,10 @@ RxFFmpegInvoke.getInstance().exit();
 [![](https://pp.myapp.com/ma_icon/0/icon_42333639_1555789191/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.hndnews.main)
 [![](http://appimg.hicloud.com/hwmarket/files/application/icon144/c3a7534396f04d9fa5bc2e5803c83fdc.png)](https://shouji.baidu.com/software/25866977.html)
 <img src="https://www.hndnews.com/static/images/logo.png" height="96px" />
+<img src="https://www.kid17.com/static/kid17-web/kid17_logo01.svg" height="96px" />
 <img src="https://www.lgstatic.com/thumbnail_300x300/i/image2/M00/16/EC/CgoB5ln4FriAVfL6AAAU0vZMT60031.jpg" height="96px" />
 [![](https://pp.myapp.com/ma_icon/0/icon_52610077_1556520138/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.kmb2b.KmMall)
+[![](https://pp.myapp.com/ma_icon/0/icon_42274023_1557972414/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.yiqizhangda.parent)
 
 
 # 沟通无限
