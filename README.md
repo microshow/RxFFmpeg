@@ -208,6 +208,7 @@ RxFFmpegInvoke.getInstance().exit();
 <img src="https://www.kid17.com/static/kid17-web/kid17_logo01.svg" height="96px" />
 [![](https://pp.myapp.com/ma_icon/0/icon_52610077_1556520138/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.kmb2b.KmMall)
 [![](https://pp.myapp.com/ma_icon/0/icon_42274023_1557972414/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.yiqizhangda.parent)
+[![](https://pp.myapp.com/ma_icon/0/icon_52859659_1558810527/96)](https://a.app.qq.com/o/simple.jsp?pkgname=com.jmhy.tool)
 
 
 # 沟通无限
