@@ -187,6 +187,10 @@ RxFFmpegInvoke.getInstance().exit();
 * [FFmpeg文档汇总](https://ffmpeg.org/documentation.html)
 * [FFmpeg Filters文档](https://ffmpeg.org/ffmpeg-filters.html)
 
+# StarChart
+
+<img src="https://starchart.cc/microshow/rxffmpeg.svg" />
+
 # ScreenShot
 
 <img src="/preview/icon/screen-shot.gif" alt="图-1：screenShot.gif" width="320px"></img>
