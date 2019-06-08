@@ -17,6 +17,8 @@ import io.microshow.rxffmpeg.RxFFmpegSubscriber;
 import io.microshow.rxffmpegdemo.databinding.ActivityMainBinding;
 import io.reactivex.functions.Consumer;
 
+import java.util.Optional;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -46,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             rxPermissions.request(PERMISSIONS_STORAGE).subscribe(new Consumer<Boolean>() {
                 @Override
                 public void accept(Boolean aBoolean) throws Exception {
-                    if (aBoolean) {// 用户同意了权限
+                    if (aBoolean == Boolean.TRUE) {// 用户同意了权限
                         runFFmpegRxJava();
                     } else {//用户拒绝了权限
                         Toast.makeText(MainActivity.this,"您拒绝了权限，请往设置里开启权限",Toast.LENGTH_LONG).show();
@@ -80,28 +82,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         RxFFmpegInvoke.getInstance().runCommandRxJava(commands).subscribe(new RxFFmpegSubscriber() {
             @Override
             public void onFinish() {
-                if (mProgressDialog != null)
-                    mProgressDialog.cancel();
+                Optional.ofNullable(mProgressDialog)
+                        .ifPresent(ProgressDialog::cancel);
                 showDialog("处理成功");
             }
 
             @Override
             public void onProgress(int progress) {
-                if (mProgressDialog != null)
-                    mProgressDialog.setProgress(progress);
+                Optional.ofNullable(mProgressDialog)
+                        .ifPresent(pd -> pd.setProgress(progress));
             }
 
             @Override
             public void onCancel() {
-                if (mProgressDialog != null)
-                    mProgressDialog.cancel();
+                Optional.ofNullable(mProgressDialog)
+                        .ifPresent(ProgressDialog::cancel);
                 showDialog("已取消");
             }
 
             @Override
             public void onError(String message) {
-                if (mProgressDialog != null)
-                    mProgressDialog.cancel();
+                Optional.ofNullable(mProgressDialog)
+                        .ifPresent(ProgressDialog::cancel);
                 showDialog("出错了 onError：" + message);
             }
         });
