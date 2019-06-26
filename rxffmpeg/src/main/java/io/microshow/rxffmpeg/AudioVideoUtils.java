@@ -12,6 +12,7 @@ public class AudioVideoUtils {
 
     /**
      * 根据视频的宽X高计算出一个合适的码率
+     *
      * @param wxh 宽X高的值
      * @return
      */
@@ -25,7 +26,7 @@ public class AudioVideoUtils {
         } else if (wxh <= 960 * 544) {
             return 2 * 1024 * 1024;
         } else if (wxh <= 1280 * 720) {
-            return (int)(2.5 * 1024 * 1024);
+            return (int) (2.5 * 1024 * 1024);
         } else if (wxh <= 1920 * 1088) {
             return 3 * 1024 * 1024;
         } else {
@@ -35,6 +36,7 @@ public class AudioVideoUtils {
 
     /**
      * 查找视频轨道
+     *
      * @param extractor
      * @return
      */
@@ -53,6 +55,7 @@ public class AudioVideoUtils {
 
     /**
      * 查找音频轨道
+     *
      * @param extractor
      * @return
      */
@@ -71,6 +74,7 @@ public class AudioVideoUtils {
 
     /**
      * 获取视频信息 时长 微秒 us
+     *
      * @param url
      * @return
      */
@@ -90,10 +94,11 @@ public class AudioVideoUtils {
 
     /**
      * 获取视频宽
+     *
      * @param videoPath
      * @return
      */
-    public static int getVideoWidth (String videoPath) {
+    public static int getVideoWidth(String videoPath) {
         MediaMetadataRetriever retr = new MediaMetadataRetriever();
         retr.setDataSource(videoPath);
         String width = retr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_WIDTH); // 视频宽度
@@ -108,10 +113,11 @@ public class AudioVideoUtils {
 
     /**
      * 获取视频高
+     *
      * @param videoPath
      * @return
      */
-    public static int getVideoHeight (String videoPath) {
+    public static int getVideoHeight(String videoPath) {
         MediaMetadataRetriever retr = new MediaMetadataRetriever();
         retr.setDataSource(videoPath);
         String width = retr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_WIDTH); // 视频宽度
@@ -126,10 +132,11 @@ public class AudioVideoUtils {
 
     /**
      * 获取视频旋转方向
+     *
      * @param videoPath
      * @return
      */
-    public static int getVideoRotation (String videoPath) {
+    public static int getVideoRotation(String videoPath) {
         MediaMetadataRetriever retr = new MediaMetadataRetriever();
         retr.setDataSource(videoPath);
         String rotation = retr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_ROTATION); // 视频旋转方向
@@ -139,24 +146,26 @@ public class AudioVideoUtils {
 
     /**
      * 获取视频时长 单位：秒
+     *
      * @param videoPath
      * @return
      */
-    public static int getVideoDuration (String videoPath) {
+    public static int getVideoDuration(String videoPath) {
         MediaMetadataRetriever retr = new MediaMetadataRetriever();
         retr.setDataSource(videoPath);
         String rotation = retr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION); // 视频时长 毫秒
         retr.release();
-        return Integer.parseInt(rotation)/1000;//转为秒
+        return Integer.parseInt(rotation) / 1000;//转为秒
     }
 
     /**
      * 判断是否是横屏的视频
+     *
      * @param videoPath
      * @return
      */
-    public static boolean isHorizontalVideo (String videoPath) {
-        if (getVideoWidth (videoPath) >= getVideoHeight (videoPath)) {
+    public static boolean isHorizontalVideo(String videoPath) {
+        if (getVideoWidth(videoPath) >= getVideoHeight(videoPath)) {
             return true;
         } else {
             return false;

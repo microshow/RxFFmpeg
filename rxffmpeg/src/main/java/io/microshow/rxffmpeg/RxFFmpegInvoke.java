@@ -21,18 +21,18 @@ public class RxFFmpegInvoke {
         System.loadLibrary("ffmpeg-invoke");
     }
 
-    private static RxFFmpegInvoke instance;
+    private static volatile RxFFmpegInvoke instance;
 
     /**
      * ffmpeg 回调监听
      */
     private IFFmpegListener ffmpegListener;
 
-    private RxFFmpegInvoke () {
+    private RxFFmpegInvoke() {
 
     }
 
-    public static RxFFmpegInvoke getInstance(){
+    public static RxFFmpegInvoke getInstance() {
         if (instance == null) {
             synchronized (RxFFmpegInvoke.class) {
                 if (instance == null) {
@@ -45,12 +45,13 @@ public class RxFFmpegInvoke {
 
     /**
      * 异步执行
+     *
      * @param command
      * @param mffmpegListener
      */
-    public void runCommandAsync(final String[] command, IFFmpegListener mffmpegListener){
-        setFFmpegListener (mffmpegListener);
-        synchronized (RxFFmpegInvoke.class){
+    public void runCommandAsync(final String[] command, IFFmpegListener mffmpegListener) {
+        setFFmpegListener(mffmpegListener);
+        synchronized (RxFFmpegInvoke.class) {
             // 不允许多线程访问
             new Thread(new Runnable() {
                 @Override
@@ -63,14 +64,15 @@ public class RxFFmpegInvoke {
 
     /**
      * 同步执行 (可以结合RxJava)
+     *
      * @param command
      * @param mffmpegListener
      * @return
      */
-    public int runCommand(final String[] command, IFFmpegListener mffmpegListener){
-        setFFmpegListener (mffmpegListener);
+    public int runCommand(final String[] command, IFFmpegListener mffmpegListener) {
+        setFFmpegListener(mffmpegListener);
         int ret;
-        synchronized (RxFFmpegInvoke.class){
+        synchronized (RxFFmpegInvoke.class) {
             ret = runFFmpegCmd(command);
             return ret;
         }
@@ -79,14 +81,15 @@ public class RxFFmpegInvoke {
     /**
      * [推荐使用]
      * 同步执行 RxJava 形式
+     *
      * @param command
      * @return
      */
-    public Flowable<Integer> runCommandRxJava(final String[] command){
+    public Flowable<Integer> runCommandRxJava(final String[] command) {
         return Flowable.create(new FlowableOnSubscribe<Integer>() {
             @Override
             public void subscribe(final FlowableEmitter<Integer> emitter) {
-                setFFmpegListener (new RxFFmpegInvoke.IFFmpegListener() {
+                setFFmpegListener(new RxFFmpegInvoke.IFFmpegListener() {
                     @Override
                     public void onFinish() {
                         emitter.onComplete();
@@ -118,6 +121,7 @@ public class RxFFmpegInvoke {
 
     /**
      * 执行ffmpeg cmd
+     *
      * @param commands
      * @return
      */
@@ -130,25 +134,45 @@ public class RxFFmpegInvoke {
 
     /**
      * 设置是否处于调试状态
+     *
      * @param debug
      */
     public native void setDebug(boolean debug);
 
+    /**
+     * 内部进度回调
+     *
+     * @param progress
+     */
     public void onProgress(int progress) {
-        if (ffmpegListener != null)
+        if (ffmpegListener != null) {
             ffmpegListener.onProgress(progress);
+        }
     }
 
+    /**
+     * 执行完成
+     */
     public void onFinish() {
-        if (ffmpegListener != null)
+        if (ffmpegListener != null) {
             ffmpegListener.onFinish();
+        }
     }
 
+    /**
+     * 执行取消
+     */
     public void onCancel() {
-        if (ffmpegListener != null)
+        if (ffmpegListener != null) {
             ffmpegListener.onCancel();
+        }
     }
 
+    /**
+     * 执行出错
+     *
+     * @param message
+     */
     public void onError(String message) {
         if (ffmpegListener != null)
             ffmpegListener.onError(message);
@@ -160,6 +184,7 @@ public class RxFFmpegInvoke {
 
     /**
      * 设置执行监听
+     *
      * @param ffmpegListener
      */
     public void setFFmpegListener(IFFmpegListener ffmpegListener) {
@@ -171,8 +196,11 @@ public class RxFFmpegInvoke {
      */
     public interface IFFmpegListener {
         void onFinish();
+
         void onProgress(int progress);
+
         void onCancel();
+
         void onError(String message);
     }
 

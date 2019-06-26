@@ -11,27 +11,23 @@ import android.widget.Toast;
 
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
-import io.microshow.rxffmpeg.RxFFmpegCommandSupport;
 import io.microshow.rxffmpeg.RxFFmpegInvoke;
 import io.microshow.rxffmpeg.RxFFmpegSubscriber;
 import io.microshow.rxffmpegdemo.databinding.ActivityMainBinding;
 import io.reactivex.functions.Consumer;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = MainActivity.class.getSimpleName();
-
-//    String path = Environment.getExternalStorageDirectory().getPath();
 
     //需要申请的权限，必须先在AndroidManifest.xml有声明，才可以动态获取权限
     private static String[] PERMISSIONS_STORAGE = {
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
-
     private ActivityMainBinding binding;
 
-    private  ProgressDialog mProgressDialog;
+    private ProgressDialog mProgressDialog;
 
     //权限
     private RxPermissions rxPermissions = null;
@@ -49,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     if (aBoolean) {// 用户同意了权限
                         runFFmpegRxJava();
                     } else {//用户拒绝了权限
-                        Toast.makeText(MainActivity.this,"您拒绝了权限，请往设置里开启权限",Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "您拒绝了权限，请往设置里开启权限", Toast.LENGTH_LONG).show();
                     }
                 }
             });
@@ -70,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     /**
      * rxjava方式调用
      */
-    private void runFFmpegRxJava () {
+    private void runFFmpegRxJava() {
         openProgressDialog();
 
         final String text = binding.editText.getText().toString();
@@ -112,9 +108,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mProgressDialog = Utils.openProgressDialog(this);
     }
 
-    private void showDialog (String message) {
+    private void showDialog(String message) {
         endTime = System.nanoTime();
-        Utils.showDialog(this, message, Utils.convertUsToTime((endTime-startTime)/1000, false));
+        Utils.showDialog(this, message, Utils.convertUsToTime((endTime - startTime) / 1000, false));
     }
 
 }

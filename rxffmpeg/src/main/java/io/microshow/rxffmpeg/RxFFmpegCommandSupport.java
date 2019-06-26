@@ -6,7 +6,7 @@ package io.microshow.rxffmpeg;
  */
 public class RxFFmpegCommandSupport {
 
-    public static String[] getBoxblur () {
+    public static String[] getBoxblur() {
         RxFFmpegCommandList cmdlist = new RxFFmpegCommandList();
         cmdlist.append("-i");
         cmdlist.append("/storage/emulated/0/1/input.mp4");

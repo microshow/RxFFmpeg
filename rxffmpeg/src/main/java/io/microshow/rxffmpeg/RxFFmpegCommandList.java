@@ -8,7 +8,7 @@ import java.util.ArrayList;
  */
 public class RxFFmpegCommandList extends ArrayList<String> {
 
-    public RxFFmpegCommandList () {
+    public RxFFmpegCommandList() {
         super();
         this.add("ffmpeg");
         this.add("-y");
@@ -17,7 +17,7 @@ public class RxFFmpegCommandList extends ArrayList<String> {
     /**
      * 清除命令集合
      */
-    public void clearCommands () {
+    public void clearCommands() {
         this.clear();
     }
 
@@ -26,7 +26,7 @@ public class RxFFmpegCommandList extends ArrayList<String> {
         return this;
     }
 
-    public String[] build () {
+    public String[] build() {
         String[] command = new String[this.size()];
         for (int i = 0; i < this.size(); i++) {
             command[i] = this.get(i);

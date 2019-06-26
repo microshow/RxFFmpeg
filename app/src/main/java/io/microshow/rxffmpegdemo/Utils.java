@@ -17,7 +17,8 @@ public class Utils {
 
     /**
      * 微秒转换为 时分秒毫秒,如 00:00:00.000
-     * @param us 微秒
+     *
+     * @param us           微秒
      * @param autoEllipsis true:如果小时为0，则这样显示00:00.000;  false:全部显示 00:00:00.000
      * @return
      */
@@ -53,7 +54,7 @@ public class Utils {
             if (hour > 0) {
                 mUsDurationText.append(strHour).append(":");
             }
-        }else {
+        } else {
             mUsDurationText.append(strHour).append(":");
         }
         mUsDurationText.append(strMinute).append(":")
@@ -61,7 +62,7 @@ public class Utils {
         return mUsDurationText.toString();
     }
 
-    public static void showDialog (Context context, String message, String runTime) {
+    public static void showDialog(Context context, String message, String runTime) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("提示");
         builder.setMessage(message + "\n\n耗时时间：" + runTime);
