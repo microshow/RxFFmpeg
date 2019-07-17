@@ -17,8 +17,8 @@ public class RxFFmpegInvoke {
     public static final String TAG = RxFFmpegInvoke.class.getSimpleName();
 
     static {
-        System.loadLibrary("ffmpeg-core");
-        System.loadLibrary("ffmpeg-invoke");
+        System.loadLibrary("rxffmpeg-core");
+        System.loadLibrary("rxffmpeg-invoke");
     }
 
     private static volatile RxFFmpegInvoke instance;
