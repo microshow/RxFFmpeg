@@ -19,7 +19,7 @@ Language: [English](README_EN.md)
 
 同时因广大开发者要求此项目提供arm64-v8a平台的支持，本项目在近期会提供arm64-v8a的支持，同时对代码及性能做了不少的优化，性能大大提升，在这里感谢大家一如既往的支持！
 
-**已发布 V2.0.0 版本，新增支持arm64-v8a平台，同时对代码及性能做了不少的优化，性能大大提升，欢迎更新**
+**已发布 V2.0.0 版本，新增支持arm64-v8a平台，同时对代码及性能做了不少的优化，转码效率大大提升【强力推荐更新】**
 
 
 # 编译环节
@@ -66,7 +66,7 @@ libavdevice
 libavfilter 
 libswscale 
 libswresample 
-libpostproc 最终打包成一个libffmpeg-core.so核心库方便依赖使用，无需导入七八个so库**
+libpostproc 最终打包成一个librxffmpeg-core.so核心库方便依赖使用，无需导入七八个so库**
 
 * **支持libx264编码库，可以使压缩后的视频体积变的极小，清晰度还保持着很高清，简单的压缩命令: ffmpeg -y -i /storage/emulated/0/1/input.mp4 -b 2097k -r 30 -vcodec libx264 -preset superfast /storage/emulated/0/1/result.mp4**
 
