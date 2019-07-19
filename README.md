@@ -198,6 +198,12 @@ RxFFmpegInvoke.getInstance().exit();
 
 <img src="/preview/icon/screen-shot.gif" alt="图-1：screenShot.gif" width="320px"></img>
 
+## 性能比对：arm64-v8a VS armeabi-v7a
+<img src="/preview/icon/run_time_arm64-v8a.jpg" alt="图-2：arm64-v8a" width="320px"></img>
+<img src="/preview/icon/run_time_armeabi-v7a.jpg" alt="图-1：armeabi-v7a" width="320px"></img>
+
+>总结：可以看出arm64-v8a架构的运行效率远大于armeabi-v7a，强烈建议在你的App添加arm64-v8a架构的so,同时也是响应Google的号召。
+
 # 下载体验
 
 | 扫码 or [点击下载](https://github.com/microshow/RxFFmpeg/raw/master/preview/app-debug.apk)  | 
