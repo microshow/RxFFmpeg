@@ -104,6 +104,8 @@ dependencies {
 
 ```
 
+如果你的App只要v7a平台，可以只保留armeabi-v7a，不过推荐加上arm64-v8a架构，这样性能会大大提升
+
 ```groovy
 
 defaultConfig {
