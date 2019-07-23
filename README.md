@@ -140,28 +140,28 @@ String[] commands = text.split(" ");
 RxFFmpegInvoke.getInstance().runCommandRxJava(commands).subscribe(new RxFFmpegSubscriber() {
             @Override
             public void onFinish() {
-                if (mProgressDialog != null)
-                    mProgressDialog.cancel();
+                Optional.ofNullable(mProgressDialog)
+                        .ifPresent(ProgressDialog::cancel);
                 showDialog("处理成功");
             }
 
             @Override
             public void onProgress(int progress) {
-                if (mProgressDialog != null)
-                    mProgressDialog.setProgress(progress);
+                Optional.ofNullable(mProgressDialog)
+                        .ifPresent(pd -> pd.setProgress(progress));
             }
 
             @Override
             public void onCancel() {
-                if (mProgressDialog != null)
-                    mProgressDialog.cancel();
+                Optional.ofNullable(mProgressDialog)
+                        .ifPresent(ProgressDialog::cancel);
                 showDialog("已取消");
             }
 
             @Override
             public void onError(String message) {
-                if (mProgressDialog != null)
-                    mProgressDialog.cancel();
+                Optional.ofNullable(mProgressDialog)
+                        .ifPresent(ProgressDialog::cancel);
                 showDialog("出错了 onError：" + message);
             }
         });
