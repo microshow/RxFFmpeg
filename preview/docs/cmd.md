@@ -62,6 +62,14 @@ ffmpeg -y -i /storage/emulated/0/1/input.mp4 -i /storage/emulated/0/1/1.png -fil
 
 ```
 
+* Gif转视频
+
+```java
+
+ffmpeg -y -i /storage/emulated/0/1/input.gif -pix_fmt yuv420p -preset superfast /storage/emulated/0/1/result.mp4
+
+```
+
 # 音频处理
 
 * 音频拼接
