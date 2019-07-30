@@ -38,6 +38,14 @@ ffmpeg -y -i /storage/emulated/0/1/input.mp4 -f image2 -r 1 -q:v 10 -preset supe
 
 ```
 
+* 截取指定时间的一张图)
+
+```java
+
+ffmpeg -y -i /storage/emulated/0/1/input.mp4 -f image2 -ss 00:00:03 -vframes 1 -preset superfast /storage/emulated/0/1/result.jpg
+
+```
+
 * 添加背景音乐（支持调节原音和配乐的音量）
 
 ```java
