@@ -85,10 +85,10 @@ public class RxFFmpegInvoke {
      * @param command
      * @return
      */
-    public Flowable<Integer> runCommandRxJava(final String[] command) {
-        return Flowable.create(new FlowableOnSubscribe<Integer>() {
+    public Flowable<RxFFmpegProgress> runCommandRxJava(final String[] command) {
+        return Flowable.create(new FlowableOnSubscribe<RxFFmpegProgress>() {
             @Override
-            public void subscribe(final FlowableEmitter<Integer> emitter) {
+            public void subscribe(final FlowableEmitter<RxFFmpegProgress> emitter) {
                 setFFmpegListener(new RxFFmpegInvoke.IFFmpegListener() {
                     @Override
                     public void onFinish() {
@@ -96,14 +96,14 @@ public class RxFFmpegInvoke {
                     }
 
                     @Override
-                    public void onProgress(int progress) {
-                        emitter.onNext(progress);
+                    public void onProgress(int progress, long progressTime) {
+                        emitter.onNext(new RxFFmpegProgress(RxFFmpegSubscriber.STATE_PROGRESS, progress, progressTime));
                     }
 
                     @Override
                     public void onCancel() {
                         //设为-100 作为取消状态
-                        emitter.onNext(RxFFmpegSubscriber.STATE_CANCEL);
+                        emitter.onNext(new RxFFmpegProgress(RxFFmpegSubscriber.STATE_CANCEL));
                     }
 
                     @Override
@@ -142,11 +142,12 @@ public class RxFFmpegInvoke {
     /**
      * 内部进度回调
      *
-     * @param progress
+     * @param progress     执行进度
+     * @param progressTime 执行的时间，相对于总时间 单位：微秒
      */
-    public void onProgress(int progress) {
+    public void onProgress(int progress, long progressTime) {
         if (ffmpegListener != null) {
-            ffmpegListener.onProgress(progress);
+            ffmpegListener.onProgress(progress, progressTime);
         }
     }
 
@@ -174,8 +175,9 @@ public class RxFFmpegInvoke {
      * @param message
      */
     public void onError(String message) {
-        if (ffmpegListener != null)
+        if (ffmpegListener != null) {
             ffmpegListener.onError(message);
+        }
     }
 
     public IFFmpegListener getFFmpegListener() {
@@ -195,13 +197,32 @@ public class RxFFmpegInvoke {
      * IFFmpegListener监听接口
      */
     public interface IFFmpegListener {
+
+        /**
+         * 执行完成
+         */
         void onFinish();
 
-        void onProgress(int progress);
+        /**
+         * 进度回调
+         *
+         * @param progress     执行进度
+         * @param progressTime 执行的时间，相对于总时间 单位：微秒
+         */
+        void onProgress(int progress, long progressTime);
 
+        /**
+         * 执行取消
+         */
         void onCancel();
 
+        /**
+         * 执行出错
+         *
+         * @param message
+         */
         void onError(String message);
+
     }
 
 }

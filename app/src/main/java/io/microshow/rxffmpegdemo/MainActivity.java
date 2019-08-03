@@ -16,7 +16,7 @@ import io.microshow.rxffmpeg.RxFFmpegSubscriber;
 import io.microshow.rxffmpegdemo.databinding.ActivityMainBinding;
 import io.reactivex.functions.Consumer;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private ActivityMainBinding binding;
 
-    private ProgressDialog mProgressDialog;
+    private  ProgressDialog mProgressDialog;
 
     //权限
     private RxPermissions rxPermissions = null;
@@ -45,10 +45,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     if (aBoolean) {// 用户同意了权限
                         runFFmpegRxJava();
                     } else {//用户拒绝了权限
-                        Toast.makeText(MainActivity.this, "您拒绝了权限，请往设置里开启权限", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this,"您拒绝了权限，请往设置里开启权限",Toast.LENGTH_LONG).show();
                     }
                 }
             });
+
         }
     }
 
@@ -66,38 +67,43 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     /**
      * rxjava方式调用
      */
-    private void runFFmpegRxJava() {
+    private void runFFmpegRxJava () {
         openProgressDialog();
 
         final String text = binding.editText.getText().toString();
         String[] commands = text.split(" ");
-//        String[] commands = RxFFmpegCommandSupport.getBoxblur();
 
         RxFFmpegInvoke.getInstance().runCommandRxJava(commands).subscribe(new RxFFmpegSubscriber() {
             @Override
             public void onFinish() {
-                if (mProgressDialog != null)
+                if (mProgressDialog != null) {
                     mProgressDialog.cancel();
+                }
                 showDialog("处理成功");
             }
 
             @Override
-            public void onProgress(int progress) {
-                if (mProgressDialog != null)
+            public void onProgress(int progress, long progressTime) {
+                if (mProgressDialog != null) {
                     mProgressDialog.setProgress(progress);
+                    //progressTime 可以在结合视频总时长去计算合适的进度值
+                    mProgressDialog.setMessage("已处理progressTime="+(double)progressTime/1000000+"秒");
+                }
             }
 
             @Override
             public void onCancel() {
-                if (mProgressDialog != null)
+                if (mProgressDialog != null) {
                     mProgressDialog.cancel();
+                }
                 showDialog("已取消");
             }
 
             @Override
             public void onError(String message) {
-                if (mProgressDialog != null)
+                if (mProgressDialog != null) {
                     mProgressDialog.cancel();
+                }
                 showDialog("出错了 onError：" + message);
             }
         });
@@ -108,9 +114,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mProgressDialog = Utils.openProgressDialog(this);
     }
 
-    private void showDialog(String message) {
+    private void showDialog (String message) {
         endTime = System.nanoTime();
-        Utils.showDialog(this, message, Utils.convertUsToTime((endTime - startTime) / 1000, false));
+        Utils.showDialog(this, message, Utils.convertUsToTime((endTime-startTime)/1000, false));
     }
 
 }
