@@ -38,6 +38,14 @@ ffmpeg -y -i /storage/emulated/0/1/input.mp4 -f image2 -r 1 -q:v 10 -preset supe
 
 ```
 
+* 截取指定时间的一张图)
+
+```java
+
+ffmpeg -y -i /storage/emulated/0/1/input.mp4 -f image2 -ss 00:00:03 -vframes 1 -preset superfast /storage/emulated/0/1/result.jpg
+
+```
+
 * 添加背景音乐（支持调节原音和配乐的音量）
 
 ```java
@@ -51,6 +59,14 @@ ffmpeg -y -i /storage/emulated/0/1/input.mp4 -i /storage/emulated/0/1/input.mp3 
 ```java
 
 ffmpeg -y -i /storage/emulated/0/1/input.mp4 -i /storage/emulated/0/1/1.png -filter_complex [0:v]scale=iw:ih[outv0];[1:0]scale=0.0:0.0[outv1];[outv0][outv1]overlay=0:0 -preset superfast /storage/emulated/0/1/result.mp4
+
+```
+
+* Gif转视频
+
+```java
+
+ffmpeg -y -i /storage/emulated/0/1/input.gif -pix_fmt yuv420p -preset superfast /storage/emulated/0/1/result.mp4
 
 ```
 
