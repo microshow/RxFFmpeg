@@ -235,6 +235,7 @@ RxFFmpegInvoke.getInstance().exit();
 [![](https://pp.myapp.com/ma_icon/0/icon_53260423_1565165298/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.aiso.tea)
 [![](http://www.aniic.com/public/l/18.4d1e77d4.png)](http://www.aniic.com/share/download?tdsourcetag=s_pcqq_aiomsg)
 [![](https://pp.myapp.com/ma_icon/0/icon_42373340_1567047517/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.jycj.juyuanmeihui)
+[![](https://pp.myapp.com/ma_icon/0/icon_12205109_1570448862/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.peace.guitarmusic)
 
 
 
