@@ -245,6 +245,15 @@ QQ Email: 986386695@qq.com
 | :--------:   |
 | <img src="/preview/icon/qqGroup.jpg" alt="图-1：qqGroup" width="260px" />  | 
 
+# 感谢
+
+撸码不易，如果觉得帮您节省了大量的开发时间，对您有所帮助，欢迎您的赞赏！
+
+| 微信赞赏  |
+| :--------:   |
+| <img src="/preview/icon/weixinPay.jpg" alt="图-1：weixin" width="260px" />  |
+
+
 # License
 
 ```text
