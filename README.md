@@ -251,7 +251,7 @@ QQ Email: 986386695@qq.com
 
 | 微信赞赏  |
 | :--------:   |
-| <img src="/preview/icon/weixinPay.jpg" alt="图-1：weixin" width="260px" />  |
+| <img src="/preview/icon/weixinPay.png" alt="图-1：weixin" width="260px" />  |
 
 
 # License
