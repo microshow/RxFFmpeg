@@ -234,6 +234,7 @@ RxFFmpegInvoke.getInstance().exit();
 [![](https://pp.myapp.com/ma_icon/0/icon_42373340_1567047517/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.jycj.juyuanmeihui)
 [![](https://pp.myapp.com/ma_icon/0/icon_52743084_1555772496/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.peace.calligraphy)
 [![](https://pp.myapp.com/ma_icon/0/icon_12205109_1570448862/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.peace.guitarmusic)
+[![](https://pp.myapp.com/ma_icon/0/icon_52873563_1570726608/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.queen.oa.xt)
 
 
 
