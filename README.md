@@ -276,7 +276,7 @@ QQ Email: 986386695@qq.com
 
 # 扩展项目
 
-**[百变魔音](https://github.com/microshow/AiSound)**
+**[AiSound百变魔音](https://github.com/microshow/AiSound)**
 
 
 # License
