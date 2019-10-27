@@ -274,6 +274,11 @@ QQ Email: 986386695@qq.com
 | <img src="/preview/icon/weixinPay.png" alt="图-1：weixin" width="260px" />  |
 
 
+# 扩展项目
+
+**[百变魔音](https://github.com/microshow/AiSound)**
+
+
 # License
 
 ```text
