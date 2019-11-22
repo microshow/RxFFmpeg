@@ -189,7 +189,7 @@ RxFFmpegInvoke.getInstance().exit();
 
 ```
 
-* 构建命令，使用RxFFmpegCommandList构建，可以有效避免路径带有空格等问题
+* **构建命令，使用RxFFmpegCommandList构建，可以有效避免路径带有空格等问题**
 
 ```java
 
