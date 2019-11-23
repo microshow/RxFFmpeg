@@ -214,7 +214,7 @@ public static String[] getBoxblur() {
 -keep class io.microshow.rxffmpeg.**{*;}
 ```
 
-# 推荐项目
+# 优质项目
 
 ### * [GSYVideoPlayer (Android端的视频播放器神器)](https://github.com/CarGuo/GSYVideoPlayer)
 
