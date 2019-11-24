@@ -238,7 +238,7 @@ public static String[] getBoxblur() {
 
 # 下载体验
 
-| 扫码 or [点击下载](https://github.com/microshow/RxFFmpeg/raw/master/preview/app-debug.apk)  | 
+| 扫码 or [点击下载](https://github.com/microshow/RxFFmpeg/raw/master/preview/app-release.apk)  |
 | :--------:   |
 | <img src="/preview/icon/apk-qr.png" alt="图-1：扫码下载体验" width="260px" />       | 
 

@@ -3,12 +3,14 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion compileSdkValue
     defaultConfig {
-        applicationId "io.microshow.rxffmpegdemo"
+        applicationId "io.microshow.rxffmpeg.app"
         minSdkVersion minSdkValue
         targetSdkVersion targetSdkValue
         versionCode versionCodeValue
         versionName versionNameValue
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        multiDexEnabled true
 
         ndk {
             abiFilters "armeabi-v7a","arm64-v8a"
@@ -16,16 +18,32 @@ android {
 
     }
 
+    //签名
+    signingConfigs {
+        release {
+            storeFile file("keystore/rxffmpeg.jks")
+            storePassword "rxffmpeg2019"
+            keyAlias "rxffmpeg"
+            keyPassword "rxffmpeg2019"
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }
+
     buildTypes {
         debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            applicationIdSuffix ".debug"
+//            applicationIdSuffix ".debug"
+            //签名
+            signingConfig signingConfigs.release
         }
 
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //签名
+            signingConfig signingConfigs.release
         }
     }
 
@@ -50,6 +68,8 @@ dependencies {
 
     //动态权限
     implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
+    //baidu mtj-sdk
+    implementation 'com.baidu.mobstat:mtj-sdk-circle:3.9.3.9'
 
     implementation project(path: ':rxffmpeg')
 
