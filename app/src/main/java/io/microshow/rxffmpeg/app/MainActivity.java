@@ -114,13 +114,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void openProgressDialog() {
+        //统计开始时间
         startTime = System.nanoTime();
         mProgressDialog = Utils.openProgressDialog(this);
     }
 
     private void showDialog (String message) {
+        //统计结束时间
         endTime = System.nanoTime();
         Utils.showDialog(this, message, Utils.convertUsToTime((endTime-startTime)/1000, false));
+        StatService.onEventDuration(this, "RunFFmpegCommand", binding.editText.getText().toString(),(endTime-startTime)/(1000*1000));
     }
 
 }
