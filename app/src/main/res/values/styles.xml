@@ -10,4 +10,12 @@
         <item name="colorButtonNormal">@color/colorAccent</item>
     </style>
 
+    <style name="AppTheme.Launcher">
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
 </resources>

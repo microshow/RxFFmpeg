@@ -3,8 +3,6 @@ package io.microshow.rxffmpeg.app;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
-import android.databinding.DataBindingUtil;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -12,6 +10,8 @@ import android.widget.Toast;
 import com.baidu.mobstat.StatService;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import io.microshow.rxffmpeg.RxFFmpegInvoke;
 import io.microshow.rxffmpeg.RxFFmpegSubscriber;
 import io.microshow.rxffmpeg.app.databinding.ActivityMainBinding;

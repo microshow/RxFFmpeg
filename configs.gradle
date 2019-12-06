@@ -1,7 +1,7 @@
 ext {
     /*---- 官方 Support 库、Build 工具版本、主配文件参数 ----*/
     //最小SDK版本
-    minSdkValue = 16
+    minSdkValue = 19
     //目标版本
     targetSdkValue = 28
     //编译 SDK 版本
