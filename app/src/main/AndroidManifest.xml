@@ -26,7 +26,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
 
-        <activity android:name="io.microshow.rxffmpeg.app.LaunchActivity"
+        <activity android:name="io.microshow.rxffmpeg.app.activity.LaunchActivity"
             android:theme="@style/AppTheme.Launcher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,7 +35,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="io.microshow.rxffmpeg.app.MainActivity" />
+        <activity android:name="io.microshow.rxffmpeg.app.activity.MainActivity" />
 
 
         <!-- 记录崩溃日志 -->

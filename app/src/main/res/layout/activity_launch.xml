@@ -5,7 +5,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FFF">
+        android:background="@color/colorPrimary">
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lottieAnimationView"
