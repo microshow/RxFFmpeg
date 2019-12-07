@@ -43,24 +43,20 @@ public class FindFragment extends BaseFragment<FragmentFindBinding> {
 
     @Override
     public void onResume() {
-        agentWeb.getWebLifeCycle().onResume();
         super.onResume();
     }
 
     @Override
     public void onPause() {
-        agentWeb.getWebLifeCycle().onPause();
         super.onPause();
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
+        if (agentWeb != null) {
+            agentWeb.destroy();
+        }
     }
 
-    @Override
-    public void onDestroyView() {
-        agentWeb.getWebLifeCycle().onDestroy();
-        super.onDestroyView();
-    }
 }
