@@ -71,12 +71,17 @@ dependencies {
 
     //动态权限
     implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
+
     //baidu mtj-sdk
     implementation 'com.baidu.mobstat:mtj-sdk-circle:3.9.3.9'
 
+    //lottie
     implementation 'com.airbnb.android:lottie:3.3.0'
 
-    implementation 'com.just.agentweb:agentweb:4.1.2'
+    //agentweb
+    implementation 'com.just.agentweb:agentweb:4.1.2'// (必选)
+    implementation 'com.just.agentweb:filechooser:4.1.2'// (可选)
+    implementation 'com.download.library:Downloader:4.1.2'// (可选)
 
     implementation project(path: ':rxffmpeg')
 
