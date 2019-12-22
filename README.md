@@ -236,7 +236,7 @@ public static String[] getBoxblur() {
 
 >总结：可以看出arm64-v8a架构的运行效率远大于armeabi-v7a，强烈建议在你的App添加arm64-v8a架构的so,同时也是响应Google的号召。
 
-# 下载体验
+# 【官方App】下载体验
 
 | 扫码 or [点击下载](https://github.com/microshow/RxFFmpeg/raw/master/preview/app-release.apk)  |
 | :--------:   |
