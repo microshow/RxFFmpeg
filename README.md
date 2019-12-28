@@ -220,6 +220,9 @@ public static String[] getBoxblur() {
 
 ### * [AiSound百变魔音 (一个神奇的魔法声音)](https://github.com/microshow/AiSound)
 
+### * [RetrofitGO (轻量级的网络请求库-支持缓存配置)](https://github.com/microshow/RetrofitGO)
+
+
 # 常用命令
 
 ### * [常用命令汇总](preview/docs/cmd.md)
