@@ -16,6 +16,7 @@ import io.microshow.rxffmpeg.app.R;
 import io.microshow.rxffmpeg.app.fragment.FindFragment;
 import io.microshow.rxffmpeg.app.fragment.HomeFragment;
 import io.microshow.rxffmpeg.app.databinding.ActivityMainBinding;
+import io.microshow.rxffmpeg.app.fragment.MeFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -25,11 +26,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private FragmentTabHost myTabhost;
 
-    private String homeTabTexts[] = {"剪辑", "发现"};
+    private String homeTabTexts[] = {"剪辑", "圈子", "我"};
 
     //加载的Fragment
     private Class mFragment[] = {
-            HomeFragment.class, FindFragment.class
+            HomeFragment.class, FindFragment.class, MeFragment.class
     };
 
     @Override
@@ -80,10 +81,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 
         Fragment mFragment = getSupportFragmentManager().findFragmentByTag(myTabhost.getCurrentTabTag());
-        FindFragment mFindFragment = null;
+        MeFragment mFindFragment = null;
 
-        if (mFragment instanceof FindFragment) {
-            mFindFragment = (FindFragment) mFragment;
+        if (mFragment instanceof MeFragment) {
+            mFindFragment = (MeFragment) mFragment;
         }
 
         if (mFindFragment != null && mFindFragment.onKeyDown(keyCode, event)) {
