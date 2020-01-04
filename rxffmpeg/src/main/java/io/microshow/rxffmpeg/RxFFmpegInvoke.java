@@ -140,6 +140,13 @@ public class RxFFmpegInvoke {
     public native void setDebug(boolean debug);
 
     /**
+     * 获取媒体文件信息
+     * @param filePath 音视频路径
+     * @return info
+     */
+    public native String getMediaInfo(String filePath);
+
+    /**
      * 内部进度回调
      *
      * @param progress     执行进度

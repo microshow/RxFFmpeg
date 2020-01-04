@@ -1,21 +1,16 @@
 package io.microshow.rxffmpeg.app.fragment;
 
 import android.os.Bundle;
-import android.view.KeyEvent;
-import android.widget.LinearLayout;
-
-import com.just.agentweb.AgentWeb;
 
 import androidx.annotation.Nullable;
 import io.microshow.rxffmpeg.app.R;
 import io.microshow.rxffmpeg.app.databinding.FragmentFindBinding;
 
 /**
+ * 发现
  * Created by Super on 2019/12/7.
  */
 public class FindFragment extends BaseFragment<FragmentFindBinding> {
-
-    private AgentWeb agentWeb;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,16 +24,7 @@ public class FindFragment extends BaseFragment<FragmentFindBinding> {
 
     @Override
     public void initData() {
-        agentWeb = AgentWeb.with(this)
-                .setAgentWebParent(binding.llFind, new LinearLayout.LayoutParams(-1, -1))
-                .useDefaultIndicator()
-                .createAgentWeb()
-                .ready()
-                .go("https://github.com/microshow/RxFFmpeg");
-    }
 
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        return agentWeb != null && agentWeb.handleKeyEvent(keyCode, event);
     }
 
     @Override
@@ -54,9 +40,6 @@ public class FindFragment extends BaseFragment<FragmentFindBinding> {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (agentWeb != null) {
-            agentWeb.destroy();
-        }
     }
 
 }
