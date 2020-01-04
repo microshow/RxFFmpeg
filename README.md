@@ -13,6 +13,13 @@ Language: [English](README_EN.md)
 
 >RxFFmpeg 是基于 ( FFmpeg 4.0 + X264 + mp3lame + fdk-aac ) 编译的适用于 Android 平台的音视频编辑、视频剪辑的快速处理框架，包含以下功能（视频拼接，转码，压缩，裁剪，片头片尾，分离音视频，变速，添加静态贴纸和gif动态贴纸，添加字幕，添加滤镜，添加背景音乐，加速减速视频，倒放音视频，音频裁剪，**[##百变魔音##](https://github.com/microshow/AiSound)**，混音，图片合成视频，视频解码图片等主流特色功能…… 
 
+# 【官方App】下载体验
+
+| 扫码 or [点击下载](https://github.com/microshow/RxFFmpeg/raw/master/preview/app-release.apk)  |
+| :--------:   |
+| <img src="/preview/icon/apk-qr.png" alt="图-1：扫码下载体验" width="260px" />       |
+
+
 # TODO
 
 为响应Google的号召，Google Play从2019年8月1日起，在Google Play上发布app必须支持64位体系。从021年8月1日起，Google Play将停掉尚未支持64位体系的APP。
@@ -189,7 +196,7 @@ RxFFmpegInvoke.getInstance().exit();
 
 ```
 
-* **构建命令，使用RxFFmpegCommandList构建，可以有效避免路径带有空格等问题**
+* 构建命令，使用RxFFmpegCommandList构建，可以有效避免路径带有空格等问题
 
 ```java
 
@@ -206,6 +213,15 @@ public static String[] getBoxblur() {
     }
 
 ```
+
+* 获取媒体文件信息
+
+```java
+
+RxFFmpegInvoke.getInstance().getMediaInfo(String filePath);
+
+```
+
 
 # 代码混淆
 
@@ -238,12 +254,6 @@ public static String[] getBoxblur() {
 <img src="/preview/icon/run_time_armeabi-v7a.jpg" alt="图-1：armeabi-v7a" width="320px"></img>
 
 >总结：可以看出arm64-v8a架构的运行效率远大于armeabi-v7a，强烈建议在你的App添加arm64-v8a架构的so,同时也是响应Google的号召。
-
-# 【官方App】下载体验
-
-| 扫码 or [点击下载](https://github.com/microshow/RxFFmpeg/raw/master/preview/app-release.apk)  |
-| :--------:   |
-| <img src="/preview/icon/apk-qr.png" alt="图-1：扫码下载体验" width="260px" />       | 
 
 # 谁在用？
 
