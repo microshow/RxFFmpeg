@@ -297,7 +297,7 @@ QQ Email: 986386695@qq.com
 # License
 
 ```text
-Copyright 2019 Super
+Copyright 2020 Super
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
