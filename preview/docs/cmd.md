@@ -147,6 +147,17 @@ ffmpeg -y -i null.ape -ar 44100 -ac 2 -ab 16k -vol 50 -f mp3 null.mp3
 -vol <百分比> 设定音量
 
 
+# 高级用法
+
+*  图片和视频混合拼接
+
+```java
+
+ffmpeg -y -loop 1 -framerate 25 -t 10.0 -i /storage/emulated/0/1/input.jpg -ss 5.0 -t 5.04 -accurate_seek -i /storage/emulated/0/1/input.mp4 -ss 0.0 -t 5.921 -accurate_seek -i /storage/emulated/0/1/input2.mp4 -f lavfi -t 10.0 -i anullsrc=channel_layout=stereo:sample_rate=44100 -filter_complex [0:v]scale=260.0:260.0,pad=320:260:30.0:0.0,setdar=320/260[outv0];[1:v]scale=320.0:256.0,pad=320:260:0.0:2.0,setdar=320/260[outv1];[2:v]scale=320.0:180.0,pad=320:260:0.0:40.0,setdar=320/260[outv2];[outv0][outv1][outv2]concat=n=3:v=1:a=0:unsafe=1[outv];[3:a][1:a][2:a]concat=n=3:v=0:a=1[outa] -map [outv] -map [outa] -r 25 -b 1M -f mp4 -t 20.961 -vcodec libx264 -c:a aac -pix_fmt yuv420p -s 320x260 -preset superfast /storage/emulated/0/1/result.mp4
+
+```
+
+
 
 # 其它
 
