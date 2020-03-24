@@ -70,6 +70,14 @@ ffmpeg -y -i /storage/emulated/0/1/input.gif -pix_fmt yuv420p -preset superfast 
 
 ```
 
+* 图片合成视频（带动画）
+
+```java
+
+ffmpeg -y -loop 1 -r 25 -i /storage/emulated/0/1/input.png -vf zoompan=z=1.1:x='if(eq(x,0),100,x-1)':s='960*540' -t 10 -pix_fmt yuv420p /storage/emulated/0/1/result.mp4
+
+```
+
 # 音频处理
 
 * 音频拼接
@@ -149,7 +157,7 @@ ffmpeg -y -i null.ape -ar 44100 -ac 2 -ab 16k -vol 50 -f mp3 null.mp3
 
 # 高级用法
 
-*  图片和视频混合拼接
+*  图片+视频+视频 混合拼接
 
 ```java
 
