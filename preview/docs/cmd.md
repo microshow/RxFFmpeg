@@ -58,7 +58,7 @@ ffmpeg -y -i /storage/emulated/0/1/input.mp4 -i /storage/emulated/0/1/input.mp3 
 
 ```java
 
-ffmpeg -y -i /storage/emulated/0/1/input.mp4 -i /storage/emulated/0/1/1.png -filter_complex [0:v]scale=iw:ih[outv0];[1:0]scale=0.0:0.0[outv1];[outv0][outv1]overlay=0:0 -preset superfast /storage/emulated/0/1/result.mp4
+ffmpeg -y -i /storage/emulated/0/1/input.mp4 -i /storage/emulated/0/1/input.png -filter_complex [0:v]scale=iw:ih[outv0];[1:0]scale=0.0:0.0[outv1];[outv0][outv1]overlay=0:0 -preset superfast /storage/emulated/0/1/result.mp4
 
 ```
 
