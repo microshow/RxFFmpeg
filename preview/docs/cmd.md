@@ -165,11 +165,19 @@ ffmpeg -y -loop 1 -framerate 25 -t 10.0 -i /storage/emulated/0/1/input.jpg -ss 5
 
 ```
 
-*  视频片尾添加3秒的图片视频
+*  视频[片尾]添加3秒的图片视频
 
 ```java
 
 ffmpeg -y -i /storage/emulated/0/1/input.mp4 -loop 1 -framerate 25 -t 3.0 -i /storage/emulated/0/1/input.png -f lavfi -t 3.0 -i anullsrc=channel_layout=stereo:sample_rate=44100 -filter_complex [0:v]scale=iw:ih[outv0];[1:v]scale=iw:ih[outv1];[outv0][outv1]concat=n=2:v=1:a=0:unsafe=1[outv];[0:a][2:a]concat=n=2:v=0:a=1[outa] -map [outv] -map [outa] -r 25 -b 1M -f mp4 -vcodec libx264 -c:a aac -pix_fmt yuv420p -s 960x540 -preset superfast /storage/emulated/0/1/result.mp4
+
+```
+
+*  视频[片头]添加3秒的图片视频
+
+```java
+
+ffmpeg -y -loop 1 -framerate 1 -t 3 -i /storage/emulated/0/1/input.png -i /storage/emulated/0/1/input.mp4 -f lavfi -t 3.0 -i anullsrc=channel_layout=stereo:sample_rate=44100 -filter_complex [0:v]scale=iw:ih[outv0];[1:v]scale=iw:ih[outv1];[outv0][outv1]concat=n=2:v=1:a=0:unsafe=1[outv];[2:a][1:a]concat=n=2:v=0:a=1[outa] -map [outv] -map [outa] -r 15 -b 1M -f mp4 -vcodec libx264 -c:a aac -pix_fmt yuv420p -s 960x540 -preset superfast /storage/emulated/0/1/result.mp4
 
 ```
 
