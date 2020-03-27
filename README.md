@@ -280,7 +280,7 @@ RxFFmpegInvoke.getInstance().getMediaInfo(String filePath);
 
 # 沟通无限
 
-QQ Email: 986386695@qq.com
+欢迎加入高质量音视频交流群，RxFFmpeg助力您学习移动端音视频!
 
 | QQ群：799934185  | 
 | :--------:   |
