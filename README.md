@@ -283,7 +283,7 @@ RxFFmpegInvoke.getInstance().getMediaInfo(String filePath);
 
 # 沟通无限
 
-欢迎加入高质量音视频交流群，RxFFmpeg助力您学习移动端音视频!
+欢迎加入高质量音视频交流群，RxFFmpeg助力您学习移动端音视频！
 
 | QQ群：799934185  | 
 | :--------:   |
