@@ -275,9 +275,6 @@ RxFFmpegInvoke.getInstance().getMediaInfo(String filePath);
 [![](https://pp.myapp.com/ma_icon/0/icon_53899619_1572422746/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.shifenkexue.appscience)
 [![](https://pp.myapp.com/ma_icon/0/icon_53923023_1570761579/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.sixsix.call)
 [![](https://pp.myapp.com/ma_icon/0/icon_52649928_1583549532/96)](https://sj.qq.com/myapp/detail.htm?apkName=scs.com.crosscountry)
-[![](https://pp.myapp.com/ma_icon/0/icon_53911664_1583749473/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.orangemedia.logojun)
-[![](https://pp.myapp.com/ma_icon/0/icon_53958564_1583844709/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.orangemedia.avatar)
-[![](https://pp.myapp.com/ma_icon/0/icon_53596298_1574248617/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.orangemedia.watermark)
 
 
 
