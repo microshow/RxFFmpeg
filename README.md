@@ -255,6 +255,21 @@ RxFFmpegInvoke.getInstance().getMediaInfo(String filePath);
 
 >总结：可以看出arm64-v8a架构的运行效率远大于armeabi-v7a，强烈建议在你的App添加arm64-v8a架构的so,同时也是响应Google的号召。
 
+# 实验室
+
+## 抖音首页视频翻页
+
+* 视频适配方案
+  * 竖屏视频：高宽比例 >= 16/9，则全屏铺满，反之采取第二方案
+  * 横屏及其他比例视频：宽度铺满，高度自适应，背景虚化效果
+
+* 支持视频预缓存
+
+* 视频播放器基于ExoPlayer
+
+<img src="/preview/icon/screen_douyin_home.gif" alt="图-1：screen_douyin_home.gif" width="320px"></img>
+
+
 # 谁在用？
 
 >按登记顺序排序，更多接入APP，欢迎在https://github.com/microshow/RxFFmpeg/issues/37 登记（供开源用户参考）
