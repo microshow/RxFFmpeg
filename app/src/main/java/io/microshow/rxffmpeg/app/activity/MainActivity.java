@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private FragmentTabHost myTabhost;
 
-    private String homeTabTexts[] = {"剪辑", "圈子", "我"};
+    private String homeTabTexts[] = {"剪辑", "实验室", "我"};
 
     //加载的Fragment
     private Class mFragment[] = {
