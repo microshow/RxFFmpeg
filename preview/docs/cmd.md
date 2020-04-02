@@ -70,6 +70,14 @@ ffmpeg -y -i /storage/emulated/0/1/input.gif -pix_fmt yuv420p -preset superfast 
 
 ```
 
+* 视频转Gif
+
+```java
+
+ffmpeg -y -ss 0 -t 7 -i /storage/emulated/0/1/input.mp4 -r 5 -s 280x606 -preset superfast /storage/emulated/0/1/result.gif
+
+```
+
 * 图片合成视频（带动画）
 
 ```java
