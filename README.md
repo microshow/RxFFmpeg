@@ -267,7 +267,7 @@ RxFFmpegInvoke.getInstance().getMediaInfo(String filePath);
 
 * 视频播放器基于ExoPlayer
 
-<img src="/preview/icon/screen_douyin_home.gif" alt="图-1：screen_douyin_home.gif" width="320px"></img>
+<img src="/preview/icon/screen_douyin_home.gif" alt="图-1：screen_douyin_home.gif"></img>
 
 
 # 谁在用？
