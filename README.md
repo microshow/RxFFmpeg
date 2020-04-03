@@ -264,9 +264,11 @@ RxFFmpegInvoke.getInstance().getMediaInfo(String filePath);
   * 竖屏视频：高宽比例 >= 16/9，则全屏铺满，反之采取第二方案
   * 横屏及其他比例视频：宽度铺满，高度自适应，背景虚化效果
 
-* 支持视频预缓存
-
 * 视频播放器基于ExoPlayer
+
+* 支持直播视频
+
+* 支持视频预缓存
 
 <img src="/preview/icon/screen_douyin_home.gif" alt="图-1：screen_douyin_home.gif" width="240px"></img>
 
