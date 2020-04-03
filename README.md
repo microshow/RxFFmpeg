@@ -20,15 +20,6 @@ Language: [English](README_EN.md)
 | <img src="/preview/icon/apk-qr.png" alt="图-1：扫码下载体验" width="260px" />       |
 
 
-# TODO
-
-为响应Google的号召，Google Play从2019年8月1日起，在Google Play上发布app必须支持64位体系。从021年8月1日起，Google Play将停掉尚未支持64位体系的APP。
-
-同时因广大开发者要求此项目提供arm64-v8a平台的支持，本项目在近期会提供arm64-v8a的支持，同时对代码及性能做了不少的优化，性能大大提升，在这里感谢大家一如既往的支持！
-
-**已发布 V2.0.0 版本，新增支持arm64-v8a平台，同时对代码及性能做了不少的优化，转码效率大大提升【强力推荐更新】** 
-
-
 # 编译环节
 
 ## 编译环境
