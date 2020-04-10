@@ -42,7 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="优质开源项目"
+                android:text="抖音首页"
                 android:textColor="@android:color/white"
                 android:textSize="17sp" />
 
