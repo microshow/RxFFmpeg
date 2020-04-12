@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.fragment.app.Fragment;
+import io.microshow.rxffmpeg.app.utils.Utils;
 
 /**
  * Created by Super on 2019/12/7.
@@ -64,6 +65,7 @@ public abstract class BaseFragment<V extends ViewDataBinding> extends Fragment {
 
     @Override
     public void onDestroy() {
+        Utils.fixInputMethodManagerLeak(getContext());
         super.onDestroy();
         if (binding != null) {
             binding.unbind();

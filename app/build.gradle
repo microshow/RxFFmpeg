@@ -83,6 +83,12 @@ dependencies {
     implementation 'com.just.agentweb:filechooser:4.1.2'// (可选)
     implementation 'com.download.library:Downloader:4.1.2'// (可选)
 
+    //leakcanary 内存泄露检测
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.2'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.2'
+    // Optional, if you use support library fragments:
+    debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.2'
+
     implementation project(path: ':rxffmpeg')
 
 //    implementation 'com.github.microshow:RxFFmpeg:2.2.0'

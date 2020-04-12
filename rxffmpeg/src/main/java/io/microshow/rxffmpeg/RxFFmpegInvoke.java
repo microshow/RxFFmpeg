@@ -57,6 +57,7 @@ public class RxFFmpegInvoke {
                 @Override
                 public void run() {
                     int ret = runFFmpegCmd(command);
+                    onClean();
                 }
             }).start();
         }
@@ -74,6 +75,7 @@ public class RxFFmpegInvoke {
         int ret;
         synchronized (RxFFmpegInvoke.class) {
             ret = runFFmpegCmd(command);
+            onClean();
             return ret;
         }
     }
@@ -113,6 +115,7 @@ public class RxFFmpegInvoke {
                 });
 
                 int ret = runFFmpegCmd(command);
+                onClean();//解决内存泄露
             }
         }, BackpressureStrategy.BUFFER)
                 .subscribeOn(Schedulers.io())
@@ -141,6 +144,7 @@ public class RxFFmpegInvoke {
 
     /**
      * 获取媒体文件信息
+     *
      * @param filePath 音视频路径
      * @return info
      */
@@ -184,6 +188,28 @@ public class RxFFmpegInvoke {
     public void onError(String message) {
         if (ffmpegListener != null) {
             ffmpegListener.onError(message);
+        }
+    }
+
+    /**
+     * 清除
+     */
+    public void onClean() {
+        //解决内存泄露
+        if (ffmpegListener != null) {
+            ffmpegListener = null;
+        }
+    }
+
+    /**
+     * 销毁实例
+     */
+    public void onDestroy() {
+        if (ffmpegListener != null) {
+            ffmpegListener = null;
+        }
+        if (instance != null) {
+            instance = null;
         }
     }
 

@@ -17,6 +17,7 @@ import io.microshow.rxffmpeg.app.fragment.FindFragment;
 import io.microshow.rxffmpeg.app.fragment.HomeFragment;
 import io.microshow.rxffmpeg.app.databinding.ActivityMainBinding;
 import io.microshow.rxffmpeg.app.fragment.MeFragment;
+import io.microshow.rxffmpeg.app.utils.Utils;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -95,4 +96,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    @Override
+    protected void onDestroy() {
+        Utils.fixInputMethodManagerLeak(this);
+        super.onDestroy();
+    }
 }
