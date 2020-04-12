@@ -97,7 +97,7 @@ allprojects {
 ```groovy
 
 dependencies {
-    implementation 'com.github.microshow:RxFFmpeg:2.3.0'
+    implementation 'com.github.microshow:RxFFmpeg:2.4.0'
 }
 
 ```
@@ -135,40 +135,42 @@ String text = "ffmpeg -y -i /storage/emulated/0/1/input.mp4 -vf boxblur=25:5 -pr
 
 String[] commands = text.split(" ");
 
-RxFFmpegInvoke.getInstance().runCommandRxJava(commands).subscribe(new RxFFmpegSubscriber() {
-            @Override
-            public void onFinish() {
-                if (mProgressDialog != null) {
-                    mProgressDialog.cancel();
-                }
-                showDialog("处理成功");
-            }
+RxFFmpegInvoke.getInstance()
+                .runCommandRxJava(commands).onTerminateDetach()
+                .subscribe(new RxFFmpegSubscriber() {
+                    @Override
+                    public void onFinish() {
+                        if (mProgressDialog != null) {
+                            mProgressDialog.cancel();
+                        }
+                        showDialog("处理成功");
+                    }
 
-            @Override
-            public void onProgress(int progress, long progressTime) {
-                if (mProgressDialog != null) {
-                    mProgressDialog.setProgress(progress);
-                    //progressTime 可以在结合视频总时长去计算合适的进度值
-                    mProgressDialog.setMessage("已处理progressTime="+(double)progressTime/1000000+"秒");
-                }
-            }
+                    @Override
+                    public void onProgress(int progress, long progressTime) {
+                        if (mProgressDialog != null) {
+                            mProgressDialog.setProgress(progress);
+                            //progressTime 可以在结合视频总时长去计算合适的进度值
+                            mProgressDialog.setMessage("已处理progressTime=" + (double) progressTime / 1000000 + "秒");
+                        }
+                    }
 
-            @Override
-            public void onCancel() {
-                if (mProgressDialog != null) {
-                    mProgressDialog.cancel();
-                }
-                showDialog("已取消");
-            }
+                    @Override
+                    public void onCancel() {
+                        if (mProgressDialog != null) {
+                            mProgressDialog.cancel();
+                        }
+                        showDialog("已取消");
+                    }
 
-            @Override
-            public void onError(String message) {
-                if (mProgressDialog != null) {
-                    mProgressDialog.cancel();
-                }
-                showDialog("出错了 onError：" + message);
-            }
-        });
+                    @Override
+                    public void onError(String message) {
+                        if (mProgressDialog != null) {
+                            mProgressDialog.cancel();
+                        }
+                        showDialog("出错了 onError：" + message);
+                    }
+                });
 ```
 
 * FFmpeg 命令执行 (同步方式)
