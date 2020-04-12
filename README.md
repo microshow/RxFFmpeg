@@ -269,6 +269,7 @@ RxFFmpegInvoke.getInstance().getMediaInfo(String filePath);
 >按登记顺序排序，更多接入APP，欢迎在https://github.com/microshow/RxFFmpeg/issues/37 登记（供开源用户参考）
 
 [![](https://pp.myapp.com/ma_icon/0/icon_42333639_1555789191/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.hndnews.main)
+[![](https://www.hndnews.com/static/images/logo.png)](https://www.hndnews.com)
 [![](https://pp.myapp.com/ma_icon/0/icon_53292925_1558869088/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.jianyi.watermarkdog)
 [![](https://pp.myapp.com/ma_icon/0/icon_52859659_1558810527/96)](https://a.app.qq.com/o/simple.jsp?pkgname=com.jmhy.tool)
 [![](https://pp.myapp.com/ma_icon/0/icon_52610077_1556520138/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.kmb2b.KmMall)
@@ -284,6 +285,7 @@ RxFFmpegInvoke.getInstance().getMediaInfo(String filePath);
 [![](https://pp.myapp.com/ma_icon/0/icon_53899619_1572422746/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.shifenkexue.appscience)
 [![](https://pp.myapp.com/ma_icon/0/icon_53923023_1570761579/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.sixsix.call)
 [![](https://pp.myapp.com/ma_icon/0/icon_54022753_1585815499/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.bigtotoro.shuiyincamera)
+[![](https://pp.myapp.com/ma_icon/0/icon_54017775_1585724965/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.yuanli.mvpaudioextraction)
 [![](https://pp.myapp.com/ma_icon/0/icon_52649928_1583549532/96)](https://sj.qq.com/myapp/detail.htm?apkName=scs.com.crosscountry)
 
 
