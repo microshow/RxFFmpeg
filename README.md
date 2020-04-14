@@ -123,7 +123,7 @@ defaultConfig {
 
 ```java
 
-RxFFmpegInvoke.getInstance().setDebug(true);
+    RxFFmpegInvoke.getInstance().setDebug(true);
 
 ```
 
@@ -131,53 +131,78 @@ RxFFmpegInvoke.getInstance().setDebug(true);
 
 ```java
 
-String text = "ffmpeg -y -i /storage/emulated/0/1/input.mp4 -vf boxblur=25:5 -preset superfast /storage/emulated/0/1/result.mp4";
+    private void runFFmpegRxJava() {
 
-String[] commands = text.split(" ");
+        String text = "ffmpeg -y -i /storage/emulated/0/1/input.mp4 -vf boxblur=25:5 -preset superfast /storage/emulated/0/1/result.mp4";
 
-RxFFmpegInvoke.getInstance()
-                .runCommandRxJava(commands).onTerminateDetach()
-                .subscribe(new RxFFmpegSubscriber() {
-                    @Override
-                    public void onFinish() {
-                        if (mProgressDialog != null) {
-                            mProgressDialog.cancel();
-                        }
-                        showDialog("处理成功");
-                    }
+        String[] commands = text.split(" ");
 
-                    @Override
-                    public void onProgress(int progress, long progressTime) {
-                        if (mProgressDialog != null) {
-                            mProgressDialog.setProgress(progress);
-                            //progressTime 可以在结合视频总时长去计算合适的进度值
-                            mProgressDialog.setMessage("已处理progressTime=" + (double) progressTime / 1000000 + "秒");
-                        }
-                    }
+        myRxFFmpegSubscriber = new MyRxFFmpegSubscriber(this);
 
-                    @Override
-                    public void onCancel() {
-                        if (mProgressDialog != null) {
-                            mProgressDialog.cancel();
-                        }
-                        showDialog("已取消");
-                    }
+        //开始执行FFmpeg命令
+        RxFFmpegInvoke.getInstance()
+                .runCommandRxJava(commands)
+                .subscribe(myRxFFmpegSubscriber);
 
-                    @Override
-                    public void onError(String message) {
-                        if (mProgressDialog != null) {
-                            mProgressDialog.cancel();
-                        }
-                        showDialog("出错了 onError：" + message);
-                    }
-                });
+    }
+
+    public static class MyRxFFmpegSubscriber extends RxFFmpegSubscriber {
+
+        private WeakReference<HomeFragment> mWeakReference;
+
+        public MyRxFFmpegSubscriber(HomeFragment homeFragment) {
+            mWeakReference = new WeakReference<>(homeFragment);
+        }
+
+        @Override
+        public void onFinish() {
+            final HomeFragment mHomeFragment = mWeakReference.get();
+            if (mHomeFragment != null) {
+                mHomeFragment.cancelProgressDialog("处理成功");
+            }
+        }
+
+        @Override
+        public void onProgress(int progress, long progressTime) {
+            final HomeFragment mHomeFragment = mWeakReference.get();
+            if (mHomeFragment != null) {
+                //progressTime 可以在结合视频总时长去计算合适的进度值
+                mHomeFragment.setProgressDialog(progress, progressTime);
+            }
+        }
+
+        @Override
+        public void onCancel() {
+            final HomeFragment mHomeFragment = mWeakReference.get();
+            if (mHomeFragment != null) {
+                mHomeFragment.cancelProgressDialog("已取消");
+            }
+        }
+
+        @Override
+        public void onError(String message) {
+            final HomeFragment mHomeFragment = mWeakReference.get();
+            if (mHomeFragment != null) {
+                mHomeFragment.cancelProgressDialog("出错了 onError：" + message);
+            }
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (myRxFFmpegSubscriber != null) {
+            myRxFFmpegSubscriber.dispose();
+        }
+    }
+
 ```
 
 * FFmpeg 命令执行 (同步方式)
 
 ```java
 
-RxFFmpegInvoke.getInstance().runCommand(command, null);
+    RxFFmpegInvoke.getInstance().runCommand(command, null);
 
 ```
 
@@ -185,7 +210,7 @@ RxFFmpegInvoke.getInstance().runCommand(command, null);
 
 ```java
 
-RxFFmpegInvoke.getInstance().exit();
+    RxFFmpegInvoke.getInstance().exit();
 
 ```
 
@@ -193,7 +218,7 @@ RxFFmpegInvoke.getInstance().exit();
 
 ```java
 
-public static String[] getBoxblur() {
+    public static String[] getBoxblur() {
         RxFFmpegCommandList cmdlist = new RxFFmpegCommandList();
         cmdlist.append("-i");
         cmdlist.append("/storage/emulated/0/1/input.mp4");
@@ -211,7 +236,7 @@ public static String[] getBoxblur() {
 
 ```java
 
-RxFFmpegInvoke.getInstance().getMediaInfo(String filePath);
+    RxFFmpegInvoke.getInstance().getMediaInfo(String filePath);
 
 ```
 

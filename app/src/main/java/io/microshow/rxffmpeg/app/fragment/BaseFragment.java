@@ -65,11 +65,11 @@ public abstract class BaseFragment<V extends ViewDataBinding> extends Fragment {
 
     @Override
     public void onDestroy() {
-        Utils.fixInputMethodManagerLeak(getContext());
         super.onDestroy();
         if (binding != null) {
             binding.unbind();
         }
+        Utils.fixInputMethodManagerLeak(getContext());
     }
 
 }

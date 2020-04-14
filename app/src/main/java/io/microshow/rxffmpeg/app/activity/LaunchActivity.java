@@ -67,9 +67,9 @@ public class LaunchActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
+        super.onDestroy();
         Utils.fixInputMethodManagerLeak(this);
         mCompositeDisposable.clear();
-        super.onDestroy();
     }
 
 }

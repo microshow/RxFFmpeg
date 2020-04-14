@@ -98,7 +98,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     protected void onDestroy() {
-        Utils.fixInputMethodManagerLeak(this);
         super.onDestroy();
+        if (binding != null) {
+            binding.unbind();
+        }
+        if (myTabhost != null) {
+            myTabhost.clearAllTabs();
+            myTabhost = null;
+        }
+        Utils.fixInputMethodManagerLeak(this);
     }
 }
