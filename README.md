@@ -316,6 +316,8 @@ defaultConfig {
 [![](https://pp.myapp.com/ma_icon/0/icon_54017775_1585724965/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.yuanli.mvpaudioextraction)
 [![](https://pp.myapp.com/ma_icon/0/icon_52517100_1581646762/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.yuan_li_network.texttospeechyuanli)
 [![](https://pp.myapp.com/ma_icon/0/icon_52745305_1585818590/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.zhouzining.yyxc)
+[![](https://pp.myapp.com/ma_icon/0/icon_53332875_1586397821/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.shockwv.nevermore)
+[![](https://pp.myapp.com/ma_icon/0/icon_52762584_1586228655/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.yz.live)
 [![](https://pp.myapp.com/ma_icon/0/icon_52649928_1583549532/96)](https://sj.qq.com/myapp/detail.htm?apkName=scs.com.crosscountry)
 [![](https://upload.jianshu.io/collections/images/1866835/80.png?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240)](https://www.vivhist.com/)
 
