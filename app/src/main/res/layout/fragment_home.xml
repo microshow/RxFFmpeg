@@ -22,7 +22,8 @@
             <EditText
                 android:id="@+id/editText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:maxLines="18"/>
 
         </androidx.cardview.widget.CardView>
 
@@ -55,6 +56,15 @@
                 android:textSize="17sp" />
 
         </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tv_cpu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:textColor="#999999"
+            android:textSize="14sp" />
 
     </LinearLayout>
 

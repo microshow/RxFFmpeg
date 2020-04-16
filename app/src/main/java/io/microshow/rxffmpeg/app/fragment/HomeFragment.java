@@ -14,6 +14,7 @@ import io.microshow.rxffmpeg.RxFFmpegInvoke;
 import io.microshow.rxffmpeg.RxFFmpegSubscriber;
 import io.microshow.rxffmpeg.app.R;
 import io.microshow.rxffmpeg.app.databinding.FragmentHomeBinding;
+import io.microshow.rxffmpeg.app.utils.CPUUtils;
 import io.microshow.rxffmpeg.app.utils.Utils;
 
 /**
@@ -92,6 +93,8 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> implements V
     private void init() {
         binding.editText.setText("ffmpeg -y -i /storage/emulated/0/1/input.mp4 -vf boxblur=5:1 -preset superfast /storage/emulated/0/1/result.mp4");
         binding.button.setOnClickListener(this);
+
+        binding.tvCpu.setText("正在使用 " + CPUUtils.getCPUAbi() + " 架构");
     }
 
     /**
