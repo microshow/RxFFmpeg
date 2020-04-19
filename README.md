@@ -34,7 +34,7 @@ Language: [English](README_EN.md)
 | X264        | x264-snapshot-20180212-2245-stable      |   http://download.videolan.org/x264/snapshots/x264-snapshot-20180212-2245-stable.tar.bz2    |
 | mp3lame        | 3.100      |   https://jaist.dl.sourceforge.net/project/lame/lame/3.100/lame-3.100.tar.gz    |
 | fdk-aac        | 0.1.6      |   https://jaist.dl.sourceforge.net/project/opencore-amr/fdk-aac/fdk-aac-0.1.6.tar.gz    |
-| ndk        | android-ndk-r14b-linux-x86_64      |   https://dl.google.com/android/repository/android-ndk-r14b-linux-x86_64.zip  |
+| ndk        | android-ndk-r10e-linux-x86_64      |   https://dl.google.com/android/repository/android-ndk-r10e-linux-x86_64.zip  |
 
 
 ## 编译脚本
