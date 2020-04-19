@@ -97,7 +97,7 @@ allprojects {
 ```groovy
 
 dependencies {
-    implementation 'com.github.microshow:RxFFmpeg:2.4.0'
+    implementation 'com.github.microshow:RxFFmpeg:3.0.0'
 }
 
 ```
@@ -111,7 +111,8 @@ defaultConfig {
     .
     .
     ndk {
-        abiFilters "armeabi-v7a","arm64-v8a"
+        //目前已支持 "armeabi-v7a","arm64-v8a","x86","x86_64" 平台架构
+        abiFilters "armeabi-v7a","arm64-v8a","x86","x86_64"
     }
 }
 
