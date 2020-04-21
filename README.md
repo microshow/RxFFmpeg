@@ -53,6 +53,8 @@ Language: [English](README_EN.md)
 
 * **支持开启/关闭 debug 模式**
 
+* **支持 armeabi-v7a, arm64-v8a, x86, x86_64 平台架构**
+
 * **支持硬件加速，使编解码处理更快(已开启MediaCodec)**
 
 * **代码封装成SDK的方式，方便依赖使用**
