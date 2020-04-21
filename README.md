@@ -246,9 +246,11 @@ defaultConfig {
 
 # 代码混淆
 
-```text
--dontwarn io.microshow.rxffmpeg.**
--keep class io.microshow.rxffmpeg.**{*;}
+```java
+
+    -dontwarn io.microshow.rxffmpeg.**
+    -keep class io.microshow.rxffmpeg.**{*;}
+
 ```
 
 # 优质项目
