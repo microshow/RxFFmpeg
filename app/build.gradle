@@ -36,6 +36,7 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 //            applicationIdSuffix ".debug"
+            manifestPlaceholders = [_BaiduMobAd_CHANNEL: "github-debug"]
             //签名
             signingConfig signingConfigs.release
         }
@@ -43,6 +44,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            manifestPlaceholders = [_BaiduMobAd_CHANNEL: "github-release"]
             //签名
             signingConfig signingConfigs.release
         }
