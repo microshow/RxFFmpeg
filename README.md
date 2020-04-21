@@ -43,38 +43,22 @@ Language: [English](README_EN.md)
 
 # 特色功能
 
-* **支持任何FFmpeg命令执行**
-
-* **支持FFmpeg命令执行进度回调**
-
-* **支持中断FFmpeg命令**
-
-* **支持同步/异步执行**
-
-* **支持开启/关闭 debug 模式**
-
-* **支持 armeabi-v7a, arm64-v8a, x86, x86_64 平台架构**
-
-* **支持硬件加速，使编解码处理更快(已开启MediaCodec)**
-
-* **代码封装成SDK的方式，方便依赖使用**
-
-* **支持把FFmpeg的各子模块libavutil 
-libavcodec 
-libavformat 
-libavdevice 
-libavfilter 
-libswscale 
-libswresample 
-libpostproc 最终打包成一个librxffmpeg-core.so核心库方便依赖使用，无需导入七八个so库**
-
-* **支持libx264编码库，可以使压缩后的视频体积变的极小，清晰度还保持着很高清，简单的压缩命令: ffmpeg -y -i /storage/emulated/0/1/input.mp4 -b 2097k -r 30 -vcodec libx264 -preset superfast /storage/emulated/0/1/result.mp4**
-
-* **支持添加 mp3、aac、wav 等主流格式的背景音乐**
-
-* **支持主流视频格式转换，如: avi > mp4 > avi** 
-
-* **每隔一秒截取一张图 ffmpeg -y -i /storage/emulated/0/1/input.mp4 -f image2 -r 1 -q:v 10 -preset superfast /storage/emulated/0/1/%3d.jpg**
+| 功能        | 是否支持    |  简述  |
+| :--------   | :-----:   | :---- |
+| FFmpeg命令        | √  |   支持任何FFmpeg命令执行    |
+| FFmpeg进度回调    | √  |   支持FFmpeg命令执行进度回调    |
+| FFmpeg中断        | √  |   支持中断进行中的FFmpeg命令    |
+| 同步执行          | √  |   适用于多条命令分步执行   |
+| 异步执行          | √  |   适用于单条命令执行   |
+| Debug模式         | √  |   支持开启/关闭 Debug 模式    |
+| 平台架构          | √  |   支持 armeabi-v7a, arm64-v8a, x86, x86_64    |
+| 硬件加速          | √  |   支持硬件加速，使编解码处理更快(已开启MediaCodec)    |
+| 单个so打包        | √  |  支持把FFmpeg的各子模块libavutil libavcodec libavformat libavdevice libavfilter libswscale libswresample libpostproc 最终打包成一个librxffmpeg-core.so核心库方便依赖使用，无需导入七八个so库    |
+| X264              | √  |   支持libx264编码库，可以使压缩后的视频体积变的极小，清晰度还保持着很高清    |
+| mp3lame           | √  |   支持MP3音频编解码    |
+| fdk-aac           | √  |   支持AAC音频编解码    |
+| 格式转换          | √  |   如: avi > mp4 > avi;  mp3 > aac > mp3 等    |
+| [常用命令](preview/docs/cmd.md)           | √  |   持续更新 [点击查看](preview/docs/cmd.md)    |
 
 
 # 使用方式
