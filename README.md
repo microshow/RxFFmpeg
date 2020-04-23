@@ -54,11 +54,11 @@ Language: [English](README_EN.md)
 | 平台架构          | √  |   支持 armeabi-v7a, arm64-v8a, x86, x86_64    |
 | 硬件加速          | √  |   支持硬件加速，使编解码处理更快(已开启MediaCodec)    |
 | 单个so打包        | √  |   支持把FFmpeg的各子模块打包成一个librxffmpeg-core.so核心库，无需导入七八个so库    |
-| X264              | √  |   支持libx264编码库，可以使压缩后的视频体积变的极小，清晰度还保持着很高清    |
-| mp3lame           | √  |   支持MP3音频编解码    |
-| fdk-aac           | √  |   支持AAC音频编解码    |
+| X264              | √  |  支持libx264编码库，可以使压缩后的视频体积变的极小，清晰度还保持着很高清    |
+| mp3lame           | √  |  支持MP3音频编解码    |
+| fdk-aac           | √  |  支持AAC音频编解码    |
 | 格式转换          | √  |   如: avi > mp4 > avi;  mp3 > aac > mp3 等    |
-| https             | ×  |   后续支持    |
+| https             | ×  |  【已列入到 3.1.0 版本计划中...】    |
 | [常用命令](preview/docs/cmd.md)           | √  |   持续更新 [点击查看](preview/docs/cmd.md)    |
 
 
