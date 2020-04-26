@@ -79,7 +79,7 @@ allprojects {
 
 ```
 
-添加依赖，最新版本[![](https://www.jitpack.io/v/microshow/RxFFmpeg.svg)](https://www.jitpack.io/#microshow/RxFFmpeg)
+添加依赖，最新版本[![](https://www.jitpack.io/v/microshow/RxFFmpeg.svg)](https://www.jitpack.io/#microshow/RxFFmpeg)，[版本更新记录](https://github.com/microshow/RxFFmpeg/releases)
 
 ```groovy
 
