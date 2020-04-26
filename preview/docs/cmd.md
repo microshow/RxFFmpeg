@@ -162,6 +162,16 @@ ffmpeg -y -i null.ape -ar 44100 -ac 2 -ab 16k -vol 50 -f mp3 null.mp3
 
 -vol <百分比> 设定音量
 
+# 在线视频处理(支持 http / https / rtmp / hls / m3u8...等等)
+
+*  下载rtmp(湖南卫视)直播流的10秒视频转成mp4,并保存到本地
+
+```java
+
+ffmpeg -y -i rtmp://58.200.131.2:1935/livetv/hunantv -t 10 -preset superfast /storage/emulated/0/1/result.mp4
+
+```
+
 
 # 高级用法
 

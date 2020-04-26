@@ -58,7 +58,7 @@ Language: [English](README_EN.md)
 | mp3lame           | √  |  支持MP3音频编解码    |
 | fdk-aac           | √  |  支持AAC音频编解码    |
 | 格式转换          | √  |   如: avi > mp4 > avi;  mp3 > aac > mp3 等    |
-| https             | ×  |  【已列入到 3.1.0 版本计划中...】    |
+| https             | ×  |   version >= 3.1.0  支持 https  |
 | [常用命令](preview/docs/cmd.md)           | √  |   持续更新 [点击查看](preview/docs/cmd.md)    |
 
 
@@ -84,7 +84,7 @@ allprojects {
 ```groovy
 
 dependencies {
-    implementation 'com.github.microshow:RxFFmpeg:3.0.0'
+    implementation 'com.github.microshow:RxFFmpeg:3.1.0'
 }
 
 ```
