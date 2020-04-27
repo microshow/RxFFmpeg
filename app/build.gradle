@@ -14,7 +14,7 @@ android {
 
         ndk {
             //目前已支持 "armeabi-v7a","arm64-v8a","x86","x86_64" 平台架构
-            abiFilters "armeabi-v7a","arm64-v8a","x86","x86_64"
+            abiFilters "armeabi-v7a","arm64-v8a"//,"x86","x86_64"
         }
 
     }
@@ -92,7 +92,8 @@ dependencies {
     // Optional, if you use support library fragments:
     debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.2'
 
-    implementation project(path: ':rxffmpeg')
+//    implementation project(path: ':rxffmpeg')
 
 //    implementation 'com.github.microshow:RxFFmpeg:3.1.0'
+    implementation 'com.github.microshow:RxFFmpeg:3.1.0-lite-beta'
 }
