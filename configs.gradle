@@ -13,6 +13,6 @@ ext {
     //应用 versionCode
     versionCodeValue = 310
     //应用 version 名称，更多设置里显示的
-    versionNameValue = "3.1.0-lite"
+    versionNameValue = "3.1.0"
 
 }
