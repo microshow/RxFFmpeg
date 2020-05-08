@@ -26,7 +26,10 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
 
-        <activity android:name="io.microshow.rxffmpeg.app.activity.LaunchActivity"
+        <activity
+            android:name="io.microshow.rxffmpeg.app.activity.LaunchActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Launcher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,7 +38,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="io.microshow.rxffmpeg.app.activity.MainActivity" />
+        <activity
+            android:name="io.microshow.rxffmpeg.app.activity.MainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait" />
 
 
         <!-- 记录崩溃日志 -->

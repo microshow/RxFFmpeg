@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleLargeInverse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminateTint="@android:color/white"
+        android:indeterminateTintMode="src_atop"
+        android:visibility="visible"
+        tools:ignore="UnusedAttribute" />
+
+    <RelativeLayout
+        android:id="@+id/bottomPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_alignParentBottom="true"
+        android:paddingStart="10dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="42dp">
+
+        <ImageView
+            android:id="@+id/iv_play"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_centerVertical="true"
+            android:contentDescription="@null"
+            android:src="@mipmap/rxffmpeg_player_start" />
+
+        <TextView
+            android:id="@+id/time_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toEndOf="@id/iv_play"
+            android:textColor="#ffffff" />
+
+        <SeekBar
+            android:id="@+id/progress_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/time_view" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_fullscreen"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:contentDescription="@null"
+        android:src="@mipmap/rxffmpeg_player_gotonormal" />
+
+    <FrameLayout
+        android:id="@+id/repeatPlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#b2000000"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableTop="@mipmap/rxffmpeg_player_play"
+            android:drawablePadding="5dp"
+            android:textColor="#fff"
+            android:textSize="20dp"
+            tools:ignore="SpUsage" />
+
+    </FrameLayout>
+
+</RelativeLayout>

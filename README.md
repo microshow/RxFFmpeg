@@ -59,6 +59,7 @@ Language: [English](README_EN.md)
 | fdk-aac           | √  |  支持AAC音频编解码    |
 | 格式转换          | √  |   如: avi > mp4 > avi;  mp3 > aac > mp3 等    |
 | https             |  √  |   version >= 3.1.0  支持 https  |
+| [自研播放器](preview/docs/player.md)           | √  |   RxFFmpegPlayer播放器主打轻量、高效、低功耗、视频秒开等特色   |
 | [常用命令](preview/docs/cmd.md)           | √  |   持续更新 [点击查看](preview/docs/cmd.md)    |
 
 
@@ -270,6 +271,23 @@ defaultConfig {
 >总结：可以看出arm64-v8a架构的运行效率远大于armeabi-v7a，强烈建议在你的App添加arm64-v8a架构的so,同时也是响应Google的号召。
 
 # 实验室
+
+## [自研视频播放器RxFFmpegPlayer](preview/docs/player.md)
+
+* 自研RxFFmpegPlayer播放器内核基于(FFmpeg OpenGL OpenSL)
+
+* 主打轻量级、高效、低功耗，播放本地视频秒开等特色
+
+* 涵盖播放器基本的 播放、暂停、快进、快退、循环播放、播放进度、加载状态等功能
+
+* 支持播放本地视频文件、在线视频、直播流(hls、rtmp、m3u8…)等
+
+* 项目里已集成OpenSSL所以也支持Https访问
+
+* 视频画面支持双指缩放、旋转、移动等手势操作
+
+<img src="/preview/icon/screen_player.gif" alt="图-1：screen_player.gif" width="240px"></img>
+
 
 ## 抖音首页视频翻页
 

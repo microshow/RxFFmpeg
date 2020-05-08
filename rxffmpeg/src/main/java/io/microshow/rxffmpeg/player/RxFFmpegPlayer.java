@@ -1,0 +1,296 @@
+package io.microshow.rxffmpeg.player;
+
+import android.text.TextUtils;
+import android.view.Surface;
+import android.view.TextureView;
+
+import java.util.concurrent.TimeUnit;
+
+import io.reactivex.Flowable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
+
+/**
+ * RxFFmpegPlayer 播放器内核
+ * Created by Super on 2020/4/26.
+ */
+public abstract class RxFFmpegPlayer implements IMediaPlayer {
+
+    static {
+        System.loadLibrary("rxffmpeg-core");
+        System.loadLibrary("rxffmpeg-player");
+    }
+
+    private native void nativeSetSurface(Surface surface);
+
+    private native void nativePrepare(String url);
+
+    private native void nativeStart();
+
+    private native void nativePause();
+
+    private native void nativeResume();
+
+    private native void nativeStop();
+
+    private native void nativeRelease();
+
+    private native void nativeSeekTo(int position);
+
+    private native boolean nativeIsPlaying();
+
+
+    /**
+     * 视频路径
+     */
+    private String path;
+
+    private OnPreparedListener mOnPreparedListener;
+
+    private OnVideoSizeChangedListener mOnVideoSizeChangedListener;
+
+    private OnLoadingListener mOnLoadingListener;
+
+    private OnTimeUpdateListener mOnTimeUpdateListener;
+
+    private OnErrorListener mOnErrorListener;
+
+    private OnCompletionListener mOnCompletionListener;
+
+    /**
+     * 总时长
+     */
+    private int mDuration = 0;
+
+    /**
+     * 循环标志
+     */
+    private boolean looping;
+
+    private CompositeDisposable mCompositeDisposable;
+
+    /**
+     * 延迟时间的 Disposable 用于循环播放
+     */
+    private Disposable mTimeDisposable;
+
+    public RxFFmpegPlayer() {
+        mCompositeDisposable = new CompositeDisposable();
+    }
+
+    @Override
+    public void setSurface(Surface surface) {
+        if (surface != null) {
+            nativeSetSurface(surface);
+        }
+    }
+
+    @Override
+    public void setDataSource(String path) {
+        this.path = path;
+    }
+
+    @Override
+    public void prepare() {
+        if (!TextUtils.isEmpty(path)) {
+            nativePrepare(path);
+        }
+    }
+
+    @Override
+    public void pause() {
+        nativePause();
+    }
+
+    @Override
+    public void resume() {
+        nativeResume();
+    }
+
+    @Override
+    public void start() {
+        if (!TextUtils.isEmpty(path)) {
+            nativeStart();
+        }
+    }
+
+    @Override
+    public void stop() {
+        cancelTimeDisposable();
+        nativeStop();
+    }
+
+    @Override
+    public void seekTo(int secds) {
+        nativeSeekTo(secds);
+    }
+
+    @Override
+    public int getDuration() {
+        return mDuration;
+    }
+
+    @Override
+    public void setLooping(boolean looping) {
+        this.looping = looping;
+    }
+
+    @Override
+    public boolean isLooping() {
+        return looping;
+    }
+
+    @Override
+    public boolean isPlaying() {
+        return nativeIsPlaying();
+    }
+
+    @Override
+    public void release() {
+        setOnPreparedListener(null);
+        setOnVideoSizeChangedListener(null);
+        setOnLoadingListener(null);
+        setOnTimeUpdateListener(null);
+        setOnErrorListener(null);
+        setOnCompleteListener(null);
+        if (mCompositeDisposable != null) {
+            mCompositeDisposable.clear();
+            mCompositeDisposable = null;
+        }
+        nativeRelease();
+    }
+
+    /**
+     * 设置 TextureView
+     *
+     * @param textureView textureView
+     */
+    public abstract void setTextureView(TextureView textureView);
+
+    /**
+     * 播放 子类快捷实现
+     *
+     * @param path      path
+     * @param isLooping isLooping
+     */
+    public abstract void play(String path, boolean isLooping);
+
+    /**
+     * 重新播放
+     */
+    public void repeatPlay() {
+        play(path, looping);
+    }
+
+    public void setOnPreparedListener(OnPreparedListener listener) {
+        this.mOnPreparedListener = listener;
+    }
+
+    public void setOnVideoSizeChangedListener(OnVideoSizeChangedListener listener) {
+        this.mOnVideoSizeChangedListener = listener;
+    }
+
+    public void setOnLoadingListener(OnLoadingListener listener) {
+        this.mOnLoadingListener = listener;
+    }
+
+    public void setOnTimeUpdateListener(OnTimeUpdateListener listener) {
+        this.mOnTimeUpdateListener = listener;
+    }
+
+    public void setOnErrorListener(OnErrorListener listener) {
+        this.mOnErrorListener = listener;
+    }
+
+    public void setOnCompleteListener(OnCompletionListener listener) {
+        this.mOnCompletionListener = listener;
+    }
+
+    /**
+     * 取消 延迟时间的 Disposable
+     */
+    private void cancelTimeDisposable() {
+        if (mTimeDisposable != null && !mTimeDisposable.isDisposed()) {
+            mTimeDisposable.dispose();
+        }
+    }
+
+    /**
+     * 准备状态  由native层回调
+     */
+    public void onPreparedNative() {
+        if (mOnPreparedListener != null) {
+            mOnPreparedListener.onPrepared(this);
+        }
+    }
+
+    /**
+     * 视频尺寸回调  由native层回调
+     * @param width 宽
+     * @param height 高
+     * @param dar 比例
+     */
+    public void onVideoSizeChangedNative(int width, int height, float dar) {
+        if (mOnVideoSizeChangedListener != null) {
+            mOnVideoSizeChangedListener.onVideoSizeChanged(this, width, height, dar);
+        }
+    }
+
+    /**
+     * 加载状态 由native层回调
+     * @param load -
+     */
+    public void onLoadingNative(boolean load) {
+        if (mOnLoadingListener != null) {
+            mOnLoadingListener.onLoading(this, load);
+        }
+    }
+
+    /**
+     * 时间更新 由native层回调
+     * @param currentTime
+     * @param totalTime
+     */
+    public void onTimeUpdateNative(int currentTime, int totalTime) {
+        if (mOnTimeUpdateListener != null) {
+            mDuration = totalTime;
+            mOnTimeUpdateListener.onTimeUpdate(this, currentTime, totalTime);
+        }
+    }
+
+    /**
+     * 错误回调 由native层回调
+     * @param code -
+     * @param msg -
+     */
+    public void onErrorNative(int code, String msg) {
+        if (mOnErrorListener != null) {
+            mOnErrorListener.onError(this, code, msg);
+        }
+    }
+
+    /**
+     * 播放完成 由native层回调
+     */
+    public void onCompletionNative() {
+        if (mOnCompletionListener != null) {
+            mOnCompletionListener.onCompletion(this);
+        }
+        if (isLooping()) {//循环状态，则延迟重播
+            mTimeDisposable = Flowable.timer(500, TimeUnit.MILLISECONDS)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(new Consumer<Long>() {
+                        @Override
+                        public void accept(Long aLong) throws Exception {
+                            play(path, looping);
+                        }
+                    });
+            mCompositeDisposable.add(mTimeDisposable);
+        }
+    }
+
+}
