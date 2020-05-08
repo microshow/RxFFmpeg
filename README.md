@@ -90,7 +90,7 @@ dependencies {
     //完整版
     implementation 'com.github.microshow:RxFFmpeg:3.1.0'
     
-    //极速版 (如只保留v7a平台打成apk预计占用4M左右空间)
+    //极速版 (预计占用 4M 左右空间)
     implementation 'com.github.microshow:RxFFmpeg:3.1.0-lite'
 }
 
