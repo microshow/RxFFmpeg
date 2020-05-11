@@ -3,7 +3,7 @@
 
 >自研RxFFmpegPlayer播放器内核基于(FFmpeg OpenGL OpenSL)；
  主打轻量级、高效、低功耗，播放本地视频秒开等特色；
- 涵盖播放器基本的 播放、暂停、快进、快退、循环播放、播放进度、加载状态等功能；
+ 涵盖播放器基本的 播放、暂停、快进、快退、音量控制、声道控制、循环播放、播放进度、加载状态等功能；
  支持播放本地视频文件、在线视频、直播流(hls、rtmp、m3u8…)等；
  项目里已集成OpenSSL所以也支持Https访问；
  视频画面支持双指缩放、旋转、移动等手势操作;
@@ -15,7 +15,7 @@
 
 * **主打轻量级、高效、低功耗，播放本地视频秒开等特色**
 
-* **涵盖播放器基本的 播放、暂停、快进、快退、循环播放、播放进度、加载状态等功能**
+* **涵盖播放器基本的 播放、暂停、快进、快退、音量控制、声道控制、循环播放、播放进度、加载状态等功能**
 
 * **支持播放本地视频文件、在线视频、直播流(hls、rtmp、m3u8…)等**
 
@@ -63,7 +63,7 @@
            mPlayerView.setController(new RxFFmpegPlayerControllerImpl(getActivity()), MeasureHelper.FitModel.FM_DEFAULT);
 
            //播放
-           binding.mPlayerView.play(binding.editText.getText().toString(), true);
+           mPlayerView.play(binding.editText.getText().toString(), true);
 
        }
 
@@ -90,6 +90,17 @@
 
    }
 ```
+
+## 音量控制
+
+* 场景：进入页面 **默认开启静音**
+
+  * mPlayerView.setVolume(0); //该方法需要在mPlayerView.play(xxx, xxx);之前调用
+
+
+* 设置声道
+
+  * mPlayerView.setMuteSolo(int mute); //设置声道：0立体声；1左声道；2右声道
 
 
 # ScreenShot
