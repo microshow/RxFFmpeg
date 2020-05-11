@@ -151,6 +151,10 @@ public class RxFFmpegPlayerView extends FrameLayout {
         return mTextureView;
     }
 
+    public FrameLayout getContainerView() {
+        return mContainer;
+    }
+
     /**
      * 设置适配模式
      *
@@ -159,6 +163,8 @@ public class RxFFmpegPlayerView extends FrameLayout {
     public void setFitModel(MeasureHelper.FitModel fitModel) {
         if (mMeasureHelper != null && fitModel != null) {
             mMeasureHelper.setFitModel(fitModel);
+            //设置默认的 宽高
+            mMeasureHelper.setDefaultVideoLayoutParams();
         }
     }
 

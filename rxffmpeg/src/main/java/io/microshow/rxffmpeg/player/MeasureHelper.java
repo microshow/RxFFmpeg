@@ -110,6 +110,23 @@ public class MeasureHelper {
         return false;
     }
 
+    /**
+     * 设置默认的播放器容器宽高
+     */
+    public void setDefaultVideoLayoutParams() {
+        View view = getView();
+        RxFFmpegPlayerView mPlayerView = null;
+        if (view instanceof RxFFmpegPlayerView) {
+            mPlayerView = (RxFFmpegPlayerView) view;
+            int width;//宽
+            int height;//高
+            width = Helper.getScreenWidth(view.getContext());
+            height = width * 9 / 16;
+            setVideoSizeInfo(new MeasureHelper.VideoSizeInfo(width, height, (float) width / height));
+            setVideoLayoutParams(mPlayerView.getTextureView(), mPlayerView.getContainerView());
+        }
+    }
+
     public void setVideoLayoutParams(TextureView textureView, FrameLayout container) {
         if (textureView == null || container == null || getVideoSizeInfo() == null) {
             return;
@@ -173,7 +190,7 @@ public class MeasureHelper {
 
         if (mFitModel == FitModel.FM_DEFAULT) {
             viewWidth = widthMeasureSpec;
-            viewHeight = mMeasuredHeight == 0 ? Helper.getScreenWidth(getView().getContext()) * 9 / 16 : mMeasuredHeight;
+            viewHeight = mMeasuredHeight;
 
         } else {
             viewWidth = widthMeasureSpec;
