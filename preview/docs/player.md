@@ -108,7 +108,7 @@
 <img src="/preview/icon/screen_player.gif" alt="图-1：screen_player.gif" width="240px"></img>
 
 
-## 播放器性能/CPU/内存使用情况
+## 性能/CPU/内存使用
 
 <img src="/preview/icon/screen_player_cpu.png" alt="图-1：screen_player_cpu.png"></img>
 
