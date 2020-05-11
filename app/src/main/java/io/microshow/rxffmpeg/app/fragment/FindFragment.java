@@ -2,6 +2,7 @@ package io.microshow.rxffmpeg.app.fragment;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -52,8 +53,18 @@ public class FindFragment extends BaseFragment<FragmentFindBinding> implements V
         mPlayerView.setController(new RxFFmpegPlayerControllerImpl(getActivity()), MeasureHelper.FitModel.FM_DEFAULT);
 
         //播放
-        binding.mPlayerView.play(binding.editText.getText().toString(), true);
+        mPlayerView.play(binding.editText.getText().toString(), true);
 
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (mPlayerView.isFullScreenModel()) {//当前处于全屏模式，这里需要退出全屏
+            mPlayerView.switchScreen();//退出全屏
+            return true;
+        } else {
+            return super.onKeyDown(keyCode, event);
+        }
     }
 
     @Override

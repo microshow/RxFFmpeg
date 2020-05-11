@@ -16,6 +16,16 @@
         android:visibility="visible"
         tools:ignore="UnusedAttribute" />
 
+    <ImageView
+        android:id="@+id/iv_mute"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
+        android:contentDescription="@null"
+        android:src="@mipmap/rxffmpeg_player_unmute" />
+
     <RelativeLayout
         android:id="@+id/bottomPanel"
         android:layout_width="match_parent"

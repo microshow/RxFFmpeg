@@ -233,6 +233,48 @@ public class RxFFmpegPlayerView extends FrameLayout {
 //    }
 
     /**
+     * 设置音量 (需要在play方法之前调用)
+     * @param percent 取值范围( 0 - 100 )； 0是静音
+     */
+    public void setVolume(int percent) {
+        if (mPlayer != null) {
+            mPlayer.setVolume(percent);
+        }
+    }
+
+    /**
+     * 获取音量
+     * @return volume
+     */
+    public int getVolume() {
+        if (mPlayer != null) {
+            return mPlayer.getVolume() != -1 ? mPlayer.getVolume() : 100;
+        } else {
+            return 100;
+        }
+    }
+
+    /**
+     * 设置声道；0立体声；1左声道；2右声道
+     */
+    public void setMuteSolo(int mute) {
+        if (mPlayer != null) {
+            mPlayer.setMuteSolo(mute);
+        }
+    }
+
+    /**
+     * 获取声道：0立体声；1左声道；2右声道；
+     */
+    public int getMuteSolo() {
+        if (mPlayer != null) {
+            return mPlayer.getMuteSolo() != -1 ? mPlayer.getMuteSolo() : 0;
+        } else {
+            return 0;
+        }
+    }
+
+    /**
      * 销毁
      */
     public void release() {
@@ -244,26 +286,35 @@ public class RxFFmpegPlayerView extends FrameLayout {
     }
 
     /**
-     * 切换全屏或关闭全屏
+     * 当前是否是全屏
+     * @return true:是；false:否
      */
-    public void switchScreen() {
-        if (mCurrentMode == MODE_FULL_SCREEN) {
+    public boolean isFullScreenModel() {
+        return mCurrentMode == MODE_FULL_SCREEN;
+    }
+
+    /**
+     * 切换全屏或关闭全屏
+     * @return true已经进入到全屏
+     */
+    public boolean switchScreen() {
+        if (isFullScreenModel()) {
             //是全屏 则退出全屏
-            exitFullScreen();//退出全屏
+            return exitFullScreen();//退出全屏
         } else {
-            enterFullScreen();//进入全屏
+            return enterFullScreen();//进入全屏
         }
     }
 
     /**
      * 进入全屏
      */
-    public void enterFullScreen() {
-        if (mCurrentMode == MODE_FULL_SCREEN) return;
+    public boolean enterFullScreen() {
+        if (mCurrentMode == MODE_FULL_SCREEN) return false;
 
         ViewGroup decorView = Helper.setFullScreen(mContext, true);
         if (decorView == null)
-            return;
+            return false;
 
         this.removeView(mContainer);
 
@@ -273,17 +324,19 @@ public class RxFFmpegPlayerView extends FrameLayout {
         decorView.addView(mContainer, params);
 
         mCurrentMode = MODE_FULL_SCREEN;
+
+        return true;
     }
 
     /**
      * 退出全屏
      */
-    public void exitFullScreen() {
+    public boolean exitFullScreen() {
         if (mCurrentMode == MODE_FULL_SCREEN) {
 
             ViewGroup decorView = Helper.setFullScreen(mContext, false);
             if (decorView == null)
-                return;
+                return false;
 
             decorView.removeView(mContainer);
             LayoutParams params = new LayoutParams(
@@ -293,6 +346,7 @@ public class RxFFmpegPlayerView extends FrameLayout {
 
             mCurrentMode = MODE_NORMAL;
         }
+        return false;
     }
 
     //屏幕旋转后改变

@@ -1,6 +1,7 @@
 package io.microshow.rxffmpeg.app.fragment;
 
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,6 +44,10 @@ public abstract class BaseFragment<V extends ViewDataBinding> extends Fragment {
     public abstract int initContentView();
 
     public abstract void initData();
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        return false;
+    }
 
     /**
      * 获取当前类名(没有包名)

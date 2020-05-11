@@ -82,18 +82,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 
         Fragment mFragment = getSupportFragmentManager().findFragmentByTag(myTabhost.getCurrentTabTag());
-        MeFragment mFindFragment = null;
+        MeFragment mMeFragment = null;
+        FindFragment mFindFragment = null;
 
         if (mFragment instanceof MeFragment) {
-            mFindFragment = (MeFragment) mFragment;
+            mMeFragment = (MeFragment) mFragment;
         }
 
-        if (mFindFragment != null && mFindFragment.onKeyDown(keyCode, event)) {
-            return true;
+        if (mFragment instanceof FindFragment) {
+            mFindFragment = (FindFragment) mFragment;
+        }
+
+        if (mMeFragment != null) {
+            if (mMeFragment.onKeyDown(keyCode, event)) {
+                return true;
+            } else {
+                return super.onKeyDown(keyCode, event);
+            }
+
+        } else if (mFindFragment != null) {
+            if (mFindFragment.onKeyDown(keyCode, event)) {
+                return true;
+            } else {
+                return super.onKeyDown(keyCode, event);
+            }
+
         } else {
             return super.onKeyDown(keyCode, event);
         }
-
     }
 
     @Override

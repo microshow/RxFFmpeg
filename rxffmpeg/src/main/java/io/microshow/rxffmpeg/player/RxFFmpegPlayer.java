@@ -42,11 +42,13 @@ public abstract class RxFFmpegPlayer implements IMediaPlayer {
 
     private native boolean nativeIsPlaying();
 
+    private native void nativeSetVolume(int percent);
 
-    /**
-     * 视频路径
-     */
-    private String path;
+    private native int nativeGetVolume();
+
+    private native void nativeSetMuteSolo(int mute);
+
+    private native int nativeGetMuteSolo();
 
     private OnPreparedListener mOnPreparedListener;
 
@@ -61,14 +63,19 @@ public abstract class RxFFmpegPlayer implements IMediaPlayer {
     private OnCompletionListener mOnCompletionListener;
 
     /**
+     * 视频路径
+     */
+    protected String path;
+
+    /**
      * 总时长
      */
-    private int mDuration = 0;
+    protected int mDuration = 0;
 
     /**
      * 循环标志
      */
-    private boolean looping;
+    protected boolean looping;
 
     private CompositeDisposable mCompositeDisposable;
 
@@ -146,6 +153,26 @@ public abstract class RxFFmpegPlayer implements IMediaPlayer {
     @Override
     public boolean isPlaying() {
         return nativeIsPlaying();
+    }
+
+    @Override
+    public void setVolume(int percent) {
+        nativeSetVolume(percent);
+    }
+
+    @Override
+    public int getVolume() {
+        return nativeGetVolume();
+    }
+
+    @Override
+    public void setMuteSolo(int mute) {
+        nativeSetMuteSolo(mute);
+    }
+
+    @Override
+    public int getMuteSolo() {
+        return nativeGetMuteSolo();
     }
 
     @Override

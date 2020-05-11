@@ -25,6 +25,7 @@ public class RxFFmpegPlayerControllerImpl extends RxFFmpegPlayerController {
     private View mBottomPanel;
     private ImageView playBtn;
     private View repeatPlay;
+    private ImageView muteImage;//静音图标
 
     private boolean isSeeking = false;
     public int mPosition;
@@ -64,6 +65,14 @@ public class RxFFmpegPlayerControllerImpl extends RxFFmpegPlayerController {
                 }
             }
         });
+        muteImage = findViewById(R.id.iv_mute);
+        muteImage.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //静音
+                switchMute();
+            }
+        });
 
         playBtn.setOnClickListener(new OnClickListener() {
             @Override
@@ -77,6 +86,20 @@ public class RxFFmpegPlayerControllerImpl extends RxFFmpegPlayerController {
                 }
             }
         });
+    }
+
+    public void switchMute() {
+        if (mPlayerView != null) {
+            if (mPlayerView.getVolume() == 0) {
+                //当前是静音，设置为非静音
+                mPlayerView.setVolume(100);
+                muteImage.setImageResource(R.mipmap.rxffmpeg_player_unmute);
+            } else {
+                //当前不是静音，设置为静音
+                mPlayerView.setVolume(0);
+                muteImage.setImageResource(R.mipmap.rxffmpeg_player_mute);
+            }
+        }
     }
 
     @Override
@@ -231,6 +254,10 @@ public class RxFFmpegPlayerControllerImpl extends RxFFmpegPlayerController {
     public void onResume() {
         playBtn.setImageResource(R.mipmap.rxffmpeg_player_pause);
         playBtn.animate().alpha(1f).start();//隐藏 播放按钮
+        //设置静音图标
+        if (mPlayerView != null) {
+            muteImage.setImageResource(mPlayerView.getVolume() == 0 ? R.mipmap.rxffmpeg_player_mute : R.mipmap.rxffmpeg_player_unmute);
+        }
     }
 
 }

@@ -84,6 +84,29 @@ public interface IMediaPlayer {
     boolean isPlaying();
 
     /**
+     * 设置音量
+     * @param percent 取值范围( 0 - 100 )； 0是静音
+     */
+    void setVolume(int percent);
+
+    /**
+     * 获取音量 默认100
+     */
+    int getVolume();
+
+    /**
+     * 设置声道；0立体声；1左声道；2右声道
+     */
+    void setMuteSolo(int mute);
+
+    /**
+     * 获取声道：0立体声；1左声道；2右声道；
+     * 如果没有调用setMuteSolo，则返回-1 （默认没有设置）
+     * @return
+     */
+    int getMuteSolo();
+
+    /**
      * 回收流媒体资源
      */
     void release();
