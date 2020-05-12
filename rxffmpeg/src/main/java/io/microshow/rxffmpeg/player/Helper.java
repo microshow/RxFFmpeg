@@ -151,4 +151,20 @@ public class Helper {
 
     }
 
+    private static long lastClickTime;
+
+    /**
+     * 防止快速点击
+     *
+     * @return true:是快速点击； false:否
+     */
+    public synchronized static boolean isFastClick() {
+        long time = System.currentTimeMillis();
+        if (time - lastClickTime < 1000) {
+            return true;
+        }
+        lastClickTime = time;
+        return false;
+    }
+
 }

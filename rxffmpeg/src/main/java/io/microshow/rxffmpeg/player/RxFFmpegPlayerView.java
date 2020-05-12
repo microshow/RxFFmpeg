@@ -175,7 +175,7 @@ public class RxFFmpegPlayerView extends FrameLayout {
      * @param isLooping -
      */
     public void play(String videoPath, boolean isLooping) {
-        if (mPlayer != null) {
+        if (mPlayer != null && !Helper.isFastClick()) {
             mPlayer.play(videoPath, isLooping);
         }
     }
