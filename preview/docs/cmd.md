@@ -162,15 +162,6 @@ ffmpeg -y -i null.ape -ar 44100 -ac 2 -ab 16k -vol 50 -f mp3 null.mp3
 
 -vol <百分比> 设定音量
 
-# 在线视频处理(支持 http / https / rtmp / hls / m3u8...等等)
-
-*  下载rtmp(湖南卫视)直播流的10秒视频转成mp4,并保存到本地
-
-```java
-
-ffmpeg -y -i rtmp://58.200.131.2:1935/livetv/hunantv -t 10 -preset superfast /storage/emulated/0/1/result.mp4
-
-```
 
 
 * 音频的某段时间设为静音
@@ -180,6 +171,17 @@ ffmpeg -y -i rtmp://58.200.131.2:1935/livetv/hunantv -t 10 -preset superfast /st
 
 ffmpeg -y -i /storage/emulated/0/1/input.mp3 -af volume=enable='between(t,0,2)':volume=0,volume=enable='between(t,15,20)':volume=0 /storage/emulated/0/1/result.mp3
 
+
+```
+
+
+# 在线视频处理(支持 http / https / rtmp / hls / m3u8...等等)
+
+*  下载rtmp(湖南卫视)直播流的10秒视频转成mp4,并保存到本地
+
+```java
+
+ffmpeg -y -i rtmp://58.200.131.2:1935/livetv/hunantv -t 10 -preset superfast /storage/emulated/0/1/result.mp4
 
 ```
 
