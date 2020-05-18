@@ -173,6 +173,19 @@ ffmpeg -y -i rtmp://58.200.131.2:1935/livetv/hunantv -t 10 -preset superfast /st
 ```
 
 
+* 音频的某段时间设为静音
+
+```java
+
+
+ffmpeg -y -i /storage/emulated/0/1/input.mp3 -af volume=enable='between(t,0,2)':volume=0,volume=enable='between(t,15,20)':volume=0 /storage/emulated/0/1/result.mp3
+
+
+```
+
+
+
+
 # 高级用法
 
 *  图片+视频+视频 混合拼接
