@@ -91,6 +91,7 @@ dependencies {
     
     //极速版 (预计占用 4M 左右空间)
     implementation 'com.github.microshow:RxFFmpeg:4.3.0-lite'
+    
 }
 
 ```
