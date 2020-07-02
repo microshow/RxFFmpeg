@@ -92,7 +92,7 @@ ffmpeg -y -loop 1 -r 25 -i /storage/emulated/0/1/input.png -vf zoompan=z=1.1:x='
 
 ```java
 
-ffmpeg -y -i "concat:123.mp3|124.mp3" -acodec copy output.mp3
+ffmpeg -y -i concat:123.mp3|124.mp3 -acodec copy output.mp3
 
 ```
 
