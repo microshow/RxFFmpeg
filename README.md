@@ -322,6 +322,7 @@ defaultConfig {
 <img src="http://image.coolapk.com/apk_logo/2019/0317/22/500px-219205-o_1d662al3g3ufvge8v51odk1iimq-uid-1030107@500x500.png" alt="https://www.coolapk.com/apk/yanyan.com.tochar" width="96px"></img>
 [![](https://pp.myapp.com/ma_icon/0/icon_53947191_1592382950/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.koki.callshow)
 [![](https://pp.myapp.com/ma_icon/0/icon_54014901_1589092180/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.mzxf.funchild)
+[![](https://pp.myapp.com/ma_icon/0/icon_53800886_1593572867/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.smallyin.fastcompre)
 
 
 
