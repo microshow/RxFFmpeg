@@ -86,6 +86,15 @@ ffmpeg -y -loop 1 -r 25 -i /storage/emulated/0/1/input.png -vf zoompan=z=1.1:x='
 
 ```
 
+* 视频去水印
+
+```java
+
+//x:y 离左上角的坐标 值必须>=1;  w:h logo的宽和高;  show：设为1有一个绿色的矩形边框，默认值0
+ffmpeg -y -i /storage/emulated/0/1/input.mp4 -vf delogo=x=1:y=1:w=200:h=200:show=1 -preset superfast /storage/emulated/0/1/result.mp4
+
+```
+
 # 音频处理
 
 * 音频拼接
