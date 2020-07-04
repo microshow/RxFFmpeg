@@ -95,6 +95,15 @@ ffmpeg -y -i /storage/emulated/0/1/input.mp4 -vf delogo=x=1:y=1:w=200:h=200:show
 
 ```
 
+* 视频变速
+
+```java
+
+// X = 取值范围 [0.5 - 2.0] ; 1.0为标准速度， 替换 X 的值即可
+ffmpeg -y -i /storage/emulated/0/1/input.mp4 -filter_complex [0:v]setpts=PTS/X[v];[0:a]atempo=X[a] -map [v] -map [a] -preset superfast /storage/emulated/0/1/result.mp4
+
+```
+
 # 音频处理
 
 * 音频拼接
