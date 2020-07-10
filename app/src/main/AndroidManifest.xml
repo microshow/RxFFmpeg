@@ -83,6 +83,11 @@
 
         <!-- ########################## baidu mtj-sdk end ##########################-->
 
+        <!-- 友盟渠道配置 -->
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="Github"/>
+
     </application>
 
 </manifest>

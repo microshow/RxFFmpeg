@@ -8,7 +8,6 @@ import android.widget.TextView;
 
 import com.baidu.mobstat.StatService;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTabHost;
@@ -19,7 +18,7 @@ import io.microshow.rxffmpeg.app.databinding.ActivityMainBinding;
 import io.microshow.rxffmpeg.app.fragment.MeFragment;
 import io.microshow.rxffmpeg.app.utils.Utils;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 

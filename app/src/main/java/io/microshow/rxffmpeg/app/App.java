@@ -7,6 +7,7 @@ import com.squareup.leakcanary.LeakCanary;
 
 import io.microshow.rxffmpeg.BuildConfig;
 import io.microshow.rxffmpeg.RxFFmpegInvoke;
+import io.microshow.rxffmpeg.app.utils.UmengHelper;
 
 /**
  * Application
@@ -28,6 +29,7 @@ public class App extends Application {
 
         //baidu mtj-sdk 崩溃日志
         StatService.autoTrace(this);
+        UmengHelper.initUMConfigure(this);
 
         //开启debug模式，正式环境设为false即可
         RxFFmpegInvoke.getInstance().setDebug(BuildConfig.DEBUG);

@@ -79,8 +79,15 @@ dependencies {
     //baidu mtj-sdk
     implementation 'com.baidu.mobstat:mtj-sdk-circle:3.9.3.9'
 
+    //友盟统计
+    api  'com.umeng.umsdk:analytics:8.1.6'
+    api  'com.umeng.umsdk:common:2.1.0'
+    api  'com.umeng.umsdk:utdid:1.1.5.3'
+    //友盟 PushSDK
+    api 'com.umeng.umsdk:push:6.0.1'
+
     //lottie
-    implementation 'com.airbnb.android:lottie:3.3.0'
+    implementation 'com.airbnb.android:lottie:3.4.0'
 
     //agentweb
     implementation 'com.just.agentweb:agentweb:4.1.2'// (必选)
@@ -95,5 +102,5 @@ dependencies {
 
     implementation project(path: ':rxffmpeg')
 
-//    implementation 'com.github.microshow:RxFFmpeg:4.2.0'
+//    implementation 'com.github.microshow:RxFFmpeg:4.3.0'
 }

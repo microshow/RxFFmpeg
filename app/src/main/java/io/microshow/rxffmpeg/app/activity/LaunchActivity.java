@@ -10,7 +10,6 @@ import com.tbruyelle.rxpermissions2.RxPermissions;
 import java.util.concurrent.TimeUnit;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import io.microshow.rxffmpeg.app.R;
 import io.microshow.rxffmpeg.app.utils.Utils;
@@ -23,7 +22,7 @@ import io.reactivex.functions.Consumer;
  * 启动页
  * Created by Super on 2019/12/6.
  */
-public class LaunchActivity extends AppCompatActivity {
+public class LaunchActivity extends BaseActivity {
 
     private CompositeDisposable mCompositeDisposable = new CompositeDisposable();
 
@@ -33,7 +32,8 @@ public class LaunchActivity extends AppCompatActivity {
     //需要申请的权限，必须先在AndroidManifest.xml有声明，才可以动态获取权限
     private static String[] PERMISSIONS_STORAGE = {
             Manifest.permission.READ_EXTERNAL_STORAGE,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE};
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.READ_PHONE_STATE};
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
