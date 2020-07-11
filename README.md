@@ -89,7 +89,7 @@ dependencies {
     //完整版
     implementation 'com.github.microshow:RxFFmpeg:4.3.0'
     
-    //极速版 (预计占用 4M 左右空间)
+    //极速版 (预计占用 4M 左右空间)，主要移除了一些不常用的编解码器
     implementation 'com.github.microshow:RxFFmpeg:4.3.0-lite'
     
 }
