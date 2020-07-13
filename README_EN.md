@@ -187,9 +187,9 @@ RxFFmpegInvoke.getInstance().exit();
 
 # Download Experience
 
-| Scanning or [Download](https://github.com/microshow/RxFFmpeg/raw/master/preview/app-debug.apk)  | 
+| Scanning or [Download](https://github.com/microshow/RxFFmpeg/raw/master/preview/app-release.apk)  |
 | :--------:   |
-| <img src="/preview/icon/apk-qr.png" alt="image-1：Scanning Download Experience" width="260px" />       | 
+| <img src="/preview/icon/apk_qr.png" alt="image-1：Scanning Download Experience" width="260px" />       |
 
 # Unlimited Communication
 
