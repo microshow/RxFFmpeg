@@ -298,6 +298,8 @@ defaultConfig {
 
 * 视频画面支持双指缩放、旋转、移动等手势操作
 
+* 支持切换系统MediaPlayer内核
+
 <img src="/preview/icon/screen_player.gif" alt="图-1：screen_player.gif" width="240px"></img>
 
 

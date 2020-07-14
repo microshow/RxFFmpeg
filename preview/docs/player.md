@@ -23,6 +23,8 @@
 
 * **视频画面支持双指缩放、旋转、移动等手势操作**
 
+* **支持切换系统MediaPlayer内核**
+
 
 # 使用方式
 
@@ -58,6 +60,9 @@
            binding.button.setOnClickListener(this);
 
            this.mPlayerView = binding.mPlayerView;
+
+           //设置播放器内核
+           mPlayerView.switchPlayerCore(RxFFmpegPlayerView.PlayerCoreType.PCT_RXFFMPEG_PLAYER);
 
            //设置控制层容器 和 视频尺寸适配模式
            mPlayerView.setController(new RxFFmpegPlayerControllerImpl(getActivity()), MeasureHelper.FitModel.FM_DEFAULT);
