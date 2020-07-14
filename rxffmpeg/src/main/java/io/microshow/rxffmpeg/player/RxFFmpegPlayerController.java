@@ -2,7 +2,6 @@ package io.microshow.rxffmpeg.player;
 
 import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.FrameLayout;
 
 /**
@@ -13,7 +12,7 @@ public abstract class RxFFmpegPlayerController extends FrameLayout {
 
     protected RxFFmpegPlayerView mPlayerView;
 
-    protected RxFFmpegPlayer mPlayer;
+    protected BaseMediaPlayer mPlayer;
 
     public RxFFmpegPlayerController(Context context) {
         super(context);

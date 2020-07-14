@@ -2,6 +2,7 @@ package io.microshow.rxffmpeg.player;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -114,15 +115,27 @@ public class RxFFmpegPlayerControllerImpl extends RxFFmpegPlayerController {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 mPosition = progress * mPlayer.getDuration() / 100;
+                if (isSeeking) {
+                    if (mPlayerView.mPlayerCoreType == RxFFmpegPlayerView.PlayerCoreType.PCT_RXFFMPEG_PLAYER) {
+                        // RxFFmpegPlayer 内核 返回的时间单位是秒
+                        onTimeUpdate(null, mPosition, mPlayer.getDuration());
+                    } else if (mPlayerView.mPlayerCoreType == RxFFmpegPlayerView.PlayerCoreType.PCT_SYSTEM_MEDIA_PLAYER) {
+                        // 系统 MediaPlayer 内核 返回的时间单位是毫秒秒
+                        onTimeUpdate(null, mPosition / 1000, mPlayer.getDuration() / 1000);
+                    }
+                    mPlayer.seekTo(mPosition);
+                }
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
                 isSeeking = true;
+                mPlayer.pause();//拖动进度条时 暂停播放
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
+                mPlayer.resume();//拖动进度条结束后 恢复播放
                 mPlayer.seekTo(mPosition);
                 isSeeking = false;
             }

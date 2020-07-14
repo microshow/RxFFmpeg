@@ -49,12 +49,16 @@ public class FindFragment extends BaseFragment<FragmentFindBinding> implements V
 
         this.mPlayerView = binding.mPlayerView;
 
+        //设置播放器核心
+        mPlayerView.switchPlayerCore(RxFFmpegPlayerView.PlayerCoreType.PCT_RXFFMPEG_PLAYER);
+
         //设置控制层容器 和 视频尺寸适配模式
         mPlayerView.setController(new RxFFmpegPlayerControllerImpl(getActivity()), MeasureHelper.FitModel.FM_DEFAULT);
 
         //播放
         mPlayerView.play(binding.editText.getText().toString(), true);
 
+//        mPlayerView.setTextureViewEnabledTouch(false);//禁用TextureView手势操作
     }
 
     @Override

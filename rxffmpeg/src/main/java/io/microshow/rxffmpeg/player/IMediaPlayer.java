@@ -1,6 +1,5 @@
 package io.microshow.rxffmpeg.player;
 
-
 import android.view.Surface;
 
 /**
@@ -85,6 +84,7 @@ public interface IMediaPlayer {
 
     /**
      * 设置音量
+     *
      * @param percent 取值范围( 0 - 100 )； 0是静音
      */
     void setVolume(int percent);
@@ -102,6 +102,7 @@ public interface IMediaPlayer {
     /**
      * 获取声道：0立体声；1左声道；2右声道；
      * 如果没有调用setMuteSolo，则返回-1 （默认没有设置）
+     *
      * @return
      */
     int getMuteSolo();

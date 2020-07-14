@@ -2,7 +2,6 @@ package io.microshow.rxffmpeg.player;
 
 import android.text.TextUtils;
 import android.view.Surface;
-import android.view.TextureView;
 
 import java.util.concurrent.TimeUnit;
 
@@ -17,7 +16,7 @@ import io.reactivex.schedulers.Schedulers;
  * RxFFmpegPlayer 播放器内核
  * Created by Super on 2020/4/26.
  */
-public abstract class RxFFmpegPlayer implements IMediaPlayer {
+public abstract class RxFFmpegPlayer extends BaseMediaPlayer {
 
     static {
         System.loadLibrary("rxffmpeg-core");
@@ -49,18 +48,6 @@ public abstract class RxFFmpegPlayer implements IMediaPlayer {
     private native void nativeSetMuteSolo(int mute);
 
     private native int nativeGetMuteSolo();
-
-    private OnPreparedListener mOnPreparedListener;
-
-    private OnVideoSizeChangedListener mOnVideoSizeChangedListener;
-
-    private OnLoadingListener mOnLoadingListener;
-
-    private OnTimeUpdateListener mOnTimeUpdateListener;
-
-    private OnErrorListener mOnErrorListener;
-
-    private OnCompletionListener mOnCompletionListener;
 
     /**
      * 视频路径
@@ -191,49 +178,11 @@ public abstract class RxFFmpegPlayer implements IMediaPlayer {
     }
 
     /**
-     * 设置 TextureView
-     *
-     * @param textureView textureView
-     */
-    public abstract void setTextureView(TextureView textureView);
-
-    /**
-     * 播放 子类快捷实现
-     *
-     * @param path      path
-     * @param isLooping isLooping
-     */
-    public abstract void play(String path, boolean isLooping);
-
-    /**
      * 重新播放
      */
+    @Override
     public void repeatPlay() {
         play(path, looping);
-    }
-
-    public void setOnPreparedListener(OnPreparedListener listener) {
-        this.mOnPreparedListener = listener;
-    }
-
-    public void setOnVideoSizeChangedListener(OnVideoSizeChangedListener listener) {
-        this.mOnVideoSizeChangedListener = listener;
-    }
-
-    public void setOnLoadingListener(OnLoadingListener listener) {
-        this.mOnLoadingListener = listener;
-    }
-
-    public void setOnTimeUpdateListener(OnTimeUpdateListener listener) {
-        this.mOnTimeUpdateListener = listener;
-    }
-
-    public void setOnErrorListener(OnErrorListener listener) {
-        this.mOnErrorListener = listener;
-    }
-
-    public void setOnCompleteListener(OnCompletionListener listener) {
-        this.mOnCompletionListener = listener;
     }
 
     /**
@@ -256,9 +205,10 @@ public abstract class RxFFmpegPlayer implements IMediaPlayer {
 
     /**
      * 视频尺寸回调  由native层回调
-     * @param width 宽
+     *
+     * @param width  宽
      * @param height 高
-     * @param dar 比例
+     * @param dar    比例
      */
     public void onVideoSizeChangedNative(int width, int height, float dar) {
         if (mOnVideoSizeChangedListener != null) {
@@ -268,6 +218,7 @@ public abstract class RxFFmpegPlayer implements IMediaPlayer {
 
     /**
      * 加载状态 由native层回调
+     *
      * @param load -
      */
     public void onLoadingNative(boolean load) {
@@ -278,6 +229,7 @@ public abstract class RxFFmpegPlayer implements IMediaPlayer {
 
     /**
      * 时间更新 由native层回调
+     *
      * @param currentTime
      * @param totalTime
      */
@@ -290,8 +242,9 @@ public abstract class RxFFmpegPlayer implements IMediaPlayer {
 
     /**
      * 错误回调 由native层回调
+     *
      * @param code -
-     * @param msg -
+     * @param msg  -
      */
     public void onErrorNative(int code, String msg) {
         if (mOnErrorListener != null) {

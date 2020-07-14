@@ -24,7 +24,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning">
+        android:usesCleartextTraffic="true"
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning,UnusedAttribute">
 
         <activity
             android:name="io.microshow.rxffmpeg.app.activity.LaunchActivity"
@@ -86,7 +87,7 @@
         <!-- 友盟渠道配置 -->
         <meta-data
             android:name="UMENG_CHANNEL"
-            android:value="Github"/>
+            android:value="Github" />
 
     </application>
 

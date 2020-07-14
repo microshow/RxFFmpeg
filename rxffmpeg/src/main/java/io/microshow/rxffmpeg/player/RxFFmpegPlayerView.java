@@ -17,6 +17,26 @@ import java.lang.ref.WeakReference;
  */
 public class RxFFmpegPlayerView extends FrameLayout {
 
+    /**
+     * 播放器核心 枚举
+     */
+    public enum PlayerCoreType {
+        /**
+         * RxFFmpegPlayer 内核
+         */
+        PCT_RXFFMPEG_PLAYER,
+
+        /**
+         * 系统 MediaPlayer 内核
+         */
+        PCT_SYSTEM_MEDIA_PLAYER
+    }
+
+    /**
+     * 默认 RxFFmpegPlayer 内核
+     */
+    public PlayerCoreType mPlayerCoreType = PlayerCoreType.PCT_RXFFMPEG_PLAYER;
+
     private Context mContext;
 
     private MeasureHelper mMeasureHelper;
@@ -27,7 +47,7 @@ public class RxFFmpegPlayerView extends FrameLayout {
 
     private TextureView mTextureView;
 
-    public RxFFmpegPlayer mPlayer;
+    public BaseMediaPlayer mPlayer;
 
     /**
      * 普通模式
@@ -55,15 +75,32 @@ public class RxFFmpegPlayerView extends FrameLayout {
             }
         };
         initContainer();
-        initPlayer();
         setKeepScreenOn(true);//设置屏幕保持常亮
     }
 
+    /**
+     * 切换播放器内核
+     *
+     * @param playerCoreType playerCoreType
+     */
+    public void switchPlayerCore(PlayerCoreType playerCoreType) {
+        this.mPlayerCoreType = playerCoreType;
+    }
+
+    /**
+     * 初始化播放器
+     */
     private void initPlayer() {
         if (mTextureView == null) {
             mTextureView = new ScaleTextureView(mContext);
         }
-        mPlayer = new RxFFmpegPlayerImpl();
+        if (mPlayerCoreType == PlayerCoreType.PCT_SYSTEM_MEDIA_PLAYER) {
+            //系统 MediaPlayer 内核
+            mPlayer = new SystemMediaPlayerImpl();
+        } else {
+            //RxFFmpegPlayer 内核
+            mPlayer = new RxFFmpegPlayerImpl();
+        }
         mPlayer.setTextureView(mTextureView);
         mPlayer.setOnVideoSizeChangedListener(new VideoSizeChangedListener(this));
     }
@@ -111,6 +148,7 @@ public class RxFFmpegPlayerView extends FrameLayout {
 
     /**
      * 设置播放器背景颜色
+     *
      * @param color
      */
     public void setPlayerBackgroundColor(int color) {
@@ -126,6 +164,7 @@ public class RxFFmpegPlayerView extends FrameLayout {
      * @param fitModel         设置视频尺寸适配模式
      */
     public void setController(RxFFmpegPlayerController playerController, MeasureHelper.FitModel fitModel) {
+        initPlayer();
         setFitModel(fitModel);
         mContainer.removeView(mPlayerController);
         mPlayerController = playerController;
@@ -149,6 +188,17 @@ public class RxFFmpegPlayerView extends FrameLayout {
 
     public TextureView getTextureView() {
         return mTextureView;
+    }
+
+    /**
+     * 设置 TextureView 是否启用 缩放旋转手势
+     *
+     * @param enabled true:启用（默认）；false:禁用
+     */
+    public void setTextureViewEnabledTouch(boolean enabled) {
+        if (mTextureView != null && mTextureView instanceof ScaleTextureView) {
+            ((ScaleTextureView) mTextureView).setEnabledTouch(enabled);
+        }
     }
 
     public FrameLayout getContainerView() {
@@ -240,6 +290,7 @@ public class RxFFmpegPlayerView extends FrameLayout {
 
     /**
      * 设置音量 (需要在play方法之前调用)
+     *
      * @param percent 取值范围( 0 - 100 )； 0是静音
      */
     public void setVolume(int percent) {
@@ -250,6 +301,7 @@ public class RxFFmpegPlayerView extends FrameLayout {
 
     /**
      * 获取音量
+     *
      * @return volume
      */
     public int getVolume() {
@@ -293,6 +345,7 @@ public class RxFFmpegPlayerView extends FrameLayout {
 
     /**
      * 当前是否是全屏
+     *
      * @return true:是；false:否
      */
     public boolean isFullScreenModel() {
@@ -301,6 +354,7 @@ public class RxFFmpegPlayerView extends FrameLayout {
 
     /**
      * 切换全屏或关闭全屏
+     *
      * @return true已经进入到全屏
      */
     public boolean switchScreen() {
