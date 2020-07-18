@@ -30,9 +30,24 @@ public class MeasureHelper {
     public enum FitModel {
 
         /**
-         * 默认
+         * 默认, 宽铺满，横屏的视频高度自适应，如果是竖屏的视频，高度等于屏幕宽
          */
-        FM_DEFAULT
+        FM_DEFAULT,
+
+        /**
+         * 全屏，宽铺满 高自适应
+         */
+        FM_FULL_SCREEN,
+
+        /**
+         * 全屏，高铺满 宽自适应
+         */
+        FM_FULL_SCREEN_HEIGHT,
+
+        /**
+         * 宽高比：16；9
+         */
+        FM_WH_16X9
 
     }
 
@@ -150,17 +165,35 @@ public class MeasureHelper {
             viewWidth = (int) (viewHeight * videoAspect);
 
         } else {//非全屏
-            if (videoWidth > videoHeight) {//横屏视频
+
+            if (mFitModel == FitModel.FM_FULL_SCREEN) {
                 //宽铺满，高度按比例
                 viewHeight = (int) (viewWidth / videoAspect);
 
-            } else if (videoWidth < videoHeight) {//竖屏视频
-                //高铺满 宽自适应
-                viewHeight = viewWidth;
+            } else if (mFitModel == FitModel.FM_FULL_SCREEN_HEIGHT) {
+                //高度铺满
+                viewHeight = Helper.getScreenHeight(getView().getContext());
+                //宽自适应
                 viewWidth = (int) (viewHeight * videoAspect);
-            } else {//正方形视频
-                viewHeight = viewWidth;
+
+            } else if (mFitModel == FitModel.FM_WH_16X9) {
+                viewHeight = viewWidth * 9 / 16;
+                viewWidth = (int) (viewHeight * videoAspect);
             }
+            else {
+                if (videoWidth > videoHeight) {//横屏视频
+                    //宽铺满，高度按比例
+                    viewHeight = (int) (viewWidth / videoAspect);
+
+                } else if (videoWidth < videoHeight) {//竖屏视频
+                    //高铺满 宽自适应
+                    viewHeight = viewWidth;
+                    viewWidth = (int) (viewHeight * videoAspect);
+                } else {//正方形视频
+                    viewHeight = viewWidth;
+                }
+            }
+
         }
 
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(viewWidth, viewHeight);
