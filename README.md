@@ -23,7 +23,7 @@ Language: [English](README_EN.md)
 
 『剪一个』是作者匠心打造的一款轻量、易用、简约的视频剪辑App，让视频剪辑更简单，更高效。
 
-『剪一个精彩有趣的视频大片』[更多介绍>>>](https://www.coolapk.com/apk/io.microshow.videoeditor)
+『剪一个精彩有趣的视频大片』
 
 | 扫码 or [点击下载](https://github.com/microshow/RxFFmpeg/raw/master/preview/onevideo/onevideo.apk)  |
 | :--------:   |
