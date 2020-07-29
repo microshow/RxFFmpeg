@@ -16,16 +16,6 @@
         android:visibility="visible"
         tools:ignore="UnusedAttribute" />
 
-    <ImageView
-        android:id="@+id/iv_mute"
-        android:layout_width="22dp"
-        android:layout_height="22dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_margin="10dp"
-        android:contentDescription="@null"
-        android:src="@mipmap/rxffmpeg_player_unmute" />
-
     <RelativeLayout
         android:id="@+id/bottomPanel"
         android:layout_width="match_parent"
@@ -56,12 +46,23 @@
             android:layout_toEndOf="@id/iv_play"
             android:textColor="#ffffff" />
 
+        <ImageView
+            android:id="@+id/iv_mute"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_alignParentEnd="true"
+            android:contentDescription="@null"
+            android:src="@mipmap/rxffmpeg_player_unmute" />
+
         <SeekBar
             android:id="@+id/progress_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_toEndOf="@id/time_view" />
+            android:layout_toEndOf="@id/time_view"
+            android:layout_toStartOf="@id/iv_mute"/>
 
     </RelativeLayout>
 

@@ -55,6 +55,9 @@ public class FindFragment extends BaseFragment<FragmentFindBinding> implements V
         //设置控制层容器 和 视频尺寸适配模式
         mPlayerView.setController(new RxFFmpegPlayerControllerImpl(getActivity()), MeasureHelper.FitModel.FM_DEFAULT);
 
+        //静音模式
+        mPlayerView.setVolume(0);
+
         //播放
         mPlayerView.play(binding.editText.getText().toString(), true);
 

@@ -37,7 +37,7 @@ public class MeasureHelper {
         /**
          * 全屏，宽铺满 高自适应
          */
-        FM_FULL_SCREEN,
+        FM_FULL_SCREEN_WIDTH,
 
         /**
          * 全屏，高铺满 宽自适应
@@ -45,7 +45,7 @@ public class MeasureHelper {
         FM_FULL_SCREEN_HEIGHT,
 
         /**
-         * 宽高比：16；9
+         * 宽高比：16：9
          */
         FM_WH_16X9
 
@@ -166,13 +166,13 @@ public class MeasureHelper {
 
         } else {//非全屏
 
-            if (mFitModel == FitModel.FM_FULL_SCREEN) {
+            if (mFitModel == FitModel.FM_FULL_SCREEN_WIDTH) {
                 //宽铺满，高度按比例
                 viewHeight = (int) (viewWidth / videoAspect);
 
             } else if (mFitModel == FitModel.FM_FULL_SCREEN_HEIGHT) {
                 //高度铺满
-                viewHeight = Helper.getScreenHeight(getView().getContext());
+                viewHeight = Helper.getFullScreenHeight(getView().getContext());
                 //宽自适应
                 viewWidth = (int) (viewHeight * videoAspect);
 
@@ -221,7 +221,7 @@ public class MeasureHelper {
 
         int viewWidth, viewHeight;
 
-        if (mFitModel == FitModel.FM_DEFAULT) {
+        if (mFitModel == FitModel.FM_DEFAULT || mFitModel == FitModel.FM_FULL_SCREEN_HEIGHT) {
             viewWidth = widthMeasureSpec;
             viewHeight = mMeasuredHeight;
 

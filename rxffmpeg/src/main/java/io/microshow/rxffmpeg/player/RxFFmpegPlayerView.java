@@ -201,6 +201,16 @@ public class RxFFmpegPlayerView extends FrameLayout {
         }
     }
 
+    /**
+     * 设置播放完成回调
+     * @param listener -
+     */
+    public void setOnCompleteListener(IMediaPlayer.OnCompletionListener listener) {
+        if (mPlayer != null) {
+            mPlayer.setOnCompleteListener(listener);
+        }
+    }
+
     public FrameLayout getContainerView() {
         return mContainer;
     }
@@ -227,6 +237,9 @@ public class RxFFmpegPlayerView extends FrameLayout {
     public void play(String videoPath, boolean isLooping) {
         if (mPlayer != null && !Helper.isFastClick()) {
             mPlayer.play(videoPath, isLooping);
+            if (mPlayerController != null) {
+                mPlayerController.onResume();
+            }
         }
     }
 

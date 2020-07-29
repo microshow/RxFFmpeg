@@ -27,6 +27,17 @@ public class Helper {
     }
 
     /**
+     * 获取全屏的 高 去除顶部状态栏和底部导航栏
+     * @param context
+     * @return
+     */
+    public static int getFullScreenHeight(Context context) {
+        DisplayMetrics outMetrics = new DisplayMetrics();
+        scanForActivity(context).getWindowManager().getDefaultDisplay().getRealMetrics(outMetrics);
+        return outMetrics.heightPixels;
+    }
+
+    /**
      * 通过 context 找到 activity
      */
     public static Activity scanForActivity(Context context) {
