@@ -26,7 +26,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private FragmentTabHost myTabhost;
 
-    private String homeTabTexts[] = {"剪辑", "实验室", "我"};
+    private String homeTabTexts[] = {"剪辑", "播放器", "我"};
 
     //加载的Fragment
     private Class mFragment[] = {

@@ -1,5 +1,6 @@
 package io.microshow.rxffmpeg.app.fragment;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -39,11 +40,11 @@ public class FindFragment extends BaseFragment<FragmentFindBinding> implements V
         return R.layout.fragment_find;
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void initData() {
         //设置播放url
-        binding.editText.setText("https://aweme.snssdk.com/aweme/v1/playwm/?video_id=v0200fb40000bnvha302saj67106apf0&ratio=720p&line=0");
-//        binding.editText.setText("https://aweme.snssdk.com/aweme/v1/playwm/?video_id=v0300f7a0000bluavcsk9po2b28m1il0&ratio=720p&line=0");
+        binding.editText.setText("https://aweme.snssdk.com/aweme/v1/playwm/?video_id=v0200f9d0000brgp59j2ap94urea448g&ratio=720p&line=0");
 //        binding.editText.setText("/storage/emulated/0/1/1.mp4");
         binding.button.setOnClickListener(this);
 
@@ -53,7 +54,7 @@ public class FindFragment extends BaseFragment<FragmentFindBinding> implements V
         mPlayerView.switchPlayerCore(RxFFmpegPlayerView.PlayerCoreType.PCT_RXFFMPEG_PLAYER);
 
         //设置控制层容器 和 视频尺寸适配模式
-        mPlayerView.setController(new RxFFmpegPlayerControllerImpl(getActivity()), MeasureHelper.FitModel.FM_DEFAULT);
+        mPlayerView.setController(new RxFFmpegPlayerControllerImpl(getActivity()), MeasureHelper.FitModel.FM_FULL_SCREEN_WIDTH);
 
         //静音模式
         mPlayerView.setVolume(0);
@@ -61,7 +62,8 @@ public class FindFragment extends BaseFragment<FragmentFindBinding> implements V
         //播放
         mPlayerView.play(binding.editText.getText().toString(), true);
 
-//        mPlayerView.setTextureViewEnabledTouch(false);//禁用TextureView手势操作
+        //禁用TextureView手势操作
+        mPlayerView.setTextureViewEnabledTouch(false);
     }
 
     @Override
