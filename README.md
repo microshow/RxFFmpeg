@@ -14,16 +14,6 @@ Language: [English](README_EN.md)
 >RxFFmpeg 是基于 ( FFmpeg 4.0 + X264 + mp3lame + fdk-aac ) 编译的适用于 Android 平台的音视频编辑、视频剪辑的快速处理框架，包含以下功能：视频拼接，转码，压缩，裁剪，片头片尾，分离音视频，变速，添加静态贴纸和gif动态贴纸，添加字幕，添加滤镜，添加背景音乐，加速减速视频，倒放音视频，**[#百变魔音#](https://github.com/microshow/AiSound)**，音频裁剪，混音，图片合成视频，视频解码图片，抖音首页，**[#视频播放器#](preview/docs/player.md)**，及支持 OpenSSL https 等主流特色功能
 
 
-# 『官方APP』
-
-『剪一个』是作者匠心打造的一款轻量、易用、简约的视频剪辑App，让视频剪辑更简单，更高效。
-
-『剪一个精彩有趣的视频大片』
-
-| 扫码 or [点击下载](https://github.com/microshow/RxFFmpeg/raw/master/preview/onevideo/onevideo.apk)  |
-| :--------:   |
-| <img src="/preview/onevideo/apk_qr.png" alt="图-2：扫码下载体验" width="260px" />       |
-
 # 『DEMO APP』
 
 | 扫码 or [点击下载](https://github.com/microshow/RxFFmpeg/raw/master/preview/app-release.apk)  |
