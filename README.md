@@ -327,7 +327,8 @@ defaultConfig {
 [![](https://pp.myapp.com/ma_icon/0/icon_53947191_1592382950/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.koki.callshow)
 [![](https://pp.myapp.com/ma_icon/0/icon_54014901_1589092180/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.mzxf.funchild)
 [![](https://pp.myapp.com/ma_icon/0/icon_53800886_1593572867/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.smallyin.fastcompre)
-
+[![](http://file.market.xiaomi.com/thumbnail/PNG/l114/AppStore/0bc1f65d85a7f4e6519261b0e3dfc5f7dec92fddf)](http://app.mi.com/details?id=com.gzqizu.record.screen)
+[![](https://pp.myapp.com/ma_icon/0/icon_54063638_1595986594/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.ym.screenrecorder)
 
 
 # 沟通无限
