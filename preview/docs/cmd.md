@@ -232,7 +232,9 @@ ffmpeg -y -loop 1 -framerate 1 -t 3 -i /storage/emulated/0/1/input.png -i /stora
 
 ```
 
-* 异常定位 (buffered for output stream 0:1)
+#  异常
+
+*  Too many packets buffered for output stream 0:1.
 
 原因：是有些视频数据有问题，导致视频处理过快，容器封装时队列溢出
 
