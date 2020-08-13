@@ -232,6 +232,18 @@ ffmpeg -y -loop 1 -framerate 1 -t 3 -i /storage/emulated/0/1/input.png -i /stora
 
 ```
 
+* 异常定位 (buffered for output stream 0:1)
+
+原因：是有些视频数据有问题，导致视频处理过快，容器封装时队列溢出
+
+解决办法：增大容器封装队列大小，比如 -max_muxing_queue_size 400 具体参考：http://trac.ffmpeg.org/ticket/6375
+
+```java
+
+E/TAG_FFMPEG: Too many packets buffered for output stream 0:1.
+io.microshow.rxffmpeg.app A/libc: Fatal signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x18 in tid 15813 (RxCachedThreadS), pid 14984 (ow.rxffmpeg.app)
+
+```
 
 # 其它
 
