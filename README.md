@@ -11,7 +11,7 @@ Language: [English](README_EN.md)
 
 <img src="/preview/icon/logo-v1.gif" alt="图-1：logo" width="460px"></img>
 
->RxFFmpeg 是基于 ( FFmpeg 4.0 + X264 + mp3lame + fdk-aac ) 编译的适用于 Android 平台的音视频编辑、视频剪辑的快速处理框架，包含以下功能：视频拼接，转码，压缩，裁剪，片头片尾，分离音视频，变速，添加静态贴纸和gif动态贴纸，添加字幕，添加滤镜，添加背景音乐，加速减速视频，倒放音视频，**[#百变魔音#](https://github.com/microshow/AiSound)**，音频裁剪，混音，图片合成视频，视频解码图片，抖音首页，**[#视频播放器#](preview/docs/player.md)**，及支持 OpenSSL https 等主流特色功能
+>RxFFmpeg 是基于 ( FFmpeg 4.0 + X264 + mp3lame + fdk-aac + opencore-amr + openssl) 编译的适用于 Android 平台的音视频编辑、视频剪辑的快速处理框架，包含以下功能：视频拼接，转码，压缩，裁剪，片头片尾，分离音视频，变速，添加静态贴纸和gif动态贴纸，添加字幕，添加滤镜，添加背景音乐，加速减速视频，倒放音视频，**[#百变魔音#](https://github.com/microshow/AiSound)**，音频裁剪，混音，图片合成视频，视频解码图片，抖音首页，**[#视频播放器#](preview/docs/player.md)**，及支持 OpenSSL https 等主流特色功能
 
 
 # 『DEMO APP』
@@ -35,6 +35,7 @@ Language: [English](README_EN.md)
 | X264        | x264-snapshot-20180212-2245-stable      |   http://download.videolan.org/x264/snapshots/x264-snapshot-20180212-2245-stable.tar.bz2    |
 | mp3lame        | 3.100      |   https://jaist.dl.sourceforge.net/project/lame/lame/3.100/lame-3.100.tar.gz    |
 | fdk-aac        | 0.1.6      |   https://jaist.dl.sourceforge.net/project/opencore-amr/fdk-aac/fdk-aac-0.1.6.tar.gz    |
+| opencore-amr   | 0.1.5      |   https://jaist.dl.sourceforge.net/project/opencore-amr/opencore-amr/opencore-amr-0.1.5.tar.gz    |
 | ndk        | android-ndk-r10e-linux-x86_64      |   https://dl.google.com/android/repository/android-ndk-r10e-linux-x86_64.zip  |
 
 
@@ -58,6 +59,7 @@ Language: [English](README_EN.md)
 | X264              | √  |  支持libx264编码库，可以使压缩后的视频体积变的极小，清晰度还保持着很高清    |
 | mp3lame           | √  |  支持MP3音频编解码    |
 | fdk-aac           | √  |  支持AAC音频编解码    |
+| opencore-amr      | √  |  version >= 4.7.0 支持amr音频编解码(转码时需指定：-ar 8000 -ac 1)    |
 | 格式转换          | √  |   如: avi > mp4 > avi;  mp3 > aac > mp3 等    |
 | https             |  √  |   version >= 3.1.0  支持 https  |
 | [自研播放器](preview/docs/player.md)           | √  |   RxFFmpegPlayer播放器主打轻量、高效、低功耗、视频秒开等特色   |
@@ -89,10 +91,10 @@ dependencies {
     //以下两个选一个即可
     
     //完整版
-    implementation 'com.github.microshow:RxFFmpeg:4.5.0'
+    implementation 'com.github.microshow:RxFFmpeg:4.7.0'
     
     //极速版 (预计占用 4M 左右空间)，主要移除了一些不常用的编解码器
-    implementation 'com.github.microshow:RxFFmpeg:4.5.0-lite'
+    implementation 'com.github.microshow:RxFFmpeg:4.7.0-lite'
     
 }
 
