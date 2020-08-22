@@ -53,6 +53,7 @@ Language: [English](README_EN.md)
 | 同步执行          | √  |   适用于多条命令分步执行   |
 | 异步执行          | √  |   适用于单条命令执行   |
 | Debug模式         | √  |   支持开启/关闭 Debug 模式    |
+| getMediaInfo()    | √  |   获取媒体文件详细属性信息    |
 | 平台架构          | √  |   支持 armeabi-v7a, arm64-v8a, x86, x86_64    |
 | 硬件加速          | √  |   支持硬件加速，使编解码处理更快(已开启MediaCodec)    |
 | 单个so打包        | √  |   支持把FFmpeg的各子模块打包成一个librxffmpeg-core.so核心库，无需导入七八个so库    |
@@ -60,8 +61,8 @@ Language: [English](README_EN.md)
 | mp3lame           | √  |  支持MP3音频编解码    |
 | fdk-aac           | √  |  支持AAC音频编解码    |
 | opencore-amr      | √  |  version >= 4.7.0 支持amr音频编解码(转码时需指定：-ar 8000 -ac 1)    |
+| https             | √  |   version >= 3.1.0  支持 https  |
 | 格式转换          | √  |   如: avi > mp4 > avi;  mp3 > aac > mp3 等    |
-| https             |  √  |   version >= 3.1.0  支持 https  |
 | [自研播放器](preview/docs/player.md)           | √  |   RxFFmpegPlayer播放器主打轻量、高效、低功耗、视频秒开等特色   |
 | [常用命令](preview/docs/cmd.md)           | √  |   持续更新 [点击查看](preview/docs/cmd.md)    |
 
@@ -91,10 +92,10 @@ dependencies {
     //以下两个选一个即可
     
     //完整版
-    implementation 'com.github.microshow:RxFFmpeg:4.7.0'
+    implementation 'com.github.microshow:RxFFmpeg:4.8.0'
     
     //极速版 (预计占用 4M 左右空间)，主要移除了一些不常用的编解码器
-    implementation 'com.github.microshow:RxFFmpeg:4.7.0-lite'
+    implementation 'com.github.microshow:RxFFmpeg:4.8.0-lite'
     
 }
 
