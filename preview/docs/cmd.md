@@ -3,7 +3,7 @@
 
 # 视频处理
 
-*  视频压缩
+*  视频压缩 [4K视频压缩方案](https://github.com/microshow/RxFFmpeg/issues/65)
 
 ```java
 
@@ -246,6 +246,11 @@ E/TAG_FFMPEG: Too many packets buffered for output stream 0:1.
 io.microshow.rxffmpeg.app A/libc: Fatal signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x18 in tid 15813 (RxCachedThreadS), pid 14984 (ow.rxffmpeg.app)
 
 ```
+
+*  4K视频压缩出错的问题
+
+[解决方案](https://github.com/microshow/RxFFmpeg/issues/65)
+
 
 # 其它
 
