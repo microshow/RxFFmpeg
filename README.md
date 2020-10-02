@@ -298,7 +298,7 @@ defaultConfig {
 
 # 谁在用？
 
->按登记顺序排序，更多接入APP，欢迎在https://github.com/microshow/RxFFmpeg/issues/37 登记（供开源用户参考）
+>按登记顺序排序，更多接入APP，欢迎去[这里登记](https://github.com/microshow/RxFFmpeg/issues/37)（供开源用户参考），据不完整数据统计，目前已有上千款App已接入RxFFmpeg，为音视频项目赋能！
 
 [![](https://pp.myapp.com/ma_icon/0/icon_42333639_1555789191/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.hndnews.main)
 [![](https://www.hndnews.com/static/images/logo.png)](https://www.hndnews.com)
@@ -328,6 +328,7 @@ defaultConfig {
 [![](https://pp.myapp.com/ma_icon/0/icon_52761428_1591599723/96)](https://sj.qq.com/myapp/detail.htm?apkName=sulisong.ShelledPro.Screenshots)
 <img src="http://image.coolapk.com/apk_logo/2019/0317/22/500px-219205-o_1d662al3g3ufvge8v51odk1iimq-uid-1030107@500x500.png" alt="https://www.coolapk.com/apk/yanyan.com.tochar" width="96px"></img>
 [![](https://pp.myapp.com/ma_icon/0/icon_53947191_1592382950/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.koki.callshow)
+[![](https://pp.myapp.com/ma_icon/0/icon_54047992_1600306987/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.spqsymf.app.them)
 [![](https://pp.myapp.com/ma_icon/0/icon_54014901_1589092180/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.mzxf.funchild)
 [![](https://pp.myapp.com/ma_icon/0/icon_53800886_1593572867/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.smallyin.fastcompre)
 [![](https://pp.myapp.com/ma_icon/0/icon_54063638_1595986594/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.ym.screenrecorder)
