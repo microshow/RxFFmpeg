@@ -92,10 +92,10 @@ dependencies {
     //以下选一个即可
     
     //完整版
-    implementation 'com.github.microshow:RxFFmpeg:4.8.0'
+    implementation 'com.github.microshow:RxFFmpeg:4.9.0'
     
     //极速版 (预计占用 4M 左右空间)，主要移除了一些不常用的编解码器
-    implementation 'com.github.microshow:RxFFmpeg:4.8.0-lite'
+    implementation 'com.github.microshow:RxFFmpeg:4.9.0-lite'
     
      //定制版，如果觉得库太占空间，不需要太多功能，需要对APK瘦身，可以压缩到1.5M左右，可联系作者
     implementation 'xxx.xxx.xxx'
