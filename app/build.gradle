@@ -102,5 +102,5 @@ dependencies {
 
     implementation project(path: ':rxffmpeg')
 
-//    implementation 'com.github.microshow:RxFFmpeg:4.5.0'
+//    implementation 'com.github.microshow:RxFFmpeg:4.9.0'
 }
