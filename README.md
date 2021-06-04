@@ -335,6 +335,7 @@ defaultConfig {
 [![](https://pp.myapp.com/ma_icon/0/icon_54014901_1589092180/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.mzxf.funchild)
 [![](https://pp.myapp.com/ma_icon/0/icon_53800886_1593572867/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.smallyin.fastcompre)
 [![](https://pp.myapp.com/ma_icon/0/icon_54063638_1595986594/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.ym.screenrecorder)
+[![](https://pp.myapp.com/ma_icon/0/icon_52448244_1622634768/96)](https://sj.qq.com/myapp/detail.htm?apkName=com.znxh.hyhuo)
 
 
 # 沟通无限
