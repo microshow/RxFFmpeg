@@ -1,12 +1,11 @@
 package io.microshow.rxffmpeg.app.utils;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.commonsdk.UMConfigure;
-import com.umeng.message.IUmengRegisterCallback;
-import com.umeng.message.PushAgent;
+//import com.umeng.message.IUmengRegisterCallback;
+//import com.umeng.message.PushAgent;
 
 /**
  * UmengHelper 友盟
@@ -28,22 +27,22 @@ public class UmengHelper {
          */
         UMConfigure.setLogEnabled(false);
         UMConfigure.init(context, UMENG_APP_KEY, "", UMConfigure.DEVICE_TYPE_PHONE, UMENG_MESSAGE_SECRET);
-        //友盟push
-        PushAgent mPushAgent = PushAgent.getInstance(context);
-        mPushAgent.setDisplayNotificationNumber(0);
-        // 注册推送服务，每次调用register方法都会回调该接口
-        mPushAgent.register(new IUmengRegisterCallback() {
-            @Override
-            public void onSuccess(String deviceToken) {
-                //注册成功会返回device token
-                Log.e(TAG, "mPushAgent.register onSuccess ======deviceToken======" + deviceToken);
-            }
-
-            @Override
-            public void onFailure(String s, String s1) {
-                Log.e(TAG, "mPushAgent.register onFailure " + s + s1);
-            }
-        });
+//        //友盟push
+//        PushAgent mPushAgent = PushAgent.getInstance(context);
+//        mPushAgent.setDisplayNotificationNumber(0);
+//        // 注册推送服务，每次调用register方法都会回调该接口
+//        mPushAgent.register(new IUmengRegisterCallback() {
+//            @Override
+//            public void onSuccess(String deviceToken) {
+//                //注册成功会返回device token
+//                Log.e(TAG, "mPushAgent.register onSuccess ======deviceToken======" + deviceToken);
+//            }
+//
+//            @Override
+//            public void onFailure(String s, String s1) {
+//                Log.e(TAG, "mPushAgent.register onFailure " + s + s1);
+//            }
+//        });
     }
 
     public static void onResume(Context context) {

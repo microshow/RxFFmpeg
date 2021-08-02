@@ -51,8 +51,10 @@ android {
         }
     }
 
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        dataBinding = true
+        // for view binding :
+//        viewBinding = true
     }
 
     compileOptions {
@@ -70,7 +72,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.cardview:cardview:1.0.0'
 
     //动态权限
@@ -80,19 +82,17 @@ dependencies {
     implementation 'com.baidu.mobstat:mtj-sdk-circle:3.9.3.9'
 
     //友盟统计
-    api  'com.umeng.umsdk:analytics:8.1.6'
-    api  'com.umeng.umsdk:common:2.1.0'
-    api  'com.umeng.umsdk:utdid:1.1.5.3'
-    //友盟 PushSDK
-    api 'com.umeng.umsdk:push:6.0.1'
+    implementation  'com.umeng.umsdk:common:9.4.0'// 必选
+    implementation  'com.umeng.umsdk:asms:1.2.3'// 必选
+    implementation 'com.umeng.umsdk:apm:1.4.0' // 错误分析升级为独立SDK，看crash数据请一定集成，可选
 
     //lottie
     implementation 'com.airbnb.android:lottie:3.4.0'
 
     //agentweb
-    implementation 'com.just.agentweb:agentweb:4.1.2'// (必选)
-    implementation 'com.just.agentweb:filechooser:4.1.2'// (可选)
-    implementation 'com.download.library:Downloader:4.1.2'// (可选)
+    implementation 'com.github.Justson.AgentWeb:agentweb-core:v4.1.9-androidx' // (必选)
+    implementation 'com.github.Justson.AgentWeb:agentweb-filechooser:v4.1.9-androidx' // (可选)
+    implementation 'com.github.Justson:Downloader:v4.1.9-androidx' // (可选)
 
     //leakcanary 内存泄露检测
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.2'
