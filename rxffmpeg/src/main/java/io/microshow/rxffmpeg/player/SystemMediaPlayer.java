@@ -46,8 +46,12 @@ public abstract class SystemMediaPlayer extends BaseMediaPlayer {
 
     @Override
     public void setSurface(Surface surface) {
-        if (surface != null) {
-            mMediaPlayer.setSurface(surface);
+        try {
+            if (surface != null) {
+                mMediaPlayer.setSurface(surface);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -63,64 +67,111 @@ public abstract class SystemMediaPlayer extends BaseMediaPlayer {
 
     @Override
     public void prepare() {
-        mMediaPlayer.prepareAsync();
+        try {
+            mMediaPlayer.prepareAsync();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void pause() {
-        mMediaPlayer.pause();
-        cancelTimeUpdateDisposable();
+        try {
+            mMediaPlayer.pause();
+            cancelTimeUpdateDisposable();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void resume() {
-        start();
+        try {
+            start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void start() {
-        mMediaPlayer.start();
-        startTimeUpdateDisposable();
+        try {
+            mMediaPlayer.start();
+            startTimeUpdateDisposable();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void stop() {
-        mMediaPlayer.stop();
+        try {
+            mMediaPlayer.stop();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void seekTo(int secds) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            mMediaPlayer.seekTo(secds, MediaPlayer.SEEK_CLOSEST);
-        } else {
-            mMediaPlayer.seekTo(secds);
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                mMediaPlayer.seekTo(secds, MediaPlayer.SEEK_CLOSEST);
+            } else {
+                mMediaPlayer.seekTo(secds);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     @Override
     public int getDuration() {
-        return mMediaPlayer.getDuration();
+        try {
+            return mMediaPlayer.getDuration();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
     }
 
     @Override
     public void setLooping(boolean looping) {
-        mMediaPlayer.setLooping(looping);
+        try {
+            mMediaPlayer.setLooping(looping);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public boolean isLooping() {
-        return mMediaPlayer.isLooping();
+        try {
+            return mMediaPlayer.isLooping();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override
     public boolean isPlaying() {
-        return mMediaPlayer.isPlaying();
+        try {
+            return mMediaPlayer.isPlaying();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override
     public void setVolume(int percent) {
-        this.volumePercent = percent;
-        mMediaPlayer.setVolume((float) percent / 100, (float) percent / 100);
+        try {
+            this.volumePercent = percent;
+            mMediaPlayer.setVolume((float) percent / 100, (float) percent / 100);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -139,18 +190,22 @@ public abstract class SystemMediaPlayer extends BaseMediaPlayer {
 
     @Override
     public void release() {
-        setOnPreparedListener(null);
-        setOnVideoSizeChangedListener(null);
-        setOnLoadingListener(null);
-        setOnTimeUpdateListener(null);
-        setOnErrorListener(null);
-        setOnCompleteListener(null);
-        cancelTimeUpdateDisposable();
-        if (mCompositeDisposable != null) {
-            mCompositeDisposable.clear();
-            mCompositeDisposable = null;
+        try {
+            setOnPreparedListener(null);
+            setOnVideoSizeChangedListener(null);
+            setOnLoadingListener(null);
+            setOnTimeUpdateListener(null);
+            setOnErrorListener(null);
+            setOnCompleteListener(null);
+            cancelTimeUpdateDisposable();
+            if (mCompositeDisposable != null) {
+                mCompositeDisposable.clear();
+                mCompositeDisposable = null;
+            }
+            mMediaPlayer.release();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        mMediaPlayer.release();
     }
 
     @Override
