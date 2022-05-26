@@ -39,9 +39,9 @@ Language: [English](README_EN.md)
 | ndk        | android-ndk-r10e-linux-x86_64      |   https://dl.google.com/android/repository/android-ndk-r10e-linux-x86_64.zip  |
 
 
-## 编译脚本
+## 编译教程&核心源码&各种采坑历程
 
-* [编译脚本](preview/docs/build.md)
+* [点击获取RxFFmpeg宝典-付费版》》》](https://docs.qq.com/doc/DUld4TlZxU2hPR09k)
 
 # 特色功能
 
@@ -96,9 +96,6 @@ dependencies {
     
     //极速版 (预计占用 4M 左右空间)，主要移除了一些不常用的编解码器
     implementation 'com.github.microshow:RxFFmpeg:4.9.0-lite'
-    
-    //迷你版 (预计占用 1.5M 左右空间)，主打压缩裁剪等基础通用功能，属于付费定制版，可联系作者
-    implementation 'xxx.xxx.xxx'
     
 }
 
