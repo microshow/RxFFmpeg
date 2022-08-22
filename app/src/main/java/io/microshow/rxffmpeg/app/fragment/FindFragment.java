@@ -44,7 +44,7 @@ public class FindFragment extends BaseFragment<FragmentFindBinding> implements V
     @Override
     public void initData() {
         //设置播放url
-        binding.editText.setText("https://aweme.snssdk.com/aweme/v1/playwm/?video_id=v0200f9d0000brgp59j2ap94urea448g&ratio=720p&line=0");
+        binding.editText.setText("https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_20mb.mp4");
 //        binding.editText.setText("/storage/emulated/0/1/1.mp4");
         binding.button.setOnClickListener(this);
 
