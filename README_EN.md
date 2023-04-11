@@ -88,7 +88,7 @@ Adding dependencies, latest version[![](https://www.jitpack.io/v/microshow/RxFFm
 ```groovy
 
 dependencies {
-    implementation 'com.github.microshow:RxFFmpeg:1.2.4'
+    implementation 'com.github.microshow:RxFFmpeg:4.9.0'
 }
 
 ```
